@@ -1,0 +1,27 @@
+# --- R session junk ---------------------------------------------------------
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+.Ruserdata
+
+# --- Shiny / rsconnect deploy metadata ---------------------------------------
+rsconnect/
+
+# --- Local secrets & personal config -----------------------------------------
+# Your Steam/Dota account id lives here (see .Renviron.example), never commit it.
+.Renviron
+.env*
+!.Renviron.example
+
+# --- Personal match pulls (re-fetchable, can be large) -----------------------
+data/raw/player/
+
+# --- Editors / OS ------------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+*.swp
+
+# --- Claude Code local settings ----------------------------------------------
+.claude/settings.local.json

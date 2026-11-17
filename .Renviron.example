@@ -1,0 +1,5 @@
+# Copy this file to `.Renviron` (same folder) and fill in your id.
+# R reads .Renviron automatically at startup, so Sys.getenv("DOTA_ACCOUNT_ID")
+# will return it. Your account id = the number in your OpenDota/Dotabuff URL
+# (the 32-bit "friend id", NOT the 17-digit Steam64 id).
+DOTA_ACCOUNT_ID=
