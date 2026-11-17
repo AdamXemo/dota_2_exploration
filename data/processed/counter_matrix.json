@@ -1,0 +1,1832 @@
+{
+  "_about": {
+    "title": "Counter matrix for the 8 mains, patch 7.41, Ancient-Divine",
+    "generated": "2026-11-17",
+    "doc": "docs/research/04_matchups_and_counters.md",
+    "method": "Matchups from the OpenDota SQL explorer (public_matches, avg_rank_tier 60-79 = Ancient+Divine, match_id > 9083505270 = 2026-11-09 to 2026-11-16, 1,184,998 matches). For main H vs opponent X: games = matches with X on the enemy team, wins = H's wins. advantage_pp = shrink(wins, games, prior=60, baseline=H's overall winrate) - H's overall winrate (same as app/R/scoring.R matchup_advantages). specific_pp = advantage_pp + (X's overall winrate - 50): removes the part that is just 'X is a strong hero this patch'. Entries are picked from the top of the specific_pp ranking (games >= 500; a few hand-picked exceptions are noted in the doc) and ordered by tier. ci95_pp = 1.96 * binomial standard error of the raw winrate. local_snapshot = the same numbers from data/raw/opendota/heroes/<id>/matchups.json (/heroes/{id}/matchups, small high-MMR sample; correlation with the explorer is ~0, shown only for comparison). Counter items: mechanic from data/raw/opendota/constants/items.json plus 'pro lift' = how much more often enemies of the main finish with the item than an average player, from the explorer player_matches table (pro/league games since 2026-03-24, final inventories).",
+    "evidence": {
+      "data": "explorer matchup only",
+      "mechanic": "ability/item text only (abilities.json/items.json or general knowledge)",
+      "both": "data + mechanic agree"
+    },
+    "tiers": "S = hard counter (about -5 pp or worse, solid sample, clear mechanic); A = strong (-4 to -5); B = noticeable (-3 to -4); C = mild/mechanic only.",
+    "caveats": [
+      "Explorer data is not filtered by position: TA, SF and Morphling are often mid in pubs.",
+      "One week of data, one patch. Re-run the explorer query after a patch.",
+      "Reasons marked (verify) are general knowledge, not checked in an official source."
+    ],
+    "sources": "docs/SOURCES.md"
+  },
+  "mains": {
+    "1": {
+      "name": "Anti-Mage",
+      "winrate_pct": 50.89,
+      "matches": 192075,
+      "pick_rate_pct": 16.2,
+      "counters": [
+        {
+          "hero_id": 82,
+          "name": "Meepo",
+          "advantage_pp": -8.8,
+          "specific_pp": -5.8,
+          "games": 2123,
+          "winrate_pct": 41.8,
+          "ci95_pp": 2.1,
+          "local_snapshot": {
+            "games": 8,
+            "advantage_pp": -1.3
+          },
+          "tier": "S",
+          "evidence": "both",
+          "reason": "Earthbind net roots AM in place (no Blink out) and 2-5 Meepos jump him before Battle Fury."
+        },
+        {
+          "hero_id": 2,
+          "name": "Axe",
+          "advantage_pp": -4.4,
+          "specific_pp": -5.6,
+          "games": 12196,
+          "winrate_pct": 46.4,
+          "ci95_pp": 0.9,
+          "local_snapshot": {
+            "games": 28,
+            "advantage_pp": -0.6
+          },
+          "tier": "S",
+          "evidence": "both",
+          "reason": "Berserker's Call forces AM to hit Axe; each hit charges Counter Helix pure damage; Blink can't escape a taunt."
+        },
+        {
+          "hero_id": 59,
+          "name": "Huskar",
+          "advantage_pp": -2.6,
+          "specific_pp": -6.1,
+          "games": 4115,
+          "winrate_pct": 48.2,
+          "ci95_pp": 1.5,
+          "local_snapshot": {
+            "games": 14,
+            "advantage_pp": 0.3
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Blood Magic: Huskar has no mana, so Mana Break, Persecutor and Mana Void do nothing; he wins every early trade."
+        },
+        {
+          "hero_id": 70,
+          "name": "Ursa",
+          "advantage_pp": -4.6,
+          "specific_pp": -4.4,
+          "games": 8435,
+          "winrate_pct": 46.3,
+          "ci95_pp": 1.1,
+          "local_snapshot": {
+            "games": 42,
+            "advantage_pp": 2.7
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Fury Swipes + Enrage win the 10-20 min fights and early Roshan while AM is still farming."
+        },
+        {
+          "hero_id": 28,
+          "name": "Slardar",
+          "advantage_pp": -2.6,
+          "specific_pp": -3.9,
+          "games": 4939,
+          "winrate_pct": 48.2,
+          "ci95_pp": 1.4,
+          "local_snapshot": {
+            "games": 19,
+            "advantage_pp": 1.0
+          },
+          "tier": "B",
+          "evidence": "both",
+          "reason": "Slithereen Crush + Bash of the Deep lock AM before he can Blink; Corrosive Haze cuts armor and gives true sight."
+        }
+      ],
+      "best_victims": [
+        {
+          "hero_id": 94,
+          "name": "Medusa",
+          "advantage_pp": 13.8,
+          "specific_pp": 13.3,
+          "games": 1817,
+          "winrate_pct": 65.1,
+          "ci95_pp": 2.2,
+          "local_snapshot": {
+            "games": 26,
+            "advantage_pp": -0.7
+          },
+          "evidence": "both",
+          "reason": "Mana Shield turns Medusa's mana into HP: Mana Break + Mana Void delete both at once (+13 pp, the biggest edge in this report)."
+        },
+        {
+          "hero_id": 155,
+          "name": "Largo",
+          "advantage_pp": 4.7,
+          "specific_pp": 4.9,
+          "games": 2308,
+          "winrate_pct": 55.8,
+          "ci95_pp": 2.0,
+          "local_snapshot": {
+            "games": 34,
+            "advantage_pp": -2.6
+          },
+          "evidence": "both",
+          "reason": "Largo is a support with no hard lock on AM; AM farms and ignores him (mechanic not verified for this new hero)."
+        },
+        {
+          "hero_id": 17,
+          "name": "Storm Spirit",
+          "advantage_pp": 7.3,
+          "specific_pp": 4.7,
+          "games": 5466,
+          "winrate_pct": 58.3,
+          "ci95_pp": 1.3,
+          "local_snapshot": {
+            "games": 76,
+            "advantage_pp": -1.3
+          },
+          "evidence": "both",
+          "reason": "Ball Lightning costs mana per distance: Mana Break leaves Storm unable to escape; Counterspell reflects Orchid-type targeted spells."
+        },
+        {
+          "hero_id": 99,
+          "name": "Bristleback",
+          "advantage_pp": 7.6,
+          "specific_pp": 4.6,
+          "games": 3524,
+          "winrate_pct": 58.7,
+          "ci95_pp": 1.6,
+          "local_snapshot": {
+            "games": 21,
+            "advantage_pp": 2.3
+          },
+          "evidence": "both",
+          "reason": "Bristleback's damage comes from spell spam (Goo, Quill Spray); Mana Break starves him and Counterspell reflects Goo."
+        },
+        {
+          "hero_id": 10,
+          "name": "Morphling",
+          "advantage_pp": 6.2,
+          "specific_pp": 4.5,
+          "games": 4603,
+          "winrate_pct": 57.2,
+          "ci95_pp": 1.4,
+          "local_snapshot": {
+            "games": 33,
+            "advantage_pp": -3.2
+          },
+          "evidence": "both",
+          "reason": "Morphling pays 10 mana/s to shift and needs mana for Waveform; Mana Break turns off his survival."
+        }
+      ],
+      "mechanical_counters": [
+        {
+          "mechanic": "No-mana or low-mana heroes",
+          "heroes_or_items": "Huskar, Troll Warlord, Ursa, Slardar",
+          "evidence": "both",
+          "note": "Mana Break/Mana Void scale with the target's mana; vs. Blood Magic they are blank."
+        },
+        {
+          "mechanic": "Taunt / untargetable lock through Blink",
+          "heroes_or_items": "Axe (Berserker's Call), Legion Commander (Duel), Meepo (Earthbind)",
+          "evidence": "both",
+          "note": "Blink is a movement spell: taunt, Duel and roots stop it. LC: -2.7 pp specific / -4.1 raw on 12k games."
+        },
+        {
+          "mechanic": "Early tempo before Battle Fury",
+          "heroes_or_items": "Ursa, Meepo, Slardar, Night Stalker",
+          "evidence": "both",
+          "note": "AM's power spike is late; heroes that fight at minute 8-15 punish the farm route."
+        },
+        {
+          "mechanic": "Mana Void is wasted on heroes with little or no mana",
+          "heroes_or_items": "Huskar, Troll, Ursa",
+          "evidence": "mechanic",
+          "note": "Mana Void damage = missing mana of the target; no mana pool -> no ultimate."
+        }
+      ],
+      "counter_items": [
+        {
+          "item": "orchid",
+          "name": "Orchid Malevolence",
+          "cost": 3275,
+          "why": "Silences Blink and Counterspell for 5 s; pros buy it 1.9x more often vs AM.",
+          "pro_lift": 1.94
+        },
+        {
+          "item": "monkey_king_bar",
+          "name": "Monkey King Bar",
+          "cost": 5000,
+          "why": "Bought 2x more vs AM in pro games (vs his Butterfly/Manta late game).",
+          "pro_lift": 1.98
+        },
+        {
+          "item": "abyssal_blade",
+          "name": "Abyssal Blade",
+          "cost": 6250,
+          "why": "Stun through BKB, no Blink out.",
+          "pro_lift": 0.91
+        },
+        {
+          "item": "sheepstick",
+          "name": "Scythe of Vyse",
+          "cost": 5200,
+          "why": "Hex: AM cannot Blink or Counterspell. Note: Counterspell can reflect it if pre-cast.",
+          "pro_lift": 1.1
+        }
+      ]
+    },
+    "10": {
+      "name": "Morphling",
+      "winrate_pct": 48.23,
+      "matches": 50338,
+      "pick_rate_pct": 4.3,
+      "counters": [
+        {
+          "hero_id": 1,
+          "name": "Anti-Mage",
+          "advantage_pp": -5.4,
+          "specific_pp": -4.5,
+          "games": 4602,
+          "winrate_pct": 42.8,
+          "ci95_pp": 1.4,
+          "local_snapshot": {
+            "games": 33,
+            "advantage_pp": 4.7
+          },
+          "tier": "S",
+          "evidence": "both",
+          "reason": "Mana Break burns the mana Morph needs for Attribute Shift (10 mana/s) and Waveform (115)."
+        },
+        {
+          "hero_id": 3,
+          "name": "Bane",
+          "advantage_pp": -4.4,
+          "specific_pp": -5.3,
+          "games": 633,
+          "winrate_pct": 43.4,
+          "ci95_pp": 3.9,
+          "local_snapshot": {
+            "games": 10,
+            "advantage_pp": 4.6
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Fiend's Grip and Nightmare disable Morph; Attribute Shift can't be used while stunned (abilities.json). n=633, wide CI."
+        },
+        {
+          "hero_id": 68,
+          "name": "Ancient Apparition",
+          "advantage_pp": -4.0,
+          "specific_pp": -3.3,
+          "games": 1307,
+          "winrate_pct": 44.1,
+          "ci95_pp": 2.7,
+          "local_snapshot": {
+            "games": 21,
+            "advantage_pp": -1.2
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Ice Blast stops healing: shifting to Strength no longer saves you (general knowledge, verify)."
+        },
+        {
+          "hero_id": 88,
+          "name": "Nyx Assassin",
+          "advantage_pp": -6.7,
+          "specific_pp": -3.2,
+          "games": 2370,
+          "winrate_pct": 41.4,
+          "ci95_pp": 2.0,
+          "local_snapshot": {
+            "games": 12,
+            "advantage_pp": -1.0
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Mind Flare burns % of max mana + passive Mana Burn: no mana = no shift, no Waveform. -6.7 pp raw."
+        },
+        {
+          "hero_id": 2,
+          "name": "Axe",
+          "advantage_pp": -2.2,
+          "specific_pp": -3.3,
+          "games": 3176,
+          "winrate_pct": 46.0,
+          "ci95_pp": 1.7,
+          "local_snapshot": {
+            "games": 51,
+            "advantage_pp": -3.8
+          },
+          "tier": "B",
+          "evidence": "both",
+          "reason": "Berserker's Call taunts through shift; Counter Helix pure damage ignores the STR-shift magic-res plan."
+        }
+      ],
+      "best_victims": [
+        {
+          "hero_id": 59,
+          "name": "Huskar",
+          "advantage_pp": 8.6,
+          "specific_pp": 5.1,
+          "games": 1013,
+          "winrate_pct": 57.4,
+          "ci95_pp": 3.0,
+          "local_snapshot": {
+            "games": 32,
+            "advantage_pp": -2.4
+          },
+          "evidence": "both",
+          "reason": "Morph can morph Huskar's spells and out-range him with Agility attack range (Ebb and Flow); n=1013."
+        },
+        {
+          "hero_id": 54,
+          "name": "Lifestealer",
+          "advantage_pp": 3.0,
+          "specific_pp": 4.3,
+          "games": 3695,
+          "winrate_pct": 51.3,
+          "ci95_pp": 1.6,
+          "local_snapshot": {
+            "games": 43,
+            "advantage_pp": 7.4
+          },
+          "evidence": "both",
+          "reason": "Melee LS can't stick to a ranged hero with Waveform + slow resistance from Strength (Ebb and Flow)."
+        },
+        {
+          "hero_id": 78,
+          "name": "Brewmaster",
+          "advantage_pp": 2.7,
+          "specific_pp": 4.0,
+          "games": 800,
+          "winrate_pct": 51.1,
+          "ci95_pp": 3.5,
+          "local_snapshot": {
+            "games": 24,
+            "advantage_pp": 0.7
+          },
+          "evidence": "both",
+          "reason": "Brewmaster's split is slow, magic-heavy; Morph shifts STR and survives. n=800, wide CI."
+        },
+        {
+          "hero_id": 64,
+          "name": "Jakiro",
+          "advantage_pp": 6.3,
+          "specific_pp": 4.0,
+          "games": 1887,
+          "winrate_pct": 54.7,
+          "ci95_pp": 2.2,
+          "local_snapshot": {
+            "games": 116,
+            "advantage_pp": -1.7
+          },
+          "evidence": "both",
+          "reason": "Jakiro is a slow, magic-damage support: shift STR + Waveform onto him."
+        },
+        {
+          "hero_id": 35,
+          "name": "Sniper",
+          "advantage_pp": 5.0,
+          "specific_pp": 3.9,
+          "games": 4215,
+          "winrate_pct": 53.3,
+          "ci95_pp": 1.5,
+          "local_snapshot": {
+            "games": 52,
+            "advantage_pp": -7.8
+          },
+          "evidence": "both",
+          "reason": "Sniper is fragile with no escape: Waveform (invulnerable) closes the gap."
+        }
+      ],
+      "mechanical_counters": [
+        {
+          "mechanic": "Mana burn / mana drain",
+          "heroes_or_items": "Anti-Mage, Nyx Assassin, Diffusal Blade, Bane (Fiend's Grip steals mana)",
+          "evidence": "both",
+          "note": "Attribute Shift costs 10 mana/s; Waveform 115 mana. No mana -> Morph is a 0-armor agility hero."
+        },
+        {
+          "mechanic": "Heal block",
+          "heroes_or_items": "Ancient Apparition (Ice Blast), Doom (Doom blocks healing), Spirit Vessel, Eye of Skadi",
+          "evidence": "both",
+          "note": "Doom: 'prevents ... healing in any way' (abilities.json). Vessel/Skadi bought 1.5x/1.6x more vs Morph in pro games."
+        },
+        {
+          "mechanic": "Stun/silence chains",
+          "heroes_or_items": "Bane, Lion, Shadow Shaman, Orchid",
+          "evidence": "both",
+          "note": "Attribute Shift is not castable while stunned (CASTABLE WHILE STUNNED: 0)."
+        },
+        {
+          "mechanic": "Physical burst + true strike",
+          "heroes_or_items": "MKB carriers, Troll",
+          "evidence": "data",
+          "note": "MKB is bought 1.9x more vs Morph in pro games."
+        }
+      ],
+      "counter_items": [
+        {
+          "item": "orchid",
+          "name": "Orchid Malevolence",
+          "cost": 3275,
+          "why": "Silence = no Waveform/Morph; 1.6x more often vs Morph (pro).",
+          "pro_lift": 1.6
+        },
+        {
+          "item": "spirit_vessel",
+          "name": "Spirit Vessel",
+          "cost": 2725,
+          "why": "-70% health restoration; 1.5x more often vs Morph (pro).",
+          "pro_lift": 1.47
+        },
+        {
+          "item": "skadi",
+          "name": "Eye of Skadi",
+          "cost": 5900,
+          "why": "-50% health restoration + slow; 1.6x more often vs Morph (pro).",
+          "pro_lift": 1.62
+        },
+        {
+          "item": "diffusal_blade",
+          "name": "Diffusal Blade",
+          "cost": 2500,
+          "why": "40 mana burned per hit; 1.3x (pro).",
+          "pro_lift": 1.34
+        },
+        {
+          "item": "monkey_king_bar",
+          "name": "Monkey King Bar",
+          "cost": 5000,
+          "why": "1.9x (pro); counters his evasion/Butterfly late builds.",
+          "pro_lift": 1.9
+        }
+      ]
+    },
+    "12": {
+      "name": "Phantom Lancer",
+      "winrate_pct": 53.11,
+      "matches": 119141,
+      "pick_rate_pct": 10.1,
+      "counters": [
+        {
+          "hero_id": 29,
+          "name": "Tidehunter",
+          "advantage_pp": -4.2,
+          "specific_pp": -5.8,
+          "games": 5828,
+          "winrate_pct": 48.9,
+          "ci95_pp": 1.3,
+          "local_snapshot": {
+            "games": 33,
+            "advantage_pp": 3.1
+          },
+          "tier": "S",
+          "evidence": "both",
+          "reason": "Anchor Smash hits every illusion around Tide; Ravage stuns the whole army. Illusions take 600% damage (Juxtapose)."
+        },
+        {
+          "hero_id": 108,
+          "name": "Underlord",
+          "advantage_pp": -3.4,
+          "specific_pp": -5.8,
+          "games": 2290,
+          "winrate_pct": 49.7,
+          "ci95_pp": 2.0,
+          "local_snapshot": {
+            "games": 22,
+            "advantage_pp": 1.1
+          },
+          "tier": "S",
+          "evidence": "both",
+          "reason": "Firestorm waves + Pit of Malice root wipe illusions in the area; Atrophy Aura cuts their base damage."
+        },
+        {
+          "hero_id": 55,
+          "name": "Dark Seer",
+          "advantage_pp": -7.1,
+          "specific_pp": -5.5,
+          "games": 2725,
+          "winrate_pct": 45.9,
+          "ci95_pp": 1.9,
+          "local_snapshot": {
+            "games": 5,
+            "advantage_pp": -2.0
+          },
+          "tier": "S",
+          "evidence": "both",
+          "reason": "Ion Shell and Vacuum kill illusions; Wall of Replica makes copies of PL that fight for Dark Seer."
+        },
+        {
+          "hero_id": 2,
+          "name": "Axe",
+          "advantage_pp": -3.7,
+          "specific_pp": -4.8,
+          "games": 7279,
+          "winrate_pct": 49.4,
+          "ci95_pp": 1.1,
+          "local_snapshot": {
+            "games": 34,
+            "advantage_pp": -0.7
+          },
+          "tier": "S",
+          "evidence": "both",
+          "reason": "Every illusion that attacks Axe charges Counter Helix (pure AoE): PL's army kills itself."
+        },
+        {
+          "hero_id": 82,
+          "name": "Meepo",
+          "advantage_pp": -9.0,
+          "specific_pp": -6.0,
+          "games": 1164,
+          "winrate_pct": 43.6,
+          "ci95_pp": 2.8,
+          "local_snapshot": {
+            "games": 4,
+            "advantage_pp": -2.9
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Poof is AoE from up to 5 bodies; Earthbind roots the army. n=1164."
+        }
+      ],
+      "best_victims": [
+        {
+          "hero_id": 56,
+          "name": "Clinkz",
+          "advantage_pp": 5.0,
+          "specific_pp": 5.4,
+          "games": 2144,
+          "winrate_pct": 58.3,
+          "ci95_pp": 2.1,
+          "local_snapshot": {
+            "games": 30,
+            "advantage_pp": -0.9
+          },
+          "evidence": "both",
+          "reason": "Clinkz is single-target and can't tell PL from illusions."
+        },
+        {
+          "hero_id": 84,
+          "name": "Ogre Magi",
+          "advantage_pp": 4.4,
+          "specific_pp": 4.7,
+          "games": 9363,
+          "winrate_pct": 57.5,
+          "ci95_pp": 1.0,
+          "local_snapshot": {
+            "games": 57,
+            "advantage_pp": -1.9
+          },
+          "evidence": "both",
+          "reason": "Ogre Magi's damage is single-target; Diffusal PL drains him."
+        },
+        {
+          "hero_id": 46,
+          "name": "Templar Assassin",
+          "advantage_pp": 8.5,
+          "specific_pp": 4.7,
+          "games": 2545,
+          "winrate_pct": 61.8,
+          "ci95_pp": 1.9,
+          "local_snapshot": {
+            "games": 29,
+            "advantage_pp": 4.1
+          },
+          "evidence": "both",
+          "reason": "Each illusion hit removes one Refraction instance (3-6 total)."
+        },
+        {
+          "hero_id": 42,
+          "name": "Wraith King",
+          "advantage_pp": 1.0,
+          "specific_pp": 4.7,
+          "games": 7349,
+          "winrate_pct": 54.1,
+          "ci95_pp": 1.1,
+          "local_snapshot": {
+            "games": 10,
+            "advantage_pp": 2.0
+          },
+          "evidence": "both",
+          "reason": "WK's Wraithfire Blast and attacks are single-target; Diffusal burns Reincarnation mana before level 18."
+        },
+        {
+          "hero_id": 109,
+          "name": "Terrorblade",
+          "advantage_pp": 8.1,
+          "specific_pp": 4.6,
+          "games": 1969,
+          "winrate_pct": 61.5,
+          "ci95_pp": 2.1,
+          "local_snapshot": {
+            "games": 32,
+            "advantage_pp": 5.8
+          },
+          "evidence": "both",
+          "reason": "TB's Metamorphosis is single-target damage; Sunder can be wasted on an illusion (general knowledge)."
+        }
+      ],
+      "mechanical_counters": [
+        {
+          "mechanic": "AoE spells (illusions take 600% damage)",
+          "heroes_or_items": "Tidehunter, Underlord, Dark Seer, Leshrac, Earthshaker, Ember, Warlock",
+          "evidence": "both",
+          "note": "All have -4 to -6 pp specific vs PL on 2k-12k games."
+        },
+        {
+          "mechanic": "Passive AoE on attack / when attacked",
+          "heroes_or_items": "Axe (Counter Helix), Sven (Great Cleave, -6.0 raw), Battle Fury, Mjollnir",
+          "evidence": "both",
+          "note": "Pros buy Radiance 1.7x and Mjollnir 1.65x more vs PL."
+        },
+        {
+          "mechanic": "Hex destroys illusions",
+          "heroes_or_items": "Scythe of Vyse ('Instantly destroys illusions'), Lion/Shaman Hex (general knowledge)",
+          "evidence": "mechanic",
+          "note": "Hexing the real PL does not kill illusions, but hexing an illusion deletes it."
+        },
+        {
+          "mechanic": "Anti-Mage",
+          "heroes_or_items": "Anti-Mage",
+          "evidence": "both",
+          "note": "Not in the curated list as a counter, but AM beats PL: +4.2 pp specific for AM on 10.3k games. Battle Fury cleave clears illusions; Mana Void hits the group."
+        }
+      ],
+      "counter_items": [
+        {
+          "item": "radiance",
+          "name": "Radiance",
+          "cost": 4700,
+          "why": "60 dps aura in 650 radius; 1.7x more often vs PL (pro).",
+          "pro_lift": 1.68
+        },
+        {
+          "item": "mjollnir",
+          "name": "Mjollnir",
+          "cost": 5500,
+          "why": "Chain Lightning hits 12 targets; 1.65x (pro).",
+          "pro_lift": 1.65
+        },
+        {
+          "item": "gungir",
+          "name": "Gleipnir",
+          "cost": 4650,
+          "why": "Roots everything in 350 radius; 1.5x (pro).",
+          "pro_lift": 1.53
+        },
+        {
+          "item": "bfury",
+          "name": "Battle Fury",
+          "cost": 3900,
+          "why": "Cleave 60% in a cone.",
+          "pro_lift": 1.24
+        },
+        {
+          "item": "shivas_guard",
+          "name": "Shiva's Guard",
+          "cost": 4500,
+          "why": "Arctic Blast 260 AoE + slow; 1.1x (pro).",
+          "pro_lift": 1.13
+        },
+        {
+          "item": "sheepstick",
+          "name": "Scythe of Vyse",
+          "cost": 5200,
+          "why": "Hex destroys illusions instantly.",
+          "pro_lift": 0.89
+        }
+      ]
+    },
+    "42": {
+      "name": "Wraith King",
+      "winrate_pct": 53.69,
+      "matches": 137764,
+      "pick_rate_pct": 11.6,
+      "counters": [
+        {
+          "hero_id": 12,
+          "name": "Phantom Lancer",
+          "advantage_pp": -7.7,
+          "specific_pp": -4.6,
+          "games": 7349,
+          "winrate_pct": 45.9,
+          "ci95_pp": 1.1,
+          "local_snapshot": {
+            "games": 10,
+            "advantage_pp": -1.3
+          },
+          "tier": "S",
+          "evidence": "both",
+          "reason": "Illusions + Diffusal burn mana (Reincarnation costs 220/110/0 mana); WK's single-target stun can't find the real PL. -7.7 pp raw."
+        },
+        {
+          "hero_id": 1,
+          "name": "Anti-Mage",
+          "advantage_pp": -5.3,
+          "specific_pp": -4.4,
+          "games": 13061,
+          "winrate_pct": 48.4,
+          "ci95_pp": 0.9,
+          "local_snapshot": {
+            "games": 25,
+            "advantage_pp": 5.7
+          },
+          "tier": "S",
+          "evidence": "both",
+          "reason": "Mana Break empties WK before Reincarnation level 3; Mana Void punishes the empty pool."
+        },
+        {
+          "hero_id": 37,
+          "name": "Warlock",
+          "advantage_pp": -2.8,
+          "specific_pp": -4.7,
+          "games": 3311,
+          "winrate_pct": 50.9,
+          "ci95_pp": 1.7,
+          "local_snapshot": {
+            "games": 22,
+            "advantage_pp": -9.4
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Upheaval slow + Chaotic Offering golems kite and block a hero with no gap closer."
+        },
+        {
+          "hero_id": 90,
+          "name": "Keeper of the Light",
+          "advantage_pp": -5.6,
+          "specific_pp": -4.6,
+          "games": 2407,
+          "winrate_pct": 48.0,
+          "ci95_pp": 2.0,
+          "local_snapshot": {
+            "games": 9,
+            "advantage_pp": -2.0
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Blinding Light knocks back and makes WK miss; Solar Bind slows a melee hero with no mobility."
+        },
+        {
+          "hero_id": 85,
+          "name": "Undying",
+          "advantage_pp": -3.5,
+          "specific_pp": -4.1,
+          "games": 5773,
+          "winrate_pct": 50.1,
+          "ci95_pp": 1.3,
+          "local_snapshot": {
+            "games": 11,
+            "advantage_pp": 5.1
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Decay steals Strength from a Strength carry; Tombstone zombies slow and body-block him."
+        }
+      ],
+      "best_victims": [
+        {
+          "hero_id": 70,
+          "name": "Ursa",
+          "advantage_pp": 3.9,
+          "specific_pp": 4.1,
+          "games": 4774,
+          "winrate_pct": 57.6,
+          "ci95_pp": 1.4,
+          "local_snapshot": {
+            "games": 45,
+            "advantage_pp": 1.0
+          },
+          "evidence": "both",
+          "reason": "Melee duel: WK's stun interrupts Ursa and Reincarnation wins the trade."
+        },
+        {
+          "hero_id": 33,
+          "name": "Enigma",
+          "advantage_pp": -0.1,
+          "specific_pp": 3.8,
+          "games": 3753,
+          "winrate_pct": 53.6,
+          "ci95_pp": 1.6,
+          "local_snapshot": {
+            "games": 3,
+            "advantage_pp": -0.7
+          },
+          "evidence": "both",
+          "reason": "Black Hole kills WK once; he reincarnates and the enemy has no ultimate left."
+        },
+        {
+          "hero_id": 27,
+          "name": "Shadow Shaman",
+          "advantage_pp": 2.5,
+          "specific_pp": 3.6,
+          "games": 8988,
+          "winrate_pct": 56.2,
+          "ci95_pp": 1.0,
+          "local_snapshot": {
+            "games": 42,
+            "advantage_pp": 4.4
+          },
+          "evidence": "both",
+          "reason": "Shaman's lockdown is single-target; Reincarnation ignores one-shot combos."
+        },
+        {
+          "hero_id": 44,
+          "name": "Phantom Assassin",
+          "advantage_pp": 2.5,
+          "specific_pp": 3.3,
+          "games": 7302,
+          "winrate_pct": 56.2,
+          "ci95_pp": 1.1,
+          "local_snapshot": {
+            "games": 16,
+            "advantage_pp": 0.3
+          },
+          "evidence": "both",
+          "reason": "PA's burst kills once; WK comes back. Mortal Strike + lifesteal win the second fight."
+        },
+        {
+          "hero_id": 138,
+          "name": "Muerta",
+          "advantage_pp": 5.0,
+          "specific_pp": 3.1,
+          "games": 1732,
+          "winrate_pct": 58.8,
+          "ci95_pp": 2.3,
+          "local_snapshot": {
+            "games": 14,
+            "advantage_pp": 1.6
+          },
+          "evidence": "both",
+          "reason": "Muerta's damage is burst; Reincarnation ignores it."
+        }
+      ],
+      "mechanical_counters": [
+        {
+          "mechanic": "Break (disables passives)",
+          "heroes_or_items": "Silver Edge, PA Fan of Knives, Hill Troll Berserker neutral creep (via Chen, Enchantress or Doom Devour), Hoodwink Sharpshooter",
+          "evidence": "mechanic",
+          "note": "Vampiric Spirit (lifesteal) and Reincarnation are passives; Break turns them off (general knowledge, verify that Reincarnation counts). In pro games Silver Edge is NOT bought more vs WK (lift 0.6)."
+        },
+        {
+          "mechanic": "Mana burn before level 18",
+          "heroes_or_items": "Anti-Mage, Phantom Lancer (Diffusal), Nyx",
+          "evidence": "both",
+          "note": "Reincarnation costs 220 / 110 / 0 mana. Mana burn only matters until level 18."
+        },
+        {
+          "mechanic": "Kiting / slows / blinds",
+          "heroes_or_items": "Warlock, KotL, Naga Siren (Ensnare, Song), Undying",
+          "evidence": "both",
+          "note": "WK has no built-in gap closer before Blink."
+        },
+        {
+          "mechanic": "Heal reduction",
+          "heroes_or_items": "Spirit Vessel, Eye of Skadi, Doom",
+          "evidence": "mechanic",
+          "note": "Cuts lifesteal sustain. Data does not show Doom (+2.2 pp for WK) or Vessel (pro lift 0.75) as a big problem."
+        }
+      ],
+      "counter_items": [
+        {
+          "item": "silver_edge",
+          "name": "Silver Edge",
+          "cost": 5700,
+          "why": "Break: lifesteal and Reincarnation off for 5 s (verify Reincarnation).",
+          "pro_lift": 0.61
+        },
+        {
+          "item": "spirit_vessel",
+          "name": "Spirit Vessel",
+          "cost": 2725,
+          "why": "-70% health restoration vs lifesteal.",
+          "pro_lift": 0.75
+        },
+        {
+          "item": "blade_mail",
+          "name": "Blade Mail",
+          "cost": 2400,
+          "why": "Bought 1.7x more vs WK (pro): he hits himself.",
+          "pro_lift": 1.74
+        },
+        {
+          "item": "diffusal_blade",
+          "name": "Diffusal Blade",
+          "cost": 2500,
+          "why": "40 mana burned per hit before level 18.",
+          "pro_lift": 0.67
+        },
+        {
+          "item": "heavens_halberd",
+          "name": "Heaven's Halberd",
+          "cost": 3400,
+          "why": "3.5 s disarm on a pure right-clicker.",
+          "pro_lift": 1.42
+        }
+      ]
+    },
+    "46": {
+      "name": "Templar Assassin",
+      "winrate_pct": 46.22,
+      "matches": 50974,
+      "pick_rate_pct": 4.3,
+      "counters": [
+        {
+          "hero_id": 12,
+          "name": "Phantom Lancer",
+          "advantage_pp": -7.8,
+          "specific_pp": -4.7,
+          "games": 2545,
+          "winrate_pct": 38.2,
+          "ci95_pp": 1.9,
+          "local_snapshot": {
+            "games": 29,
+            "advantage_pp": -2.5
+          },
+          "tier": "S",
+          "evidence": "both",
+          "reason": "Many illusions = many hits; each hit removes one Refraction instance (3-6 total)."
+        },
+        {
+          "hero_id": 110,
+          "name": "Phoenix",
+          "advantage_pp": -5.7,
+          "specific_pp": -4.1,
+          "games": 1393,
+          "winrate_pct": 40.3,
+          "ci95_pp": 2.6,
+          "local_snapshot": {
+            "games": 102,
+            "advantage_pp": -3.1
+          },
+          "tier": "S",
+          "evidence": "both",
+          "reason": "Fire Spirits, Sun Ray and Dying Light tick every second: each tick costs a Refraction instance."
+        },
+        {
+          "hero_id": 67,
+          "name": "Spectre",
+          "advantage_pp": -6.5,
+          "specific_pp": -3.8,
+          "games": 1973,
+          "winrate_pct": 39.5,
+          "ci95_pp": 2.2,
+          "local_snapshot": {
+            "games": 8,
+            "advantage_pp": -1.4
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Dispersion reflects TA's burst; Desolate pure damage and Haunt illusions strip Refraction."
+        },
+        {
+          "hero_id": 27,
+          "name": "Shadow Shaman",
+          "advantage_pp": -4.3,
+          "specific_pp": -3.2,
+          "games": 2897,
+          "winrate_pct": 41.8,
+          "ci95_pp": 1.8,
+          "local_snapshot": {
+            "games": 112,
+            "advantage_pp": -2.3
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Shackles and Hex disable TA without damage, so Refraction does not help."
+        },
+        {
+          "hero_id": 16,
+          "name": "Sand King",
+          "advantage_pp": -1.2,
+          "specific_pp": -3.2,
+          "games": 1048,
+          "winrate_pct": 44.9,
+          "ci95_pp": 3.0,
+          "local_snapshot": {
+            "games": 35,
+            "advantage_pp": -4.4
+          },
+          "tier": "B",
+          "evidence": "both",
+          "reason": "Sand Storm ticks eat Refraction instances; Epicenter is many pulses."
+        }
+      ],
+      "best_victims": [
+        {
+          "hero_id": 60,
+          "name": "Night Stalker",
+          "advantage_pp": 1.3,
+          "specific_pp": 4.3,
+          "games": 2322,
+          "winrate_pct": 47.6,
+          "ci95_pp": 2.0,
+          "local_snapshot": {
+            "games": 29,
+            "advantage_pp": -0.3
+          },
+          "evidence": "both",
+          "reason": "Night Stalker's single big hits are blocked one by one by Refraction."
+        },
+        {
+          "hero_id": 18,
+          "name": "Sven",
+          "advantage_pp": 2.7,
+          "specific_pp": 4.2,
+          "games": 2578,
+          "winrate_pct": 49.0,
+          "ci95_pp": 1.9,
+          "local_snapshot": {
+            "games": 46,
+            "advantage_pp": 2.3
+          },
+          "evidence": "both",
+          "reason": "Sven's big single hits (God's Strength) are absorbed by Refraction instances."
+        },
+        {
+          "hero_id": 80,
+          "name": "Lone Druid",
+          "advantage_pp": 4.4,
+          "specific_pp": 3.3,
+          "games": 839,
+          "winrate_pct": 50.9,
+          "ci95_pp": 3.4,
+          "local_snapshot": {
+            "games": 10,
+            "advantage_pp": -1.3
+          },
+          "evidence": "both",
+          "reason": "Lone Druid/Bear are slow; Psi Blades hit both."
+        },
+        {
+          "hero_id": 19,
+          "name": "Tiny",
+          "advantage_pp": 8.0,
+          "specific_pp": 2.9,
+          "games": 1266,
+          "winrate_pct": 54.6,
+          "ci95_pp": 2.7,
+          "local_snapshot": {
+            "games": 167,
+            "advantage_pp": 3.5
+          },
+          "evidence": "both",
+          "reason": "Tiny's damage is a few big nukes: Refraction blocks Avalanche/Toss instances."
+        },
+        {
+          "hero_id": 105,
+          "name": "Techies",
+          "advantage_pp": 2.5,
+          "specific_pp": 2.8,
+          "games": 5118,
+          "winrate_pct": 48.7,
+          "ci95_pp": 1.4,
+          "local_snapshot": {
+            "games": 68,
+            "advantage_pp": -2.6
+          },
+          "evidence": "both",
+          "reason": "Techies' mines are single big instances."
+        }
+      ],
+      "mechanical_counters": [
+        {
+          "mechanic": "Many small damage instances",
+          "heroes_or_items": "Phoenix, Sand King, Phantom Lancer, Razor, Gyrocopter, Jakiro",
+          "evidence": "both",
+          "note": "Refraction: 3/4/5/6 instances, 30 barrier each (abilities.json). Gyro/Razor/Viper/Jakiro from the curated list are NOT confirmed (-1.4 to +1.4 pp)."
+        },
+        {
+          "mechanic": "Detection",
+          "heroes_or_items": "Slardar (Corrosive Haze true sight), Bounty Hunter (Track), Dust, Gem",
+          "evidence": "both",
+          "note": "Meld and traps lose value once she is seen."
+        },
+        {
+          "mechanic": "Lockdown without damage",
+          "heroes_or_items": "Shadow Shaman, Bane, Batrider (Lasso), Naga (Song)",
+          "evidence": "both",
+          "note": "Refraction blocks damage, not disables."
+        },
+        {
+          "mechanic": "Physical immunity",
+          "heroes_or_items": "Ghost Scepter, Heaven's Halberd",
+          "evidence": "data",
+          "note": "Pros buy Ghost 1.4x and Halberd 3.3x more vs TA."
+        }
+      ],
+      "counter_items": [
+        {
+          "item": "ghost",
+          "name": "Ghost Scepter",
+          "cost": 1500,
+          "why": "Physical immunity 4 s; 1.4x (pro).",
+          "pro_lift": 1.42
+        },
+        {
+          "item": "heavens_halberd",
+          "name": "Heaven's Halberd",
+          "cost": 3400,
+          "why": "3.5 s disarm; 3.3x (pro, small count).",
+          "pro_lift": 3.33
+        },
+        {
+          "item": "crimson_guard",
+          "name": "Crimson Guard",
+          "cost": 3725,
+          "why": "Blocks her Psi Blade hits; 1.8x (pro).",
+          "pro_lift": 1.82
+        },
+        {
+          "item": "dust",
+          "name": "Dust of Appearance",
+          "cost": 80,
+          "why": "Reveals Meld.",
+          "pro_lift": null
+        },
+        {
+          "item": "gem",
+          "name": "Gem of True Sight",
+          "cost": 900,
+          "why": "Sees traps and Meld.",
+          "pro_lift": 0.75
+        }
+      ]
+    },
+    "11": {
+      "name": "Shadow Fiend",
+      "winrate_pct": 41.78,
+      "matches": 88459,
+      "pick_rate_pct": 7.5,
+      "counters": [
+        {
+          "hero_id": 95,
+          "name": "Troll Warlord",
+          "advantage_pp": -4.3,
+          "specific_pp": -3.2,
+          "games": 1067,
+          "winrate_pct": 37.2,
+          "ci95_pp": 2.9,
+          "local_snapshot": {
+            "games": 111,
+            "advantage_pp": -5.5
+          },
+          "tier": "B",
+          "evidence": "both",
+          "reason": "Berserker's Rage ensnare + Fervor: SF can't escape or out-trade a melee carry in his face."
+        },
+        {
+          "hero_id": 94,
+          "name": "Medusa",
+          "advantage_pp": -2.3,
+          "specific_pp": -2.7,
+          "games": 1074,
+          "winrate_pct": 39.4,
+          "ci95_pp": 2.9,
+          "local_snapshot": {
+            "games": 83,
+            "advantage_pp": 8.1
+          },
+          "tier": "B",
+          "evidence": "data",
+          "reason": "Medusa out-scales and Split Shot hits SF from range (mechanic weak, verify)."
+        },
+        {
+          "hero_id": 70,
+          "name": "Ursa",
+          "advantage_pp": -2.6,
+          "specific_pp": -2.4,
+          "games": 3556,
+          "winrate_pct": 39.1,
+          "ci95_pp": 1.6,
+          "local_snapshot": {
+            "games": 269,
+            "advantage_pp": 0.2
+          },
+          "tier": "B",
+          "evidence": "both",
+          "reason": "Ursa jumps a hero with no escape and kills him with Fury Swipes."
+        },
+        {
+          "hero_id": 49,
+          "name": "Dragon Knight",
+          "advantage_pp": -4.9,
+          "specific_pp": -2.3,
+          "games": 6816,
+          "winrate_pct": 36.9,
+          "ci95_pp": 1.1,
+          "local_snapshot": {
+            "games": 348,
+            "advantage_pp": 2.3
+          },
+          "tier": "B",
+          "evidence": "both",
+          "reason": "Dragon Blood armor ruins Presence of the Dark Lord physical plan; Dragon Tail stun. -4.9 pp raw."
+        },
+        {
+          "hero_id": 12,
+          "name": "Phantom Lancer",
+          "advantage_pp": -5.1,
+          "specific_pp": -2.0,
+          "games": 4661,
+          "winrate_pct": 36.6,
+          "ci95_pp": 1.4,
+          "local_snapshot": {
+            "games": 77,
+            "advantage_pp": 1.9
+          },
+          "tier": "B",
+          "evidence": "both",
+          "reason": "Razes can clear illusions but SF can't kill the army fast enough; -5.1 pp raw."
+        }
+      ],
+      "best_victims": [
+        {
+          "hero_id": 82,
+          "name": "Meepo",
+          "advantage_pp": 2.0,
+          "specific_pp": 5.0,
+          "games": 854,
+          "winrate_pct": 43.9,
+          "ci95_pp": 3.3,
+          "local_snapshot": {
+            "games": 29,
+            "advantage_pp": -3.9
+          },
+          "evidence": "both",
+          "reason": "Razes hit several Meepos at once; n=854."
+        },
+        {
+          "hero_id": 38,
+          "name": "Beastmaster",
+          "advantage_pp": 6.7,
+          "specific_pp": 3.6,
+          "games": 998,
+          "winrate_pct": 48.9,
+          "ci95_pp": 3.1,
+          "local_snapshot": {
+            "games": 237,
+            "advantage_pp": -3.8
+          },
+          "evidence": "both",
+          "reason": "Requiem hits Beastmaster and his units in melee range; n=998."
+        },
+        {
+          "hero_id": 91,
+          "name": "Io",
+          "advantage_pp": 2.4,
+          "specific_pp": 3.2,
+          "games": 2516,
+          "winrate_pct": 44.2,
+          "ci95_pp": 1.9,
+          "local_snapshot": {
+            "games": 40,
+            "advantage_pp": 4.0
+          },
+          "evidence": "both",
+          "reason": "Io's heal is spread; SF bursts the tethered pair."
+        },
+        {
+          "hero_id": 3,
+          "name": "Bane",
+          "advantage_pp": 4.0,
+          "specific_pp": 3.1,
+          "games": 1343,
+          "winrate_pct": 45.9,
+          "ci95_pp": 2.7,
+          "local_snapshot": {
+            "games": 94,
+            "advantage_pp": -3.2
+          },
+          "evidence": "both",
+          "reason": "Bane has low HP; razes kill him."
+        },
+        {
+          "hero_id": 4,
+          "name": "Bloodseeker",
+          "advantage_pp": 1.9,
+          "specific_pp": 2.9,
+          "games": 1264,
+          "winrate_pct": 43.8,
+          "ci95_pp": 2.7,
+          "local_snapshot": {
+            "games": 17,
+            "advantage_pp": 0.7
+          },
+          "evidence": "both",
+          "reason": "Bloodseeker comes into melee range: Requiem of Souls."
+        }
+      ],
+      "mechanical_counters": [
+        {
+          "mechanic": "Silences and roots",
+          "heroes_or_items": "Night Stalker, Troll (ensnare), Orchid",
+          "evidence": "mechanic",
+          "note": "No razes, no escape. Data effect is small: SF loses to almost everyone."
+        },
+        {
+          "mechanic": "Armor",
+          "heroes_or_items": "Dragon Knight, Shiva's Guard",
+          "evidence": "both",
+          "note": "SF's damage is physical + Presence armor reduction."
+        },
+        {
+          "mechanic": "Strong mid gankers (curated: Storm, Puck, Ember, Void Spirit)",
+          "heroes_or_items": "-",
+          "evidence": "data",
+          "note": "NOT confirmed: SF is +1.4 to +2.8 pp specific vs these 4 heroes (1.4k-3.3k games)."
+        },
+        {
+          "mechanic": "Real problem: the hero itself",
+          "heroes_or_items": "-",
+          "evidence": "data",
+          "note": "41.8% winrate in Ancient-Divine. Matchups only move it 2-3 pp."
+        }
+      ],
+      "counter_items": [
+        {
+          "item": "blade_mail",
+          "name": "Blade Mail",
+          "cost": 2400,
+          "why": "1.5x more vs SF (pro).",
+          "pro_lift": 1.48
+        },
+        {
+          "item": "glimmer_cape",
+          "name": "Glimmer Cape",
+          "cost": 2150,
+          "why": "Saves targets from Requiem burst; 1.2x (pro).",
+          "pro_lift": 1.19
+        },
+        {
+          "item": "orchid",
+          "name": "Orchid Malevolence",
+          "cost": 3275,
+          "why": "Silence = no razes.",
+          "pro_lift": 0.89
+        },
+        {
+          "item": "heavens_halberd",
+          "name": "Heaven's Halberd",
+          "cost": 3400,
+          "why": "Disarm vs right-click SF; 1.6x (pro).",
+          "pro_lift": 1.56
+        }
+      ]
+    },
+    "113": {
+      "name": "Arc Warden",
+      "winrate_pct": 51.52,
+      "matches": 56055,
+      "pick_rate_pct": 4.7,
+      "counters": [
+        {
+          "hero_id": 61,
+          "name": "Broodmother",
+          "advantage_pp": -9.6,
+          "specific_pp": -10.7,
+          "games": 812,
+          "winrate_pct": 41.3,
+          "ci95_pp": 3.4,
+          "local_snapshot": {
+            "games": 3,
+            "advantage_pp": -0.9
+          },
+          "tier": "S",
+          "evidence": "both",
+          "reason": "Spiderlings mean the target is never alone: Flux deals no damage. Brood also out-split-pushes Arc. -10.7 pp."
+        },
+        {
+          "hero_id": 82,
+          "name": "Meepo",
+          "advantage_pp": -12.1,
+          "specific_pp": -9.1,
+          "games": 737,
+          "winrate_pct": 38.4,
+          "ci95_pp": 3.5,
+          "local_snapshot": {
+            "games": 2,
+            "advantage_pp": -0.0
+          },
+          "tier": "S",
+          "evidence": "both",
+          "reason": "Multiple Meepos keep Flux off, Poof kills the Double; Earthbind roots both Arcs. -9.1 pp."
+        },
+        {
+          "hero_id": 77,
+          "name": "Lycan",
+          "advantage_pp": -6.8,
+          "specific_pp": -5.6,
+          "games": 571,
+          "winrate_pct": 44.0,
+          "ci95_pp": 4.1,
+          "local_snapshot": {
+            "games": 4,
+            "advantage_pp": 1.5
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Wolves stop Flux and Lycan wins the split-push race; Shapeshift catches Arc. n=571."
+        },
+        {
+          "hero_id": 94,
+          "name": "Medusa",
+          "advantage_pp": -4.0,
+          "specific_pp": -4.4,
+          "games": 659,
+          "winrate_pct": 47.2,
+          "ci95_pp": 3.8,
+          "local_snapshot": {
+            "games": 4,
+            "advantage_pp": -0.1
+          },
+          "tier": "A",
+          "evidence": "data",
+          "reason": "Mana Shield + Split Shot: Arc can't burst her, she hits both Arcs. n=659."
+        },
+        {
+          "hero_id": 136,
+          "name": "Marci",
+          "advantage_pp": -4.4,
+          "specific_pp": -4.4,
+          "games": 1366,
+          "winrate_pct": 46.9,
+          "ci95_pp": 2.6,
+          "local_snapshot": {
+            "games": 7,
+            "advantage_pp": -2.4
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Rebound + Unleash dive kills a low-HP ranged hero before Magnetic Field matters."
+        }
+      ],
+      "best_victims": [
+        {
+          "hero_id": 69,
+          "name": "Doom",
+          "advantage_pp": 6.7,
+          "specific_pp": 5.8,
+          "games": 1903,
+          "winrate_pct": 58.4,
+          "ci95_pp": 2.2,
+          "local_snapshot": {
+            "games": 13,
+            "advantage_pp": 1.8
+          },
+          "evidence": "both",
+          "reason": "Doom has to commit to one Arc; the other kills him; slow pusher vs split push."
+        },
+        {
+          "hero_id": 56,
+          "name": "Clinkz",
+          "advantage_pp": 4.1,
+          "specific_pp": 4.5,
+          "games": 1036,
+          "winrate_pct": 55.9,
+          "ci95_pp": 3.0,
+          "local_snapshot": {
+            "games": 3,
+            "advantage_pp": 0.7
+          },
+          "evidence": "both",
+          "reason": "Clinkz is fragile; Magnetic Field makes his attacks from outside miss."
+        },
+        {
+          "hero_id": 47,
+          "name": "Viper",
+          "advantage_pp": 5.4,
+          "specific_pp": 4.4,
+          "games": 1850,
+          "winrate_pct": 57.1,
+          "ci95_pp": 2.3,
+          "local_snapshot": {
+            "games": 10,
+            "advantage_pp": -1.6
+          },
+          "evidence": "both",
+          "reason": "Viper is slow and ranged: Magnetic Field blocks attacks from outside."
+        },
+        {
+          "hero_id": 95,
+          "name": "Troll Warlord",
+          "advantage_pp": 2.7,
+          "specific_pp": 3.8,
+          "games": 611,
+          "winrate_pct": 54.5,
+          "ci95_pp": 3.9,
+          "local_snapshot": {
+            "games": 4,
+            "advantage_pp": -0.1
+          },
+          "evidence": "both",
+          "reason": "Ranged Troll attacks miss inside Magnetic Field. n=611."
+        },
+        {
+          "hero_id": 110,
+          "name": "Phoenix",
+          "advantage_pp": 2.2,
+          "specific_pp": 3.8,
+          "games": 1972,
+          "winrate_pct": 53.8,
+          "ci95_pp": 2.2,
+          "local_snapshot": {
+            "games": 6,
+            "advantage_pp": -1.7
+          },
+          "evidence": "both",
+          "reason": "Phoenix is slow; Arc out-pushes the game."
+        }
+      ],
+      "mechanical_counters": [
+        {
+          "mechanic": "Summons / extra units",
+          "heroes_or_items": "Broodmother, Meepo, Lycan, Lone Druid, Chen",
+          "evidence": "both",
+          "note": "Flux: no damage if another enemy unit is within 225 of the target (abilities.json). Units turn off Arc's main laning spell."
+        },
+        {
+          "mechanic": "Faster split push",
+          "heroes_or_items": "Broodmother, Lycan, Nature's Prophet",
+          "evidence": "both",
+          "note": "Arc wins by pushing; a faster pusher wins the race (NP is an exception: Arc +6.9 raw vs NP)."
+        },
+        {
+          "mechanic": "Divers",
+          "heroes_or_items": "Marci, Slark (-2.0), Spirit Breaker (-2.0)",
+          "evidence": "both",
+          "note": "Low HP, no escape beyond Magnetic Field."
+        },
+        {
+          "mechanic": "AoE that kills the Double",
+          "heroes_or_items": "Sand King, Meepo",
+          "evidence": "both",
+          "note": "Tempest Double gives 180-300 gold bounty when killed."
+        }
+      ],
+      "counter_items": [
+        {
+          "item": "diffusal_blade",
+          "name": "Diffusal Blade",
+          "cost": 2500,
+          "why": "2.2x more vs Arc (pro, small sample: ~71 games).",
+          "pro_lift": 2.22
+        },
+        {
+          "item": "monkey_king_bar",
+          "name": "Monkey King Bar",
+          "cost": 5000,
+          "why": "Ignores Magnetic Field evasion; 1.75x (pro).",
+          "pro_lift": 1.75
+        },
+        {
+          "item": "maelstrom",
+          "name": "Maelstrom",
+          "cost": 2950,
+          "why": "Bounces hit both Arcs and illusions; 2.2x (pro, small).",
+          "pro_lift": 2.17
+        },
+        {
+          "item": "bloodthorn",
+          "name": "Bloodthorn",
+          "cost": 6400,
+          "why": "Silence + true strike; 1.5x (pro).",
+          "pro_lift": 1.52
+        }
+      ]
+    },
+    "44": {
+      "name": "Phantom Assassin",
+      "winrate_pct": 50.77,
+      "matches": 121616,
+      "pick_rate_pct": 10.3,
+      "counters": [
+        {
+          "hero_id": 99,
+          "name": "Bristleback",
+          "advantage_pp": -1.4,
+          "specific_pp": -4.5,
+          "games": 2886,
+          "winrate_pct": 49.3,
+          "ci95_pp": 1.8,
+          "local_snapshot": {
+            "games": 14,
+            "advantage_pp": -0.3
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Quill Spray is spell damage (evasion does nothing); back damage reduction cuts PA's crits."
+        },
+        {
+          "hero_id": 95,
+          "name": "Troll Warlord",
+          "advantage_pp": -5.1,
+          "specific_pp": -4.0,
+          "games": 1656,
+          "winrate_pct": 45.5,
+          "ci95_pp": 2.4,
+          "local_snapshot": {
+            "games": 6,
+            "advantage_pp": -1.0
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Melee Whirling Axes make PA miss; Berserker's Rage ensnares; Fervor out-DPSs her."
+        },
+        {
+          "hero_id": 2,
+          "name": "Axe",
+          "advantage_pp": -2.5,
+          "specific_pp": -3.6,
+          "games": 8197,
+          "winrate_pct": 48.3,
+          "ci95_pp": 1.1,
+          "local_snapshot": {
+            "games": 31,
+            "advantage_pp": -0.8
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Each PA attack on Axe charges Counter Helix pure damage; Call through Blur."
+        },
+        {
+          "hero_id": 42,
+          "name": "Wraith King",
+          "advantage_pp": -7.0,
+          "specific_pp": -3.3,
+          "games": 7302,
+          "winrate_pct": 43.7,
+          "ci95_pp": 1.1,
+          "local_snapshot": {
+            "games": 16,
+            "advantage_pp": 1.2
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "PA bursts WK once; he reincarnates. WK's stun ignores evasion. -7.0 pp raw on 7.3k games."
+        },
+        {
+          "hero_id": 57,
+          "name": "Omniknight",
+          "advantage_pp": -5.2,
+          "specific_pp": -3.2,
+          "games": 1461,
+          "winrate_pct": 45.3,
+          "ci95_pp": 2.6,
+          "local_snapshot": {
+            "games": 9,
+            "advantage_pp": -1.4
+          },
+          "tier": "A",
+          "evidence": "both",
+          "reason": "Guardian Angel = physical immunity for 4-5 s; Hammer of Purity pure damage. -5.2 pp raw."
+        }
+      ],
+      "best_victims": [
+        {
+          "hero_id": 61,
+          "name": "Broodmother",
+          "advantage_pp": 6.1,
+          "specific_pp": 4.9,
+          "games": 905,
+          "winrate_pct": 57.2,
+          "ci95_pp": 3.2,
+          "local_snapshot": {
+            "games": 10,
+            "advantage_pp": 0.8
+          },
+          "evidence": "both",
+          "reason": "Spiderlings die to crits; Brood's attacks miss vs Immaterial. n=905."
+        },
+        {
+          "hero_id": 59,
+          "name": "Huskar",
+          "advantage_pp": 8.4,
+          "specific_pp": 4.9,
+          "games": 2244,
+          "winrate_pct": 59.4,
+          "ci95_pp": 2.0,
+          "local_snapshot": {
+            "games": 15,
+            "advantage_pp": -3.5
+          },
+          "evidence": "both",
+          "reason": "Huskar's attacks miss vs Immaterial; PA bursts him through Berserker's Blood."
+        },
+        {
+          "hero_id": 60,
+          "name": "Night Stalker",
+          "advantage_pp": 1.2,
+          "specific_pp": 4.1,
+          "games": 4588,
+          "winrate_pct": 51.9,
+          "ci95_pp": 1.4,
+          "local_snapshot": {
+            "games": 14,
+            "advantage_pp": 2.4
+          },
+          "evidence": "both",
+          "reason": "NS's right-clicks miss; Fan of Knives Breaks Hunter in the Night (verify)."
+        },
+        {
+          "hero_id": 33,
+          "name": "Enigma",
+          "advantage_pp": -0.3,
+          "specific_pp": 3.6,
+          "games": 3161,
+          "winrate_pct": 50.4,
+          "ci95_pp": 1.7,
+          "local_snapshot": {
+            "games": 5,
+            "advantage_pp": 1.2
+          },
+          "evidence": "both",
+          "reason": "Enigma has low HP and no physical defense."
+        },
+        {
+          "hero_id": 56,
+          "name": "Clinkz",
+          "advantage_pp": 3.2,
+          "specific_pp": 3.5,
+          "games": 2500,
+          "winrate_pct": 54.0,
+          "ci95_pp": 2.0,
+          "local_snapshot": {
+            "games": 38,
+            "advantage_pp": -2.9
+          },
+          "evidence": "both",
+          "reason": "Clinkz is fragile and right-click based."
+        }
+      ],
+      "mechanical_counters": [
+        {
+          "mechanic": "True strike / evasion pierce",
+          "heroes_or_items": "MKB, Bloodthorn, Javelin, Dark Seer (Normal Punch true strike)",
+          "evidence": "both",
+          "note": "MKB 80% pierce; pros buy MKB 3.35x more vs PA, the strongest item signal in this report."
+        },
+        {
+          "mechanic": "Physical immunity",
+          "heroes_or_items": "Omniknight (Guardian Angel), Ghost Scepter",
+          "evidence": "both",
+          "note": "Ghost 1.2x (pro); Omni -3.2 specific."
+        },
+        {
+          "mechanic": "Spell / pure damage",
+          "heroes_or_items": "Bristleback, Axe, Phoenix",
+          "evidence": "both",
+          "note": "Immaterial only works on attacks."
+        },
+        {
+          "mechanic": "Armor",
+          "heroes_or_items": "Dragon Knight, Assault Cuirass",
+          "evidence": "data",
+          "note": "Curated claim weak: DK is -1.0 specific / -3.6 raw."
+        }
+      ],
+      "counter_items": [
+        {
+          "item": "monkey_king_bar",
+          "name": "Monkey King Bar",
+          "cost": 5000,
+          "why": "80% evasion pierce; 3.35x more vs PA (pro).",
+          "pro_lift": 3.35
+        },
+        {
+          "item": "silver_edge",
+          "name": "Silver Edge",
+          "cost": 5700,
+          "why": "Break turns off Immaterial (general knowledge) ; 1.6x (pro).",
+          "pro_lift": 1.59
+        },
+        {
+          "item": "ghost",
+          "name": "Ghost Scepter",
+          "cost": 1500,
+          "why": "4 s physical immunity; 1.2x (pro).",
+          "pro_lift": 1.22
+        },
+        {
+          "item": "blade_mail",
+          "name": "Blade Mail",
+          "cost": 2400,
+          "why": "Returns her crits; 1.5x (pro).",
+          "pro_lift": 1.52
+        },
+        {
+          "item": "heavens_halberd",
+          "name": "Heaven's Halberd",
+          "cost": 3400,
+          "why": "Disarm; 1.9x (pro, small).",
+          "pro_lift": 1.88
+        }
+      ]
+    }
+  }
+}
