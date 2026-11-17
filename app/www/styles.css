@@ -1,0 +1,189 @@
+/* ==========================================================================
+   Ancient Codex — custom styling on top of the bslib theme.
+   Idea: an old tome rendered with a modern HUD feel. Obsidian background,
+   faint Radiant/Dire glows at opposite corners, gold hairlines, and
+   beveled (cut-corner) panels like the in-game UI.
+   ========================================================================== */
+
+:root {
+  --bg: #0a0c0f;
+  --panel: #11151b;
+  --panel-2: #161b23;
+  --line: #232a33;
+  --ink: #e8e2d4;
+  --muted: #8a909a;
+  --gold: #c9a25c;
+  --gold-soft: rgba(201, 162, 92, .16);
+  --radiant: #5fd38d;
+  --dire: #e0524a;
+  --arcane: #7aa7ff;
+  --bevel: 10px;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* --- Page background: two faction glows + subtle scanlines ------------- */
+body {
+  background:
+    radial-gradient(1200px 600px at -10% -10%, rgba(95, 211, 141, .07), transparent 60%),
+    radial-gradient(1000px 600px at 110% 110%, rgba(224, 82, 74, .08), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 3px),
+    var(--bg) !important;
+  background-attachment: fixed !important;
+  color: var(--ink);
+}
+
+h1, h2, h3, h4, .codex-display { font-family: "Cinzel", serif; letter-spacing: .04em; }
+.mono, .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); }
+.gold { color: var(--gold); }
+.good { color: var(--radiant); }
+.bad  { color: var(--dire); }
+a { color: var(--gold); }
+
+/* --- Navbar: brand mark + roman-numeral "chapters" -------------------- */
+.navbar {
+  background: linear-gradient(180deg, #0d1014, rgba(10,12,15,.85)) !important;
+  border-bottom: 1px solid var(--gold-soft);
+  backdrop-filter: blur(6px);
+}
+.navbar-brand { font-family: "Cinzel", serif; font-weight: 900; letter-spacing: .12em; color: var(--gold) !important; }
+.navbar-brand .brand-sub { font-family: var(--mono); font-size: .62rem; letter-spacing: .1em; color: var(--muted); margin-left: .6rem; font-weight: 400; }
+.navbar .nav-link { text-transform: uppercase; font-size: .78rem; letter-spacing: .14em; color: var(--muted) !important; }
+.navbar .nav-link.active { color: var(--ink) !important; box-shadow: inset 0 -2px 0 var(--gold); }
+.chapter { font-family: "Cinzel", serif; color: var(--gold); margin-right: .45rem; }
+
+/* --- Beveled panels (cards) --------------------------------------------- */
+.card, .codex-panel {
+  background: linear-gradient(180deg, var(--panel-2), var(--panel)) !important;
+  border: 1px solid var(--line) !important;
+  clip-path: polygon(var(--bevel) 0, 100% 0, 100% calc(100% - var(--bevel)),
+                     calc(100% - var(--bevel)) 100%, 0 100%, 0 var(--bevel));
+  border-radius: 0 !important;
+}
+.card-header {
+  background: transparent !important;
+  border-bottom: 1px solid var(--line) !important;
+  font-family: "Cinzel", serif; font-weight: 700; letter-spacing: .08em;
+  color: var(--gold); text-transform: uppercase; font-size: .85rem;
+}
+.card-header .hint { font-family: Inter, sans-serif; text-transform: none; letter-spacing: 0; color: var(--muted); font-weight: 400; font-size: .78rem; margin-left: .5rem; }
+
+/* --- Rune KPI tiles ----------------------------------------------------- */
+.rune {
+  position: relative; padding: .9rem 1rem .8rem 1rem;
+  background: linear-gradient(135deg, rgba(201,162,92,.08), transparent 55%), var(--panel);
+  border: 1px solid var(--line);
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+}
+.rune::before { /* small diamond glyph in the corner */
+  content: ""; position: absolute; top: 10px; right: 12px; width: 8px; height: 8px;
+  background: var(--gold); transform: rotate(45deg); opacity: .7;
+}
+.rune .label { font-size: .7rem; text-transform: uppercase; letter-spacing: .16em; color: var(--muted); }
+.rune .value { font-family: var(--mono); font-size: 1.6rem; color: var(--ink); line-height: 1.2; }
+.rune .sub   { font-size: .78rem; color: var(--muted); }
+.rune .value img { height: 30px; margin-right: .4rem; vertical-align: -5px; clip-path: polygon(5px 0,100% 0,100% calc(100% - 5px),calc(100% - 5px) 100%,0 100%,0 5px); }
+
+/* --- Hero portraits & item icons ---------------------------------------- */
+.hero-icon { height: 32px; width: 57px; object-fit: cover; border: 1px solid var(--line); }
+.hero-icon.sm { height: 24px; width: 43px; }
+.item-icon {
+  width: 44px; height: 32px; object-fit: cover; border: 1px solid #000;
+  box-shadow: 0 0 0 1px var(--line); background: #000;
+}
+.item-icon.sm { width: 33px; height: 24px; }
+.item-chip { display: inline-flex; flex-direction: column; align-items: center; margin: 0 .35rem .5rem 0; width: 64px; text-align: center; }
+.item-chip .cap { font-size: .62rem; color: var(--muted); line-height: 1.1; margin-top: .2rem; }
+.item-chip .pct { font-family: var(--mono); font-size: .62rem; color: var(--gold); }
+
+/* --- Tier badges (hexagons) -------------------------------------------- */
+.tier {
+  display: inline-grid; place-items: center; width: 28px; height: 30px;
+  font-family: "Cinzel", serif; font-weight: 900; font-size: .85rem; color: #0a0c0f;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+.tier-S { background: linear-gradient(180deg, #f1d18a, #c9a25c); }
+.tier-A { background: linear-gradient(180deg, #8ff0b4, #4fbf7c); }
+.tier-B { background: linear-gradient(180deg, #a9c3ff, #6f93e0); }
+.tier-C { background: linear-gradient(180deg, #b9b9b9, #7d7d7d); }
+.tier-D { background: linear-gradient(180deg, #f08b84, #c4483f); }
+.main-flag { font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold-soft); padding: 0 .3rem; margin-left: .4rem; }
+
+/* --- Meta map: hero portraits placed on a winrate × pickrate field ------ */
+.meta-map {
+  position: relative; height: 430px; margin: .4rem .4rem 1.8rem 3.6rem;
+  border-left: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(90deg, transparent 49.9%, rgba(201,162,92,.10) 50%, transparent 50.1%),
+    linear-gradient(0deg,  transparent 49.9%, rgba(201,162,92,.10) 50%, transparent 50.1%);
+}
+.meta-map .quad { position: absolute; font-family: "Cinzel", serif; font-size: .7rem; letter-spacing: .14em; color: rgba(232,226,212,.22); text-transform: uppercase; }
+.meta-map .q-tl { top: 6px; left: 8px; } .meta-map .q-tr { top: 6px; right: 8px; }
+.meta-map .q-bl { bottom: 6px; left: 8px; } .meta-map .q-br { bottom: 6px; right: 8px; }
+.meta-map .axis-x { position: absolute; bottom: -1.6rem; width: 100%; text-align: center; font-size: .7rem; color: var(--muted); letter-spacing: .12em; text-transform: uppercase; }
+.meta-map .axis-y { position: absolute; left: -3.5rem; top: 50%; transform: rotate(-90deg) translateX(-50%); transform-origin: left top; font-size: .7rem; color: var(--muted); letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+.meta-map .tick { position: absolute; font-family: var(--mono); font-size: .62rem; color: var(--muted); }
+.meta-map .pin { position: absolute; transform: translate(-50%, 50%); transition: transform .15s ease, z-index 0s; z-index: 1; }
+.meta-map .pin img { width: 50px; height: 28px; object-fit: cover; border: 1px solid #000; box-shadow: 0 0 0 1px var(--line), 0 4px 14px rgba(0,0,0,.6); }
+.meta-map .pin.is-main img { box-shadow: 0 0 0 2px var(--gold), 0 0 14px rgba(201,162,92,.45); }
+.meta-map .pin:hover { transform: translate(-50%, 50%) scale(1.35); z-index: 5; }
+.meta-map .pin .tip { display: none; position: absolute; left: 50%; top: 110%; transform: translateX(-50%); white-space: nowrap; background: #000; border: 1px solid var(--gold-soft); padding: .2rem .45rem; font-size: .68rem; font-family: var(--mono); }
+.meta-map .pin:hover .tip { display: block; }
+
+/* --- Build "rail": start -> early -> core -> late as a timeline --------- */
+.rail { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+.rail::before { content: ""; position: absolute; left: 0; right: 0; top: 23px; height: 1px; background: linear-gradient(90deg, var(--radiant), var(--gold), var(--dire)); opacity: .5; }
+.rail .stage { padding: 0 .6rem; position: relative; }
+.rail .stage-title { font-family: "Cinzel", serif; font-size: .75rem; color: var(--gold); letter-spacing: .14em; text-transform: uppercase; background: var(--panel); display: inline-block; padding-right: .5rem; position: relative; margin-bottom: 1.2rem; }
+.rail .stage-title::before { content: ""; display: inline-block; width: 9px; height: 9px; margin-right: .45rem; background: var(--gold); transform: rotate(45deg); }
+
+/* --- Curated core build with timing targets --------------------------- */
+.core-step { display: flex; gap: .7rem; align-items: flex-start; padding: .55rem 0; border-bottom: 1px dashed var(--line); }
+.core-step:last-child { border-bottom: 0; }
+.core-step .min { font-family: var(--mono); color: var(--gold); min-width: 3.2rem; font-size: .85rem; padding-top: .3rem; }
+.core-step .name { font-weight: 600; }
+.core-step .why { color: var(--muted); font-size: .86rem; }
+
+/* --- Notes typography (rendered markdown, "why it works" lists) -------- */
+.lore p, .lore li { line-height: 1.55; }
+.lore li::marker { color: var(--gold); }
+.pill { display: inline-block; border: 1px solid var(--line); padding: .05rem .5rem; margin: 0 .3rem .3rem 0; font-size: .75rem; color: var(--ink); background: rgba(255,255,255,.02); }
+.pill.good { border-color: rgba(95,211,141,.35); color: var(--radiant); }
+.pill.bad  { border-color: rgba(224,82,74,.35); color: var(--dire); }
+
+/* --- Hero header banner ------------------------------------------------ */
+.hero-banner { display: flex; gap: 1.2rem; align-items: center; padding: .4rem 0 .8rem; }
+.hero-banner img { width: 168px; height: 94px; object-fit: cover; border: 1px solid var(--gold-soft); box-shadow: 0 10px 30px rgba(0,0,0,.6); }
+.hero-banner .title { font-family: "Cinzel", serif; font-size: 1.9rem; font-weight: 900; line-height: 1; }
+.hero-banner .identity { color: var(--muted); max-width: 60ch; margin-top: .35rem; }
+
+/* --- Draft helper ------------------------------------------------------ */
+.draft-row { display: grid; grid-template-columns: 34px 64px 1fr 90px; align-items: center; gap: .7rem; padding: .45rem .2rem; border-bottom: 1px solid var(--line); }
+.draft-row .rank { font-family: "Cinzel", serif; color: var(--gold); font-size: 1.1rem; text-align: center; }
+.draft-row .bar { height: 6px; background: var(--line); position: relative; margin-top: .3rem; }
+.draft-row .bar > span { position: absolute; top: 0; bottom: 0; }
+.draft-row .score { font-family: var(--mono); text-align: right; font-size: 1.05rem; }
+
+/* --- reactable dark tweaks --------------------------------------------- */
+.reactable { background: transparent !important; color: var(--ink); }
+.rt-th { color: var(--muted) !important; text-transform: uppercase; font-size: .7rem; letter-spacing: .12em; border-bottom: 1px solid var(--gold-soft) !important; }
+.rt-tr-highlight:hover { background: rgba(201,162,92,.06) !important; }
+.rt-td { border-color: var(--line) !important; }
+.rt-search, .rt-page-size-select { background: var(--panel) !important; color: var(--ink) !important; border: 1px solid var(--line) !important; }
+.wr-bar { height: 5px; background: var(--line); margin-top: 3px; }
+.wr-bar > span { display: block; height: 100%; }
+
+/* --- Inputs ------------------------------------------------------------ */
+.form-control, .form-select, .selectize-input, .selectize-dropdown {
+  background: var(--panel) !important; color: var(--ink) !important; border-color: var(--line) !important; border-radius: 0 !important;
+}
+.selectize-input .item { color: var(--ink) !important; }
+.selectize-dropdown .active { background: rgba(201,162,92,.15) !important; }
+.btn-primary { color: #0a0c0f !important; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; border-radius: 0; }
+
+/* --- Small screens ----------------------------------------------------- */
+@media (max-width: 768px) {
+  .rail { grid-template-columns: repeat(2, 1fr); row-gap: 1rem; }
+  .meta-map { height: 340px; margin-left: 1.8rem; }
+  .hero-banner { flex-direction: column; align-items: flex-start; }
+}

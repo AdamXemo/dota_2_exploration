@@ -1,0 +1,131 @@
+# =============================================================================
+# mod_meta.R — page I: the 15-hero carry board.
+#
+# A Shiny MODULE is a pair of functions (UI + server) that share an `id`.
+# NS(id) ("namespace") prefixes every input/output id, so two modules can both
+# have an input called "bracket" without clashing. Each page of the app is
+# one module; app.R just plugs them together.
+# =============================================================================
+
+mod_meta_ui <- function(id) {
+  ns <- NS(id)
+  bslib::layout_columns(
+    col_widths = 12,
+    # --- controls + KPI tiles ---
+    bslib::layout_columns(
+      col_widths = c(3, 3, 3, 3),
+      div(class = "rune",
+          div(class = "label", "Rank bracket"),
+          selectizeInput(ns("bracket"), NULL, choices = BRACKETS, selected = DEFAULT_BRACKETS,
+                         multiple = TRUE, width = "100%")),
+      uiOutput(ns("kpi_top")),
+      uiOutput(ns("kpi_main")),
+      uiOutput(ns("kpi_games"))
+    ),
+    # --- meta map + table ---
+    bslib::layout_columns(
+      col_widths = c(5, 7),
+      bslib::card(card_title("Meta map", "Gold frame = your main. Hover a portrait."),
+                  bslib::card_body(uiOutput(ns("map")))),
+      bslib::card(card_title("Top 15 carries", "winrate shrunk toward 50% so small samples don't lie"),
+                  bslib::card_body(reactable::reactableOutput(ns("table"))))
+    ),
+    # --- mains across all brackets ---
+    bslib::card(card_title("Your pool across every bracket", "How each main performs from Herald to Divine"),
+                bslib::card_body(plotOutput(ns("pool_plot"), height = "320px")))
+  )
+}
+
+mod_meta_server <- function(id, db) {
+  moduleServer(id, function(input, output, session) {
+
+    # reactive() = a value that recomputes automatically when an input it
+    # uses (here input$bracket) changes, and is cached otherwise.
+    stats <- reactive({
+      req(length(input$bracket) > 0)  # req(): pause until the user picked something
+      bracket_stats(db$hero_stats, as.integer(input$bracket))
+    })
+    board <- reactive(carry_meta_board(stats()))
+
+    output$kpi_top <- renderUI({
+      b <- board()[1, ]
+      rune("Strongest carry", tagList(img(src = b$img), b$name),
+           sprintf("%s adjusted winrate · tier %s", pct(b$wr_adj, 2), b$tier))
+    })
+
+    output$kpi_main <- renderUI({
+      m <- stats() |> filter(id %in% MY_MAINS) |> arrange(desc(wr_adj)) |> slice_head(n = 1)
+      rune("Best of your mains", tagList(img(src = m$img), m$name),
+           sprintf("%s adjusted winrate · tier %s", pct(m$wr_adj, 2), assign_tier(m$wr_adj)))
+    })
+
+    output$kpi_games <- renderUI({
+      rune("Sample size", format(round(sum(stats()$picks) / 10), big.mark = ","),
+           sprintf("matches · patch %s · fetched %s", db$meta$patch, substr(db$meta$fetched_at, 1, 10)))
+    })
+
+    output$map <- renderUI(meta_map(board()))
+
+    output$table <- reactable::renderReactable({
+      b <- board()
+      reactable::reactable(
+        b |> select(rank, tier, name, winrate, wr_adj, pickrate, picks, pro_picks),
+        compact = TRUE, highlight = TRUE, pagination = FALSE,
+        defaultSorted = "rank",
+        columns = list(
+          rank = reactable::colDef(name = "#", width = 44, align = "center",
+                   style = list(fontFamily = "Cinzel", color = PAL$gold)),
+          tier = reactable::colDef(name = "Tier", width = 56, align = "center",
+                   cell = function(v) tier_badge(v)),
+          # cell = function(value, index) lets us return HTML per cell.
+          name = reactable::colDef(name = "Hero", minWidth = 210, cell = function(v, i) {
+            div(style = "display:flex;align-items:center;gap:.5rem",
+                img(class = "hero-icon sm", src = b$img[i]), v,
+                if (b$is_main[i]) span(class = "main-flag", "main"))
+          }),
+          winrate  = reactable::colDef(name = "Winrate", cell = function(v) div(span(class = "num", pct(v, 2)), wr_bar(v))),
+          wr_adj   = reactable::colDef(name = "Adj.", cell = function(v) span(class = "num", pct(v, 2))),
+          pickrate = reactable::colDef(name = "Picked", cell = function(v) span(class = "num", pct(v, 1))),
+          picks    = reactable::colDef(name = "Games", format = reactable::colFormat(separators = TRUE)),
+          pro_picks = reactable::colDef(name = "Pro picks", width = 80)
+        ),
+        theme = reactable::reactableTheme(backgroundColor = "transparent", color = PAL$ink,
+                                          borderColor = PAL$line, highlightColor = "rgba(201,162,92,.06)")
+      )
+    })
+
+    # Line chart: winrate of each main in every bracket (1 = Herald ... 8 = Immortal).
+    output$pool_plot <- renderPlot({
+      rows <- lapply(BRACKETS, function(b) {
+        s <- bracket_stats(db$hero_stats, b)
+        s$bracket <- b
+        s[s$id %in% MY_MAINS, c("name", "bracket", "wr_adj")]
+      })
+      df <- do.call(rbind, rows)
+      # Label each line at its right end. Labels of close lines would overlap,
+      # so we spread them: walk up the sorted list and keep a minimum gap.
+      last <- df[df$bracket == max(BRACKETS), ]
+      last <- last[order(last$wr_adj), ]
+      last$label_y <- last$wr_adj
+      for (i in seq_len(nrow(last))[-1]) {
+        last$label_y[i] <- max(last$label_y[i], last$label_y[i - 1] + 0.0065)
+      }
+
+      ggplot2::ggplot(df, ggplot2::aes(bracket, wr_adj, colour = name)) +
+        ggplot2::geom_hline(yintercept = 0.5, colour = PAL$gold, linetype = "dashed", linewidth = 0.4) +
+        ggplot2::annotate("rect", xmin = 5.5, xmax = 7.5, ymin = -Inf, ymax = Inf,
+                          fill = PAL$gold, alpha = 0.06) +           # highlight Ancient-Divine
+        ggplot2::geom_line(linewidth = 1) +
+        ggplot2::geom_point(size = 2) +
+        ggplot2::geom_text(data = last, ggplot2::aes(y = label_y, label = paste0(name, "  ", pct(wr_adj, 1))),
+                           hjust = 0, nudge_x = 0.12, size = 3.6, show.legend = FALSE) +
+        ggplot2::scale_x_continuous(breaks = BRACKETS, labels = names(BRACKETS),
+                                    expand = ggplot2::expansion(add = c(0.2, 1.4))) +
+        ggplot2::scale_y_continuous(labels = function(v) pct(v, 0)) +
+        ggplot2::scale_colour_manual(values = c("#5fd38d", "#7aa7ff", "#c9a25c", "#e0524a",
+                                                "#b38cff", "#4fd1c5", "#f6ad55", "#e8e2d4")) +
+        ggplot2::labs(x = NULL, y = "Adjusted winrate", colour = NULL) +
+        theme_codex() + ggplot2::theme(legend.position = "none")
+    }, bg = "transparent")
+  })
+}
