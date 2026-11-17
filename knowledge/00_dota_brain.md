@@ -2,7 +2,7 @@
 
 > Read this first. ~1 page of how Dota is won, written for an LLM giving live advice
 > to a **position-1 carry player in Ancient–Divine**. Details: `01_mechanics.md`,
-> `02_carry_playbook.md`, `heroes/*.md`, `meta_snapshot.md`, `data/processed/*.json`.
+> `02_carry_playbook.md`, `03_core_concepts.md`, `heroes/*.md`, `meta_snapshot.md`, `data/processed/*.json`.
 
 ## The player
 - Bracket: **Ancient–Divine**. Role: **pos 1 carry**.

@@ -7,6 +7,7 @@ Compressed Dota 2 context, so an LLM agent (or you) can give useful advice fast.
 | `00_dota_brain.md` | One-page "how Dota is won" + player profile. **Read first.** | hand-written |
 | `01_mechanics.md` | Formulas: armor, magic resist, attack speed, dispels, economy | hand-written |
 | `02_carry_playbook.md` | Lane / mid / late game as a pos 1 | hand-written |
+| `03_core_concepts.md` | Equilibrium, wave management, objectives, vision, timings, teamfights, draft | hand-written |
 | `meta_snapshot.md` | Carry tier list for the current patch (Ancient–Divine) | **generated** |
 | `heroes/*.md` | One page per main: why it works, builds, matchups, live data | **generated** from `data/curated/heroes.json` |
 | `prompts/*.md` | Copy-paste prompts: draft, in-game, post-game | hand-written |
