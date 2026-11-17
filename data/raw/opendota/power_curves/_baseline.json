@@ -1,0 +1,78 @@
+{
+  "window_from_match_id": 9083519267,
+  "latest_match_id": 9093519267,
+  "fetched_at": "2026-11-17 02:06 CET",
+  "sql": "SELECT LEAST(GREATEST(duration / 300, 1), 10) AS bucket, count(*) AS games, sum(CASE WHEN radiant_win THEN 1 ELSE 0 END) AS radiant_wins, min(start_time) AS first_start, max(start_time) AS last_start FROM public_matches WHERE match_id > 9083519267 AND avg_rank_tier >= 60 AND avg_rank_tier < 80 GROUP BY 1 ORDER BY 1",
+  "rows": [
+    {
+      "bucket": 1,
+      "games": 4455,
+      "radiant_wins": 1412,
+      "first_start": 1794250622,
+      "last_start": 1794874211
+    },
+    {
+      "bucket": 2,
+      "games": 4926,
+      "radiant_wins": 2917,
+      "first_start": 1794250582,
+      "last_start": 1794873159
+    },
+    {
+      "bucket": 3,
+      "games": 36102,
+      "radiant_wins": 21481,
+      "first_start": 1794250582,
+      "last_start": 1794873191
+    },
+    {
+      "bucket": 4,
+      "games": 93023,
+      "radiant_wins": 52045,
+      "first_start": 1794250562,
+      "last_start": 1794872996
+    },
+    {
+      "bucket": 5,
+      "games": 135424,
+      "radiant_wins": 76978,
+      "first_start": 1794250531,
+      "last_start": 1794872746
+    },
+    {
+      "bucket": 6,
+      "games": 221865,
+      "radiant_wins": 120957,
+      "first_start": 1794250556,
+      "last_start": 1794872351
+    },
+    {
+      "bucket": 7,
+      "games": 215824,
+      "radiant_wins": 113059,
+      "first_start": 1794250547,
+      "last_start": 1794872036
+    },
+    {
+      "bucket": 8,
+      "games": 193973,
+      "radiant_wins": 96822,
+      "first_start": 1794250551,
+      "last_start": 1794871711
+    },
+    {
+      "bucket": 9,
+      "games": 119396,
+      "radiant_wins": 59634,
+      "first_start": 1794250556,
+      "last_start": 1794871411
+    },
+    {
+      "bucket": 10,
+      "games": 160544,
+      "radiant_wins": 79049,
+      "first_start": 1794250556,
+      "last_start": 1794871091
+    }
+  ]
+}

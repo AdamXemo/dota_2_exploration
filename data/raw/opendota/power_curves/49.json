@@ -1,0 +1,48 @@
+{
+  "hero_id": 49,
+  "window_from_match_id": 9083519267,
+  "min_duration_s": 600,
+  "fetched_at": "2026-11-17 02:09 CET",
+  "rows": [
+    {
+      "bucket": 3,
+      "games": 4364,
+      "wins": 2363
+    },
+    {
+      "bucket": 4,
+      "games": 10513,
+      "wins": 5745
+    },
+    {
+      "bucket": 5,
+      "games": 19859,
+      "wins": 10647
+    },
+    {
+      "bucket": 6,
+      "games": 37188,
+      "wins": 19519
+    },
+    {
+      "bucket": 7,
+      "games": 37193,
+      "wins": 19516
+    },
+    {
+      "bucket": 8,
+      "games": 34148,
+      "wins": 17699
+    },
+    {
+      "bucket": 9,
+      "games": 20746,
+      "wins": 10749
+    },
+    {
+      "bucket": 10,
+      "games": 27261,
+      "wins": 14300
+    }
+  ]
+}

@@ -115,3 +115,23 @@ _Doc: `docs/research/07_synergies.md` · data: `data/processed/synergy_matrix.js
 - API notes: 10 explorer requests in total (≥ 3 s apart), **0 timeouts**; each query took ≈ 3–8 s with the
   10M-id window. Unnesting both team arrays for all 1.19M matches (≈ 11.9M rows) also finished under the
   ≈ 15 s limit. No HTTP 429.
+
+## Research 06 — power curves
+
+- Doc: `docs/research/06_power_curves.md`. Output: `data/processed/power_curves.json`,
+  chart `docs/img/power_curves_mains.png`. Script: `scripts/05_fetch_power_curves.R` (SQL written out in it).
+- Sources: **S11** (OpenDota SQL explorer, `public_matches`: `duration`, `radiant_win`, `avg_rank_tier`,
+  `radiant_team`/`dire_team`), **S4** (hero names, local constants snapshot), **S15** (`data/curated/heroes.json`
+  `core[].target_min` item timings, opinion).
+- Sample: Ancient+Divine (`avg_rank_tier` 60–79), match_id > 9,083,519,267 (10M-id window,
+  2026-11-09 → 2026-11-17), games ≥ 10 min: **1,176,151 matches** (9,381 shorter games dropped).
+  32 carry-pool heroes, 12,491–219,927 games each. Raw: `data/raw/opendota/power_curves/<hero_id>.json`
+  + `_baseline.json` (bracket-wide duration mix).
+- Method: 5-minute duration buckets (`LEAST(GREATEST(duration/300,3),10)`), shrunk winrate with a 500-game
+  prior toward each hero's own overall winrate.
+- Limits: duration is an outcome (stomps end early), selection effects, no position (mid TA/SF/Arc count
+  as carries), lobby-average rank, one week only.
+- Fallback not needed: `/heroes/{id}/durations` (not rank-filtered) was **not** used.
+- API notes: 34 requests in total (1 `/publicMatches`, 1 baseline + 32 per-hero explorer queries, ≥ 3 s apart),
+  **0 timeouts**, ≈ 4 s per query with the 10M-id window. A per-hero `GROUP BY` bucket query is cheap;
+  the smaller 3e6 window and a single all-heroes query were not needed. No HTTP 429.
