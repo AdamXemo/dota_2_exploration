@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dota Carry Lab — Design System</title>
+<!-- Same fonts the Shiny app loads through bslib::font_link() -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<!-- The ONE stylesheet of the app. Everything below is styled by it. -->
+<link rel="stylesheet" href="../../app/www/styles.css">
+<style>
+  /* Preview-page-only helpers (not part of the design system). */
+  body { margin: 0; }
+  .pv { max-width: 1240px; margin: 0 auto; padding: 32px 24px 80px; }
+  .pv-sw { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+  .pv-sw > div { border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; background: var(--panel); }
+  .pv-sw .c { height: 56px; }
+  .pv-sw .m { padding: 8px 10px; font-size: 12px; }
+  .pv-sw .m b { display: block; font-weight: 600; color: var(--ink); }
+  .pv-sw .m span { font-family: var(--font-mono); color: var(--muted); font-size: 11px; }
+  .pv-type > div { display: flex; align-items: baseline; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .pv-type .tk { width: 120px; flex: none; }
+  .pv-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  @media (max-width: 576px) { .pv { padding: 20px 16px 60px; } .pv-type .tk { width: 72px; } }
+</style>
+</head>
+<body>
+<nav class="navbar" style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;padding-left:24px;padding-right:24px;position:sticky;top:0;z-index:10">
+  <span class="navbar-brand">DOTA CARRY LAB <span class="brand-sub">patch 7.41 · ancient–divine</span></span>
+  <div class="pv-row" style="gap:2px;margin-left:12px">
+    <a class="nav-link active"><span class="chapter">00</span>Home</a>
+    <a class="nav-link"><span class="chapter">01</span>Carry Meta</a>
+    <a class="nav-link"><span class="chapter">02</span>Heroes</a>
+    <a class="nav-link"><span class="chapter">03</span>Items</a>
+  </div>
+</nav>
+
+<main class="pv">
+
+  <!-- HERO / DISPLAY ------------------------------------------------------>
+  <header class="section-head" style="margin-top:16px">
+    <div class="eyebrow"><span class="idx">v1.0</span> Design system</div>
+    <h1 class="section-title display">Dota Carry Lab — <span class="frost-text">cold, calm, readable.</span></h1>
+    <p class="section-sub">Graphite surfaces, 1px hairlines, ice + lilac accents, tabular numbers. Every component on this page is styled only by <span class="data-label">app/www/styles.css</span>.</p>
+  </header>
+
+  <!-- TOKENS: colour ------------------------------------------------------>
+  <section class="section">
+    <div class="section-head"><div class="eyebrow"><span class="idx">01</span> Tokens</div><h2 class="section-title">Colour</h2></div>
+    <h6 class="muted" style="margin:0 0 8px">Surfaces & text</h6>
+    <div class="pv-sw">
+      <div><div class="c" style="background:var(--bg)"></div><div class="m"><b>--bg</b><span>#0b0e13</span></div></div>
+      <div><div class="c" style="background:var(--bg-2)"></div><div class="m"><b>--bg-2</b><span>#0f131a</span></div></div>
+      <div><div class="c" style="background:var(--panel)"></div><div class="m"><b>--panel</b><span>#121820</span></div></div>
+      <div><div class="c" style="background:var(--panel-2)"></div><div class="m"><b>--panel-2</b><span>#18202a</span></div></div>
+      <div><div class="c" style="background:var(--line)"></div><div class="m"><b>--line</b><span>#232c38</span></div></div>
+      <div><div class="c" style="background:var(--line-strong)"></div><div class="m"><b>--line-strong</b><span>#2f3a48</span></div></div>
+      <div><div class="c" style="background:var(--ink)"></div><div class="m"><b>--ink</b><span>#e6ebf2 · 14.9:1</span></div></div>
+      <div><div class="c" style="background:var(--ink-2)"></div><div class="m"><b>--ink-2</b><span>#b4bfcc · 9.6:1</span></div></div>
+      <div><div class="c" style="background:var(--muted)"></div><div class="m"><b>--muted</b><span>#8a96a8 · 5.9:1</span></div></div>
+      <div><div class="c" style="background:var(--faint)"></div><div class="m"><b>--faint</b><span>#5d6878 · deco only</span></div></div>
+    </div>
+    <h6 class="muted" style="margin:20px 0 8px">Accents & semantic</h6>
+    <div class="pv-sw">
+      <div><div class="c" style="background:var(--ice)"></div><div class="m"><b>--ice (primary)</b><span>#8fd0f0</span></div></div>
+      <div><div class="c" style="background:var(--lilac)"></div><div class="m"><b>--lilac</b><span>#b4a7f5</span></div></div>
+      <div><div class="c" style="background:var(--radiant)"></div><div class="m"><b>--radiant (good)</b><span>#5ed6b0</span></div></div>
+      <div><div class="c" style="background:var(--dire)"></div><div class="m"><b>--dire (bad)</b><span>#f0788a</span></div></div>
+      <div><div class="c" style="background:var(--attr-str)"></div><div class="m"><b>--attr-str</b><span>#f0788a</span></div></div>
+      <div><div class="c" style="background:var(--attr-agi)"></div><div class="m"><b>--attr-agi</b><span>#5ed6b0</span></div></div>
+      <div><div class="c" style="background:var(--attr-int)"></div><div class="m"><b>--attr-int</b><span>#7fb4ff</span></div></div>
+      <div><div class="c" style="background:var(--attr-all)"></div><div class="m"><b>--attr-all</b><span>#b4a7f5</span></div></div>
+    </div>
+    <h6 class="muted" style="margin:20px 0 8px">Tiers & chart series (in order)</h6>
+    <div class="pv-row">
+      <span class="tier tier-S">S</span><span class="tier tier-A">A</span><span class="tier tier-B">B</span><span class="tier tier-C">C</span><span class="tier tier-D">D</span>
+      <span style="width:16px"></span>
+      <span class="tag" style="color:var(--series-1)"><span class="dot"></span>1</span>
+      <span class="tag" style="color:var(--series-2)"><span class="dot"></span>2</span>
+      <span class="tag" style="color:var(--series-3)"><span class="dot"></span>3</span>
+      <span class="tag" style="color:var(--series-4)"><span class="dot"></span>4</span>
+      <span class="tag" style="color:var(--series-5)"><span class="dot"></span>5</span>
+      <span class="tag" style="color:var(--series-6)"><span class="dot"></span>6</span>
+      <span class="tag" style="color:var(--series-7)"><span class="dot"></span>7</span>
+      <span class="tag" style="color:var(--series-8)"><span class="dot"></span>8</span>
+    </div>
+  </section>
+
+  <!-- TOKENS: type -------------------------------------------------------->
+  <section class="section">
+    <div class="section-head"><div class="eyebrow"><span class="idx">02</span> Tokens</div><h2 class="section-title">Typography</h2>
+      <p class="section-sub">Space Grotesk for titles & big numbers · Inter for UI · JetBrains Mono for data.</p></div>
+    <div class="pv-type surface">
+      <div><span class="data-label tk">3xl · 44</span><span style="font-family:var(--font-display);font-size:var(--fs-3xl);font-weight:700;letter-spacing:-.03em;line-height:1">Carry Lab</span></div>
+      <div><span class="data-label tk">2xl · 32</span><span style="font-family:var(--font-display);font-size:var(--fs-2xl);font-weight:700">Wraith King</span></div>
+      <div><span class="data-label tk">xl · 24</span><span style="font-family:var(--font-display);font-size:var(--fs-xl);font-weight:600">Top 15 carries</span></div>
+      <div><span class="data-label tk">lg · 18</span><span style="font-size:var(--fs-lg);font-weight:600">Core build & timings</span></div>
+      <div><span class="data-label tk">md · 15</span><span>Two lives, a stun and lifesteal. The most forgiving carry in the pool.</span></div>
+      <div><span class="data-label tk">sm · 13</span><span class="muted" style="font-size:var(--fs-sm)">Winrate shrunk toward 50% so small samples don't lie.</span></div>
+      <div><span class="data-label tk">2xs · 11</span><span class="eyebrow">Adjusted winrate</span></div>
+      <div><span class="data-label tk">mono</span><span class="num" style="font-size:var(--fs-lg)">53.32% · 112,229 · +3.4 pp</span></div>
+    </div>
+  </section>
+
+  <!-- TIERLIST ------------------------------------------------------------>
+  <section class="section">
+    <div class="section-head row-head">
+      <div><div class="eyebrow"><span class="idx">03</span> Component</div><h2 class="section-title">Tier list</h2>
+        <p class="section-sub">Hover a portrait for name + winrate. <span class="data-label">.tierlist</span> · rows <span class="data-label">.tierlist-row.t-S</span></p></div>
+      <div class="cluster">
+        <button class="chip is-active">Ancient–Divine</button><button class="chip">Herald–Crusader</button><button class="chip">All <span class="count">7</span></button>
+      </div>
+    </div>
+    <div class="tierlist" id="tl"></div>
+    <div style="height:16px"></div>
+    <div class="tierlist captions">
+      <div class="tierlist-row t-S"><div class="tierlist-label">S</div><div class="tierlist-items" id="tl2"></div></div>
+      <div class="tierlist-row t-D"><div class="tierlist-label">D</div><div class="tierlist-items"></div></div>
+    </div>
+  </section>
+
+  <!-- STAT CARDS ---------------------------------------------------------->
+  <section class="section">
+    <div class="section-head"><div class="eyebrow"><span class="idx">04</span> Component</div><h2 class="section-title">Stat cards / KPI</h2></div>
+    <div class="grid grid-4">
+      <div class="stat-card accent"><div class="stat-label">Strongest carry <span class="tier tier-S">S</span></div>
+        <div class="stat-value">53.32<span class="unit">%</span></div>
+        <div class="stat-sub"><span class="delta-up">1.2 pp</span> vs last patch</div></div>
+      <div class="stat-card"><div class="stat-label">Matches analysed</div>
+        <div class="stat-value">946,441</div><div class="stat-sub">patch 7.41 · Ancient–Divine</div></div>
+      <div class="stat-card"><div class="stat-label">Shadow Fiend</div>
+        <div class="stat-value">41.4<span class="unit">%</span></div>
+        <div class="stat-sub"><span class="delta-down">4.8 pp</span><span class="sparkline bad"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><path class="area" d="M0,4 L16,6 L33,8 L50,14 L66,19 L83,23 L100,27 L100,30 L0,30Z"/><polyline points="0,4 16,6 33,8 50,14 66,19 83,23 100,27"/></svg></span></div></div>
+      <div class="stat-card"><div class="stat-label">Pick rate</div>
+        <div class="stat-value">11.9<span class="unit">%</span></div>
+        <div class="stat-sub"><span class="delta-flat">0.0</span><span class="sparkline"><svg viewBox="0 0 100 30" preserveAspectRatio="none"><polyline points="0,18 16,15 33,17 50,12 66,14 83,10 100,12"/><circle cx="100" cy="12" r="2.5"/></svg></span></div></div>
+    </div>
+    <div class="grid grid-3" style="margin-top:16px">
+      <div class="rune"><div class="label">Legacy .rune tile</div><div class="value"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/skeleton_king.png" alt="">Wraith King</div><div class="sub">53.32% adjusted winrate · tier S</div></div>
+      <div class="rune"><div class="label">MMR trend</div><div class="value"><span class="bad">-3.0 pp</span></div><div class="sub">Herald–Crusader → Ancient–Divine</div></div>
+      <div class="rune"><div class="label">Sample size</div><div class="value">946,441</div><div class="sub">matches · fetched 2026-11-17</div></div>
+    </div>
+  </section>
+
+  <!-- HERO TILES ---------------------------------------------------------->
+  <section class="section">
+    <div class="section-head"><div class="eyebrow"><span class="idx">05</span> Component</div><h2 class="section-title">Hero tiles</h2></div>
+    <div class="grid grid-auto" id="tiles"></div>
+  </section>
+
+  <!-- CALLOUTS + METERS --------------------------------------------------->
+  <section class="section">
+    <div class="grid grid-2">
+      <div class="stack">
+        <div class="section-head" style="margin:0"><div class="eyebrow"><span class="idx">06</span> Component</div><h2 class="section-title">Callouts</h2></div>
+        <div class="callout"><span class="callout-icon">i</span><div><span class="callout-title">Insight</span>Wraith King gains +3.0 pp from Herald to Divine: the simplest kit scales best with good positioning.</div></div>
+        <div class="callout lilac"><span class="callout-icon">?</span><div><span class="callout-title">Method</span>Winrates are shrunk toward 50% with a 400-game prior, so rare heroes don't top the list by luck.</div></div>
+        <div class="callout good"><span class="callout-icon">↑</span><div><span class="callout-title">Pick it</span>Spectre is under-picked (7.5%) for a 52.4% winrate.</div></div>
+        <div class="callout bad"><span class="callout-icon">!</span><div><span class="callout-title">Avoid</span>Shadow Fiend sits at 41.4% in your bracket.</div></div>
+      </div>
+      <div class="stack">
+        <div class="section-head" style="margin:0"><div class="eyebrow"><span class="idx">07</span> Component</div><h2 class="section-title">Bar meters & rank list</h2></div>
+        <div class="surface">
+          <div class="meter-row"><span class="meter-name"><img class="hero-icon sm" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/skeleton_king.png" alt="">Wraith King</span><div class="bar-meter good" style="--v:82%"><span></span></div><span class="meter-val good">53.3%</span></div>
+          <div class="meter-row"><span class="meter-name"><img class="hero-icon sm" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" alt="">Juggernaut</span><div class="bar-meter good" style="--v:74%"><span></span></div><span class="meter-val good">52.9%</span></div>
+          <div class="meter-row"><span class="meter-name"><img class="hero-icon sm" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/luna.png" alt="">Luna</span><div class="bar-meter" style="--v:52%"><span></span></div><span class="meter-val">50.1%</span></div>
+          <div class="meter-row"><span class="meter-name"><img class="hero-icon sm" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/nevermore.png" alt="">Shadow Fiend</span><div class="bar-meter bad" style="--v:18%"><span></span></div><span class="meter-val bad">41.4%</span></div>
+          <div class="meter-row"><span class="meter-name">Thin + centre mark</span><div class="bar-meter thin center lilac" style="--v:64%"><span></span></div><span class="meter-val lilac">64%</span></div>
+        </div>
+        <ol class="rank-list surface">
+          <li><img class="item-icon sm" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/radiance.png" alt=""><span class="grow">Radiance</span><span class="data-label"><span class="k">t</span>~16'</span></li>
+          <li><img class="item-icon sm" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png" alt=""><span class="grow">Blink Dagger</span><span class="data-label"><span class="k">t</span>~20'</span></li>
+          <li><img class="item-icon sm" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt=""><span class="grow">Black King Bar</span><span class="data-label"><span class="k">t</span>~25'</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHIPS / TAGS / BUTTONS --------------------------------------------->
+  <section class="section">
+    <div class="section-head"><div class="eyebrow"><span class="idx">08</span> Component</div><h2 class="section-title">Chips, tags, labels, buttons</h2></div>
+    <div class="stack surface">
+      <div class="cluster">
+        <button class="chip is-active">Carry</button><button class="chip">Mid</button><button class="chip">Offlane</button>
+        <button class="chip"><img src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png" alt="">Anti-Mage <span class="count">162k</span></button>
+      </div>
+      <div class="cluster">
+        <span class="tag">Neutral</span><span class="tag ice">New</span><span class="tag lilac">Curated</span><span class="tag good">Buff</span><span class="tag bad">Nerf</span>
+        <span class="tag str"><span class="dot"></span>Str</span><span class="tag agi"><span class="dot"></span>Agi</span><span class="tag int"><span class="dot"></span>Int</span><span class="tag all"><span class="dot"></span>Uni</span>
+        <span class="main-flag">main</span>
+      </div>
+      <div class="cluster">
+        <span class="pill">Melee</span><span class="pill">pos 1</span><span class="pill good">Level 6 Reincarnation</span><span class="pill bad">Weak vs Pudge</span>
+        <span class="data-label"><span class="k">WR</span>53.32%</span><span class="data-label"><span class="k">n</span>112,229</span><span class="data-label">7.41</span>
+        <span class="delta-up">2.1</span><span class="delta-down">0.8</span><span class="delta-flat">0.0</span>
+      </div>
+      <div class="cluster">
+        <button class="btn btn-primary">Open hero</button><button class="btn btn-secondary">Compare</button>
+        <button class="btn btn-outline-primary">Export</button><button class="btn btn-ghost">Reset</button>
+        <button class="btn btn-primary btn-sm">Small</button>
+      </div>
+      <div class="grid grid-3">
+        <input class="form-control" placeholder="Search heroes or items…">
+        <select class="form-select"><option>Cost (high → low)</option></select>
+        <div class="cluster"><span class="ice">.ice</span><span class="lilac">.lilac</span><span class="good">.good</span><span class="bad">.bad</span><span class="muted">.muted</span><span class="num">.num 0123456789</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP COMPONENTS ----------------------------------------------------->
+  <section class="section">
+    <div class="section-head"><div class="eyebrow"><span class="idx">09</span> Existing app hooks</div><h2 class="section-title">Cards, rail, core steps, item cards</h2></div>
+    <div class="grid grid-2">
+      <div class="card"><div class="card-header">Live build <span class="hint">most purchased in high-MMR games</span></div>
+        <div class="card-body"><div class="rail" id="rail"></div></div></div>
+      <div class="card"><div class="card-header">Core build &amp; timings <span class="hint">Ancient–Divine targets</span></div>
+        <div class="card-body">
+          <div class="core-step"><div class="min">~16'</div><img class="item-icon" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/radiance.png" alt=""><div><div class="name">Radiance</div><div class="why">Farm by walking + evasion; pushes with skeletons.</div></div></div>
+          <div class="core-step"><div class="min">~20'</div><img class="item-icon" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blink.png" alt=""><div><div class="name">Blink Dagger</div><div class="why">Missing gap closer: Blink → Wraithfire on the backline.</div></div></div>
+          <div class="core-step"><div class="min">~25'</div><img class="item-icon" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png" alt=""><div><div class="name">Black King Bar</div><div class="why">Keeps you hitting through disables.</div></div></div>
+        </div></div>
+      <div class="codex-panel item-card">
+        <div class="item-head"><img class="item-icon" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/bfury.png" alt="">
+          <div><div class="name">Battle Fury</div><div class="num gold">4100g</div><span class="pill">farming</span><span class="pill good">104% stat value</span></div></div>
+        <ul class="item-stats"><li>+55 Damage</li><li>+7.5 HP Regen</li><li>+2.75 Mana Regen</li></ul>
+        <div class="item-active"><p>Cleave: deals 50% of attack damage as splash in a cone.</p></div>
+        <p class="why"><strong>Why: </strong>Fastest farm on melee carries.</p>
+      </div>
+      <div class="lore surface">
+        <p><strong>Win condition:</strong> Hit Radiance or Armlet + Blink + BKB, jump on the backline with two lives.</p>
+        <ul><li>Reincarnation = a second life.</li><li>Innate lifesteal: right-click sustain without items.</li><li class="bad">Don't buy Radiance into heavy early pressure.</li></ul>
+        <div class="draft-row"><div class="rank">1</div><img class="hero-icon" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/juggernaut.png" alt=""><div>Juggernaut<div class="bar"><span style="width:72%;background:var(--radiant)"></span></div></div><div class="score">+4.2</div></div>
+        <div class="draft-row"><div class="rank">2</div><img class="hero-icon" src="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/sven.png" alt=""><div>Sven<div class="bar"><span style="width:48%;background:var(--ice)"></span></div></div><div class="score">+1.9</div></div>
+        <div>Win rate bar <div class="wr-bar"><span style="width:70%;background:var(--radiant)"></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMPTY STATE -------------------------------------------------------->
+  <section class="section">
+    <div class="section-head"><div class="eyebrow"><span class="idx">10</span> Component</div><h2 class="section-title">Empty state</h2></div>
+    <div class="empty-state"><div class="empty-icon">∅</div><div class="empty-title">No item matches</div><p>Try a broader search, e.g. “dispel” or “evasion”, or clear the category filter.</p><button class="btn btn-secondary btn-sm">Clear filters</button></div>
+  </section>
+</main>
+
+<script>
+// Small demo data so the markup above stays short. In the Shiny app the same
+// HTML is produced by R (htmltools tags) — see DESIGN_SYSTEM.md.
+const CDN = "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/";
+const H = (k) => CDN + "heroes/" + k + ".png", I = (k) => CDN + "items/" + k + ".png";
+const tiers = {
+  S: [["skeleton_king","Wraith King",53.3,1],["juggernaut","Juggernaut",52.9],["phantom_lancer","Phantom Lancer",52.7,1],["dragon_knight","Dragon Knight",52.6]],
+  A: [["spectre","Spectre",52.4],["arc_warden","Arc Warden",51.9,1],["bloodseeker","Bloodseeker",51.8],["sven","Sven",51.7],["life_stealer","Lifestealer",51.4],["lycan","Lycan",51.2]],
+  B: [["antimage","Anti-Mage",50.9,1],["troll_warlord","Troll Warlord",50.9],["chaos_knight","Chaos Knight",50.2],["luna","Luna",50.1],["ursa","Ursa",50.1]],
+  C: [["phantom_assassin","Phantom Assassin",49.6,1],["morphling","Morphling",48.7,1],["faceless_void","Faceless Void",48.5]],
+  D: [["templar_assassin","Templar Assassin",46.9,1],["nevermore","Shadow Fiend",41.4,1]]
+};
+const heroLink = ([k, n, wr, main]) =>
+  `<a class="tierlist-hero${main ? " is-main" : ""}" href="#" title="${n}"><img src="${H(k)}" alt="${n}" loading="lazy"><span class="tl-name">${n}</span><span class="tl-stat">${wr.toFixed(1)}%</span></a>`;
+document.getElementById("tl").innerHTML = Object.entries(tiers).map(([t, hs]) =>
+  `<div class="tierlist-row t-${t}"><div class="tierlist-label">${t}<small>${hs.length}</small></div><div class="tierlist-items">${hs.map(heroLink).join("")}</div></div>`).join("");
+document.getElementById("tl2").innerHTML = tiers.S.map(heroLink).join("");
+
+const tiles = [["skeleton_king","Wraith King","S","53.3%","11.9%",1],["juggernaut","Juggernaut","S","52.9%","18.7%"],
+  ["spectre","Spectre","A","52.4%","7.5%"],["arc_warden","Arc Warden","A","51.9%","4.9%",1],["luna","Luna","B","50.1%","14.5%"]];
+document.getElementById("tiles").innerHTML = tiles.map(([k,n,t,wr,pr,m]) =>
+  `<a class="hero-tile${m?" is-main":""}" href="#"><div class="hero-tile-img"><img src="${H(k)}" alt="${n}" loading="lazy"><span class="tier tier-${t}">${t}</span>${m?'<span class="tag ice">main</span>':""}</div>
+   <div class="hero-tile-body"><div class="hero-tile-name">${n}</div><div class="hero-tile-stats"><div class="hs"><span class="k">Winrate</span><span class="v ${parseFloat(wr)>=50?"good":"bad"}">${wr}</span></div><div class="hs"><span class="k">Picked</span><span class="v">${pr}</span></div></div></div></a>`).join("");
+
+const rail = {Start:[["tango","Tango","60%"],["quelling_blade","Quelling","61%"]],Early:[["phase_boots","Phase","72%"],["bracer","Bracer","63%"]],
+  Core:[["radiance","Radiance","100%"],["blink","Blink","89%"]],Late:[["black_king_bar","BKB","100%"],["assault","Cuirass","78%"]]};
+document.getElementById("rail").innerHTML = Object.entries(rail).map(([ph, its]) =>
+  `<div class="stage"><div class="stage-title">${ph}</div><div>${its.map(([k,n,p]) =>
+    `<div class="item-chip"><img class="item-icon" src="${I(k)}" alt="${n}"><div class="cap">${n}</div><div class="pct">${p}</div></div>`).join("")}</div></div>`).join("");
+</script>
+</body>
+</html>

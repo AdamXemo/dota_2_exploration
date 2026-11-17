@@ -23,12 +23,12 @@ ui <- bslib::page_navbar(
   fillable = FALSE,
   header = tags$head(tags$link(rel = "stylesheet", href = "styles.css")),
 
-  bslib::nav_panel(tagList(span(class = "chapter", "I"), "Carry Meta"), mod_meta_ui("meta"), value = "meta"),
-  bslib::nav_panel(tagList(span(class = "chapter", "II"), "Heroes"),    mod_hero_ui("hero", db), value = "hero"),
-  bslib::nav_panel(tagList(span(class = "chapter", "III"), "Item Codex"), mod_items_ui("items", db), value = "items"),
-  bslib::nav_panel(tagList(span(class = "chapter", "IV"), "Draft"), mod_draft_ui("draft", db), value = "draft"),
-  bslib::nav_panel(tagList(span(class = "chapter", "V"), "My Stats"), mod_mystats_ui("me"), value = "me"),
-  bslib::nav_panel(tagList(span(class = "chapter", "VI"), "Notes"), mod_notes_ui("notes"), value = "notes"),
+  bslib::nav_panel(tagList(span(class = "chapter", "01"), "Carry Meta"), mod_meta_ui("meta"), value = "meta"),
+  bslib::nav_panel(tagList(span(class = "chapter", "02"), "Heroes"),    mod_hero_ui("hero", db), value = "hero"),
+  bslib::nav_panel(tagList(span(class = "chapter", "03"), "Item Codex"), mod_items_ui("items", db), value = "items"),
+  bslib::nav_panel(tagList(span(class = "chapter", "04"), "Draft"), mod_draft_ui("draft", db), value = "draft"),
+  bslib::nav_panel(tagList(span(class = "chapter", "05"), "My Stats"), mod_mystats_ui("me"), value = "me"),
+  bslib::nav_panel(tagList(span(class = "chapter", "06"), "Notes"), mod_notes_ui("notes"), value = "notes"),
 
   bslib::nav_spacer(),
   bslib::nav_item(tags$a(href = "https://www.opendota.com", target = "_blank",

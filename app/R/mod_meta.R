@@ -25,7 +25,7 @@ mod_meta_ui <- function(id) {
     # --- meta map + table ---
     bslib::layout_columns(
       col_widths = c(5, 7),
-      bslib::card(card_title("Meta map", "Gold frame = your main. Hover a portrait."),
+      bslib::card(card_title("Meta map", "Highlighted frame = your main. Hover a portrait."),
                   bslib::card_body(uiOutput(ns("map")))),
       bslib::card(card_title("Top 15 carries", "winrate shrunk toward 50% so small samples don't lie"),
                   bslib::card_body(reactable::reactableOutput(ns("table"))))
@@ -74,7 +74,7 @@ mod_meta_server <- function(id, db) {
         defaultSorted = "rank",
         columns = list(
           rank = reactable::colDef(name = "#", width = 44, align = "center",
-                   style = list(fontFamily = "Cinzel", color = PAL$gold)),
+                   style = list(fontFamily = "JetBrains Mono", color = PAL$muted)),
           tier = reactable::colDef(name = "Tier", width = 56, align = "center",
                    cell = function(v) tier_badge(v)),
           # cell = function(value, index) lets us return HTML per cell.
@@ -90,7 +90,7 @@ mod_meta_server <- function(id, db) {
           pro_picks = reactable::colDef(name = "Pro picks", width = 80)
         ),
         theme = reactable::reactableTheme(backgroundColor = "transparent", color = PAL$ink,
-                                          borderColor = PAL$line, highlightColor = "rgba(201,162,92,.06)")
+                                          borderColor = PAL$line, highlightColor = "rgba(143,208,240,.06)")
       )
     })
 
@@ -122,8 +122,8 @@ mod_meta_server <- function(id, db) {
         ggplot2::scale_x_continuous(breaks = BRACKETS, labels = names(BRACKETS),
                                     expand = ggplot2::expansion(add = c(0.2, 1.4))) +
         ggplot2::scale_y_continuous(labels = function(v) pct(v, 0)) +
-        ggplot2::scale_colour_manual(values = c("#5fd38d", "#7aa7ff", "#c9a25c", "#e0524a",
-                                                "#b38cff", "#4fd1c5", "#f6ad55", "#e8e2d4")) +
+        ggplot2::scale_colour_manual(values = c("#8fd0f0", "#b4a7f5", "#5ed6b0", "#f0788a",
+                                                "#8ea6ff", "#c7d3e0", "#4fb8c9", "#d59ee0")) +
         ggplot2::labs(x = NULL, y = "Adjusted winrate", colour = NULL) +
         theme_codex() + ggplot2::theme(legend.position = "none")
     }, bg = "transparent")
