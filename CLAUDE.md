@@ -11,6 +11,8 @@ R + Shiny Dota 2 research lab for a **position-1 carry in Ancient–Divine**. Tw
      skeleton_king = Wraith King, templar_assassin, nevermore = Shadow Fiend, arc_warden, phantom_assassin)
    - meta / what to pick → `knowledge/meta_snapshot.md`, `docs/research/01_carry_meta_7.41.md`
    - counters → `docs/research/04_matchups_and_counters.md`, `data/processed/counter_matrix.json`
+   - teammates / synergy → `docs/research/07_synergies.md`, `data/processed/synergy_matrix.json`
+   - when a hero wins (game length, fight-or-farm timing) → `docs/research/06_power_curves.md`, `data/processed/power_curves.json`
    - items → `data/processed/items_reference.json` (live 7.41 stats), `docs/research/02_*`, `03_*`
    - mechanics / concepts → `knowledge/01_mechanics.md`, `knowledge/03_core_concepts.md`
 3. Answer short and ranked ("1) do now 2) next item 3) watch out"), one line of **why** each.
