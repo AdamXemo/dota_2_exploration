@@ -81,6 +81,13 @@ hero_item_popularity <- function(db, id, top = 8) {
                      item  = unname(db$item_ids[names(counts)]),
                      count = as.numeric(counts))
     if (p != "start_game_items") df <- df[!df$item %in% noise, ]
+    # In Core/Late, hide basic components (Hyperstone, Sacred Relic...): they
+    # are just half-built items. Blink Dagger is basic but a real item.
+    if (p %in% c("mid_game_items", "late_game_items")) {
+      # length() == 0 catches both NULL and {} (jsonlite writes JSON null as {}).
+      is_basic <- vapply(df$item, function(k) length(db$items[[k]]$components) == 0, logical(1))
+      df <- df[!is_basic | df$item %in% c("blink", "aghanims_shard"), ]
+    }
     df <- df[order(-df$count), ][seq_len(min(top, nrow(df))), ]
     df$share <- df$count / max(df$count)
     df
