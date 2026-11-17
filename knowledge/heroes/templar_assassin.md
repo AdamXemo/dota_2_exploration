@@ -56,10 +56,10 @@ Refraction and Meld for burst and trades; Psi Blades value points; Psionic Trap 
 - **Linken's Sphere** — Vs single-target lockdown (Doom, Lion Hex).
 
 ## Struggles vs
-- **Many small damage instances (Gyro, Razor, Viper, Jakiro)** — Each tick/hit burns one Refraction charge.
 - **True sight / dust + AoE** — Meld is countered by detection; traps get cleared.
 - **Late-game hard carries** — TA falls off if she doesn't end.
 - **Armor stackers** — Physical burst falls off.
+- **Phoenix, Phantom Lancer, Spectre** — Data-backed counters (Research 04, Ancient–Divine data): many damage instances / bodies burn Refraction charges.
 
 ## Thrives vs
 - **Big single-nuke heroes (Lina, Lion, Zeus ult)** — One Refraction charge blocks a huge nuke.

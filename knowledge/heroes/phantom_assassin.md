@@ -62,6 +62,7 @@ Stifling Dagger early for last hits and harass, Phantom Strike for kills/escape,
 - **Ghost Scepter, Glimmer, ethereal saves** — Physical-only damage.
 - **Armor stackers (Dragon Knight, Assault)** — Crit damage falls off.
 - **Heavy disable lineups pre-BKB** — Low HP melee hero.
+- **Bristleback, Troll Warlord, Axe, Omniknight** — Data-backed counters (Research 04, Ancient–Divine data).
 
 ## Thrives vs
 - **Right-click carries without MKB** — Immaterial makes them miss.

@@ -63,7 +63,7 @@ Wraithfire Blast for kills/escape, Mortal Strike and Bone Guard for farm/push; R
 - **Mana burn (Anti-Mage, Nyx)** — No mana = no Reincarnation.
 - **Break (Silver Edge, Doom, PA Fan of Knives)** — Disables passives, including lifesteal and your second life.
 - **Heal reduction (Spirit Vessel, AA, Skadi)** — Cuts lifesteal sustain.
-- **Kiting heroes (Drow, Razor, Viper)** — WK has no built-in gap closer before Blink.
+- **Warlock, Keeper of the Light, Phantom Lancer** — Data-backed counters (Research 04, Ancient–Divine data). Note: Reincarnation costs 0 mana at level 18, so mana burn matters mostly before that.
 
 ## Thrives vs
 - **Burst lineups** — They kill you once and then you come back.

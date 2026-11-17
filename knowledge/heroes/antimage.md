@@ -61,13 +61,15 @@ Mana Break + Blink early (Blink gets maxed for farm/escape); one value point in 
 ## Struggles vs
 - **Axe** — Berserker's Call goes through Blink escapes; Counter Helix shreds AM's low HP early.
 - **Legion Commander** — Duel is a single-target lock; needs Linken's or Counterspell timing.
-- **Phantom Lancer** — Mana Break on illusions is weak, and PL out-farms and out-fights AM in the mid game.
 - **Fast tempo lineups** — If enemies take towers early, AM's long timings never arrive.
 - **Heavy lockdown chains** — Bane, Shadow Shaman, Lion: a disable chain before AM reacts.
+- **Meepo, Huskar, Ursa** — Data-backed counters (Research 04, Ancient–Divine data): burst/mana-independent heroes AM's mana burn can't shut down.
 
 ## Thrives vs
 - **Int cores (Storm, Medusa, Zeus, Leshrac)** — Mana Break plus Persecutor empties and slows them; Mana Void finishes.
 - **Slow, passive lineups** — Every minute of peace = a free item.
+- **Phantom Lancer, Wraith King, Morphling** — AM beats three of your own mains (+4.2 / +4.4 / +4.5 pp) (Research 04, Ancient–Divine data).
+- **Medusa** — Biggest edge found: +13 pp. Mana Shield = her HP is mana.
 
 ## Data: hardest matchups (OpenDota high-MMR, shrunk)
 - Timbersaw (-6.1 pp, 37 games)

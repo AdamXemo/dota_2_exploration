@@ -55,7 +55,7 @@ Spirit Lance for lane harass and last hits, Juxtapose for illusion scaling, Dopp
 ## Struggles vs
 - **AoE illusion clearers (Ember, Earthshaker, Leshrac, Sven, Medusa)** — Illusions take extra damage and die to AoE in one go.
 - **Mjollnir / Battle Fury carries** — Bounce and cleave kill illusions passively.
-- **Strong lanes (Viper, Bristleback)** — PL needs farm; a bad lane delays everything.
+- **Tidehunter, Underlord, Dark Seer, Axe** — Top data counters (−5 to −6 pp) (Research 04, Ancient–Divine data): AoE + illusions take 600% damage.
 
 ## Thrives vs
 - **Single-target lineups** — They can't kill 15 targets.

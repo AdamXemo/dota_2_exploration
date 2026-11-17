@@ -54,7 +54,7 @@ Shadowraze max early (wave clear and kills), Necromastery souls passively, Feast
 - **Monkey King Bar** — Vs evasion.
 
 ## Struggles vs
-- **Strong mid gankers / divers (Storm, Puck, Ember, Void Spirit)** — SF has no escape.
+- **No specific counter — he is just weak this patch** — Worst matchup only −3.2 pp, but 41.8% overall (Research 04, Ancient–Divine data). Counter-picking won't save him; avoid him instead.
 - **Silences and roots** — No razes, no escape.
 - **Losing the mid lane** — Low souls = no damage; SF is all snowball.
 

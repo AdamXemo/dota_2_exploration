@@ -56,6 +56,7 @@ Flux early for lane kills, Magnetic Field for push/defense, Spark Wraith for far
 - **Strong early pressure / tempo** — Midas build is slow; dying early ruins the scaling curve.
 - **Divers (Storm, Slark, Spirit Breaker)** — Low HP, no escape beyond Field.
 - **AoE that kills the Double** — Double dies = gold bounty and lost DPS.
+- **Broodmother, Meepo, Lycan** — Worst matchups (−10.7 / −9.1 pp) (Research 04, Ancient–Divine data): Flux deals no damage when another enemy unit is near the target.
 
 ## Thrives vs
 - **Slow, farm-oriented drafts** — Arc out-farms and out-pushes them.

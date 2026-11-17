@@ -164,16 +164,16 @@
           "why": "Duel is a single-target lock; needs Linken's or Counterspell timing."
         },
         {
-          "name": "Phantom Lancer",
-          "why": "Mana Break on illusions is weak, and PL out-farms and out-fights AM in the mid game."
-        },
-        {
           "name": "Fast tempo lineups",
           "why": "If enemies take towers early, AM's long timings never arrive."
         },
         {
           "name": "Heavy lockdown chains",
           "why": "Bane, Shadow Shaman, Lion: a disable chain before AM reacts."
+        },
+        {
+          "name": "Meepo, Huskar, Ursa",
+          "why": "Data-backed counters (Research 04, Ancient–Divine data): burst/mana-independent heroes AM's mana burn can't shut down."
         }
       ],
       "thrives_vs": [
@@ -184,6 +184,14 @@
         {
           "name": "Slow, passive lineups",
           "why": "Every minute of peace = a free item."
+        },
+        {
+          "name": "Phantom Lancer, Wraith King, Morphling",
+          "why": "AM beats three of your own mains (+4.2 / +4.4 / +4.5 pp) (Research 04, Ancient–Divine data)."
+        },
+        {
+          "name": "Medusa",
+          "why": "Biggest edge found: +13 pp. Mana Shield = her HP is mana."
         }
       ],
       "tips": {
@@ -499,8 +507,8 @@
           "why": "Bounce and cleave kill illusions passively."
         },
         {
-          "name": "Strong lanes (Viper, Bristleback)",
-          "why": "PL needs farm; a bad lane delays everything."
+          "name": "Tidehunter, Underlord, Dark Seer, Axe",
+          "why": "Top data counters (−5 to −6 pp) (Research 04, Ancient–Divine data): AoE + illusions take 600% damage."
         }
       ],
       "thrives_vs": [
@@ -698,8 +706,8 @@
           "why": "Cuts lifesteal sustain."
         },
         {
-          "name": "Kiting heroes (Drow, Razor, Viper)",
-          "why": "WK has no built-in gap closer before Blink."
+          "name": "Warlock, Keeper of the Light, Phantom Lancer",
+          "why": "Data-backed counters (Research 04, Ancient–Divine data). Note: Reincarnation costs 0 mana at level 18, so mana burn matters mostly before that."
         }
       ],
       "thrives_vs": [
@@ -873,10 +881,6 @@
       ],
       "struggles_vs": [
         {
-          "name": "Many small damage instances (Gyro, Razor, Viper, Jakiro)",
-          "why": "Each tick/hit burns one Refraction charge."
-        },
-        {
           "name": "True sight / dust + AoE",
           "why": "Meld is countered by detection; traps get cleared."
         },
@@ -887,6 +891,10 @@
         {
           "name": "Armor stackers",
           "why": "Physical burst falls off."
+        },
+        {
+          "name": "Phoenix, Phantom Lancer, Spectre",
+          "why": "Data-backed counters (Research 04, Ancient–Divine data): many damage instances / bodies burn Refraction charges."
         }
       ],
       "thrives_vs": [
@@ -1041,8 +1049,8 @@
       ],
       "struggles_vs": [
         {
-          "name": "Strong mid gankers / divers (Storm, Puck, Ember, Void Spirit)",
-          "why": "SF has no escape."
+          "name": "No specific counter — he is just weak this patch",
+          "why": "Worst matchup only −3.2 pp, but 41.8% overall (Research 04, Ancient–Divine data). Counter-picking won't save him; avoid him instead."
         },
         {
           "name": "Silences and roots",
@@ -1212,6 +1220,10 @@
         {
           "name": "AoE that kills the Double",
           "why": "Double dies = gold bounty and lost DPS."
+        },
+        {
+          "name": "Broodmother, Meepo, Lycan",
+          "why": "Worst matchups (−10.7 / −9.1 pp) (Research 04, Ancient–Divine data): Flux deals no damage when another enemy unit is near the target."
         }
       ],
       "thrives_vs": [
@@ -1404,6 +1416,10 @@
         {
           "name": "Heavy disable lineups pre-BKB",
           "why": "Low HP melee hero."
+        },
+        {
+          "name": "Bristleback, Troll Warlord, Axe, Omniknight",
+          "why": "Data-backed counters (Research 04, Ancient–Divine data)."
         }
       ],
       "thrives_vs": [
