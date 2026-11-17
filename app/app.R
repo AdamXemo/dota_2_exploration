@@ -27,6 +27,7 @@ ui <- bslib::page_navbar(
   bslib::nav_panel(tagList(span(class = "chapter", "II"), "Heroes"),    mod_hero_ui("hero", db), value = "hero"),
   bslib::nav_panel(tagList(span(class = "chapter", "III"), "Item Codex"), mod_items_ui("items", db), value = "items"),
   bslib::nav_panel(tagList(span(class = "chapter", "IV"), "Draft"), mod_draft_ui("draft", db), value = "draft"),
+  bslib::nav_panel(tagList(span(class = "chapter", "V"), "My Stats"), mod_mystats_ui("me"), value = "me"),
 
   bslib::nav_spacer(),
   bslib::nav_item(tags$a(href = "https://www.opendota.com", target = "_blank",
@@ -39,6 +40,7 @@ server <- function(input, output, session) {
   mod_hero_server("hero", db)
   mod_items_server("items", db)
   mod_draft_server("draft", db)
+  mod_mystats_server("me", db)
 
   # Deep links: ?tab=hero&hero=42 opens the Heroes page on Wraith King.
   # parseQueryString() turns "?a=1&b=2" into list(a = "1", b = "2").
