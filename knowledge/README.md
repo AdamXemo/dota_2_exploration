@@ -10,6 +10,7 @@ Compressed Dota 2 context, so an LLM agent (or you) can give useful advice fast.
 | `03_core_concepts.md` | Equilibrium, wave management, objectives, vision, timings, teamfights, draft | hand-written |
 | `meta_snapshot.md` | Carry tier list for the current patch (Ancient–Divine) | **generated** |
 | `heroes/*.md` | One page per main: why it works, builds, matchups, live data | **generated** from `data/curated/heroes.json` |
+| `cards/*.md` | ~25-line in-game cheat card per main (plan, build, pivots, danger, rules) | agent-written from the files above |
 | `prompts/*.md` | Copy-paste prompts: draft, in-game, post-game | hand-written |
 
 Structured equivalents (better for tools/code) live in `data/`:

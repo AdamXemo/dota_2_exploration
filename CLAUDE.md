@@ -5,7 +5,8 @@ R + Shiny Dota 2 research lab for a **position-1 carry in Ancient–Divine**. Tw
 
 ## When the user asks for Dota advice
 1. Read `knowledge/00_dota_brain.md` first (player profile, how games are won, advice style).
-2. Then only what the question needs:
+2. **Mid-game quick question → load only `knowledge/cards/<key>.md`** (~1.1k chars each).
+   Otherwise read only what the question needs:
    - hero question → `knowledge/heroes/<key>.md` (antimage, morphling, phantom_lancer,
      skeleton_king = Wraith King, templar_assassin, nevermore = Shadow Fiend, arc_warden, phantom_assassin)
    - meta / what to pick → `knowledge/meta_snapshot.md`, `docs/research/01_carry_meta_7.41.md`
