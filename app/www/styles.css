@@ -768,3 +768,188 @@ a.hero-tile:hover, .hero-tile.is-link:hover { color: var(--ink); border-color: v
   .meter-row { grid-template-columns: minmax(0, 6rem) minmax(0, 1fr) 3.4rem; }
   .stat-card .stat-value { font-size: 1.5rem; }
 }
+
+/* ==========================================================================
+   === Homepage & viral visuals ===
+   Homepage layout (mod_home.R) + small additions used by several pages:
+   KPI tiles holding a hero, tier strip, 100% marker on bar meters, notes
+   markdown. Uses only the tokens defined in section 0.
+   ========================================================================== */
+
+/* --- Homepage layout ------------------------------------------------------ */
+.home { padding-top: var(--sp-2); }
+.home-hero { padding: var(--sp-6) 0 var(--sp-8); border-bottom: 1px solid var(--line); margin-bottom: var(--sp-8); }
+.home-hero .section-head { max-width: 64ch; margin-bottom: var(--sp-4); }
+.home-hero .section-sub { font-size: 1.0625rem; color: var(--ink-2); }
+.home-labels { margin-bottom: var(--sp-5); }
+.home-hero .chip { text-decoration: none; }
+.home-section { margin: 0 0 var(--sp-12); }
+.home-section .section-head { max-width: none; }
+.home-section .section-head .section-sub { max-width: 72ch; }
+.home-foot { font-size: var(--fs-xs); border-top: 1px solid var(--line); padding-top: var(--sp-4); margin: 0; }
+
+/* Tier list + side column of stat cards */
+.home-tier-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: var(--sp-4); align-items: start; }
+.home-tier-grid .tierlist-hero { width: 96px; height: 54px; }
+.home-tier-grid .tierlist-items { min-height: 74px; }
+.home-tier-grid .tierlist-label { font-size: 1.9rem; }
+
+/* A hero name with a small portrait inside a stat card */
+.stat-card .stat-value .stat-hero,
+.stat-card .stat-value > img {
+  display: inline-flex; align-items: center; gap: .6rem; color: var(--ink); min-width: 0;
+  font-size: 1.35rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.stat-card .stat-value .stat-hero:hover { color: var(--ice-strong); }
+.stat-card .stat-value img {
+  height: 30px; width: 53px; object-fit: cover; flex: none;
+  border-radius: var(--r-xs); box-shadow: 0 0 0 1px var(--line-strong);
+}
+.stat-card .stat-value { display: flex; align-items: center; gap: .55rem; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.stat-card .stat-label .tier { width: 20px; height: 20px; font-size: .7rem; }
+.stat-card .stat-sub .num { font-size: var(--fs-sm); }
+/* Inputs living inside a stat card (Carry Meta bracket picker) */
+.stat-card .form-group, .stat-card .shiny-input-container { margin-bottom: 0; width: 100% !important; }
+
+/* "S 4  A 6  B 9 ..." row inside a stat card */
+.tier-spread { display: flex; gap: .7rem; flex-wrap: wrap; font-size: var(--fs-md); }
+.tier-spread .ts { display: inline-flex; align-items: center; gap: .3rem; }
+.tier-spread .tier { width: 20px; height: 20px; font-size: .7rem; }
+
+/* Pool tiles: 4 per row on desktop, 2 on phones */
+.home-pool { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.hero-tile .delta-up, .hero-tile .delta-down, .hero-tile .delta-flat { font-size: var(--fs-2xs); }
+
+/* Links at the bottom of callouts and cards */
+.callout-link { margin-top: .45rem; font-size: var(--fs-xs); font-weight: 600; }
+.card-body > .callout-link { margin-top: var(--sp-2); }
+.home .card-body h6 { margin: var(--sp-1) 0 var(--sp-1); }
+.home .card-body h6.home-h6 { margin-top: var(--sp-4); }
+.home-note { margin: var(--sp-3) 0 0; line-height: 1.5; }
+
+/* Bar meter with a dashed marker at 100% of a 0–150% scale (item efficiency) */
+.bar-meter.par100 { overflow: visible; }
+.bar-meter.par100::after {
+  content: ""; position: absolute; left: 66.67%; top: -3px; bottom: -3px; width: 0;
+  border-left: 1px dashed var(--ice); opacity: .7;
+}
+.meter-row .meter-name .item-icon.sm { width: 30px; height: 22px; }
+.meter-row .meter-name .hero-icon.sm { width: 38px; height: 22px; }
+.meter-row .meter-val.lilac { color: var(--lilac); }
+
+/* --- Compact tier strip (Carry Meta page) --------------------------------- */
+.tier-strip { display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-5); align-items: center; }
+.tier-strip .ts-group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.tier-strip .ts-group > .tier { margin-right: 2px; }
+.tier-strip a { display: block; line-height: 0; border-radius: var(--r-xs); transition: transform var(--dur) var(--ease); }
+.tier-strip a:hover { transform: translateY(-2px); }
+.tier-strip img { width: 46px; height: 26px; object-fit: cover; border-radius: var(--r-xs); box-shadow: 0 0 0 1px var(--line-strong); }
+.tier-strip a.is-main img { box-shadow: 0 0 0 2px var(--ice), 0 0 10px rgba(143,208,240,.35); }
+
+/* --- Hero page bits ------------------------------------------------------- */
+.hero-banner .tag { margin-right: .3rem; }
+.hero-kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-3); min-width: 480px; }
+.hero-spikes { display: flex; flex-wrap: wrap; gap: .4rem; }
+.hero-spikes .tag { text-transform: none; letter-spacing: 0; font-size: var(--fs-xs); font-weight: 500; }
+
+/* --- Notes: rendered markdown inside .notes ------------------------------- */
+.notes { max-width: 100%; }
+.notes h1 { font-size: var(--fs-2xl); margin: 0 0 var(--sp-4); letter-spacing: -.02em; }
+.notes h2 { font-size: var(--fs-xl); margin: var(--sp-8) 0 var(--sp-3); padding-top: var(--sp-4); border-top: 1px solid var(--line); }
+.notes h3 { font-size: var(--fs-lg); margin: var(--sp-6) 0 var(--sp-2); color: var(--ink); }
+.notes h4 { font-size: var(--fs-md); margin: var(--sp-5) 0 var(--sp-2); color: var(--ink-2); }
+.notes p, .notes li { max-width: 80ch; }
+.notes em { color: var(--ink-2); }
+.notes a { text-decoration: underline; text-decoration-color: var(--line-soft); text-underline-offset: 2px; }
+.notes hr { border: 0; height: 1px; background: var(--line); margin: var(--sp-6) 0; opacity: 1; }
+.notes ol li::marker { color: var(--ice); font-family: var(--font-mono); font-size: var(--fs-xs); }
+.notes code {
+  font-family: var(--font-mono); font-size: .85em; color: var(--ice-strong);
+  background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--r-xs); padding: .05rem .3rem;
+}
+.notes pre {
+  background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--r-md);
+  padding: var(--sp-3) var(--sp-4); overflow-x: auto; font-size: var(--fs-xs); line-height: 1.55;
+}
+.notes pre code { background: none; border: 0; padding: 0; color: var(--ink-2); font-size: inherit; }
+.notes blockquote {
+  margin: var(--sp-4) 0; padding: var(--sp-3) var(--sp-4); border-left: 2px solid var(--lilac);
+  background: var(--lilac-soft); border-radius: 0 var(--r-md) var(--r-md) 0; color: var(--ink-2);
+}
+.notes blockquote p:last-child { margin-bottom: 0; }
+/* Tables: scroll inside the card, hairline rows, mono numbers, sticky-ish header look */
+.notes table {
+  display: block; overflow-x: auto; max-width: 100%; border-collapse: collapse;
+  margin: var(--sp-4) 0 var(--sp-5); font-size: var(--fs-sm);
+  border: 1px solid var(--line); border-radius: var(--r-md);
+}
+.notes thead th {
+  background: var(--bg-2); color: var(--muted); font-size: var(--fs-2xs); font-weight: 600;
+  text-transform: uppercase; letter-spacing: var(--tracking-label); white-space: nowrap;
+  border-bottom: 1px solid var(--line-strong);
+}
+.notes th, .notes td { padding: .5rem .75rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+.notes tbody tr:last-child td { border-bottom: 0; }
+.notes tbody tr:nth-child(even) td { background: rgba(255,255,255,.015); }
+.notes tbody tr:hover td { background: rgba(143,208,240,.045); }
+.notes td { color: var(--ink-2); font-variant-numeric: tabular-nums; line-height: 1.5; }
+.notes td strong { color: var(--ink); }
+.notes th[style*="right"], .notes td[style*="right"],
+.notes th[align="right"], .notes td[align="right"] { font-family: var(--font-mono); text-align: right; }
+/* Notes file picker (a plain <select size=22>) */
+.notes-picker select { width: 100%; background: var(--bg-2) !important; color: var(--ink-2) !important;
+  border: 1px solid var(--line) !important; border-radius: var(--r-md); padding: .4rem; font-size: var(--fs-sm); }
+.notes-picker select optgroup { color: var(--muted); font-style: normal; font-size: var(--fs-2xs); text-transform: uppercase; letter-spacing: .08em; }
+.notes-picker select option { color: var(--ink-2); padding: .2rem .4rem; border-radius: var(--r-xs); text-transform: none; letter-spacing: 0; font-size: var(--fs-sm); }
+.notes-picker select option:checked { background: var(--ice-soft) linear-gradient(var(--ice-soft), var(--ice-soft)); color: var(--ice); }
+
+/* --- Draft / My Stats small consistency fixes ----------------------------- */
+.draft-row .pill { display: inline-flex; align-items: center; margin: .25rem .3rem 0 0; }
+.draft-row .pill .hero-icon.sm { width: 28px; height: 16px; margin-right: 4px; }
+
+/* --- Responsive (homepage) ------------------------------------------------ */
+@media (max-width: 1200px) {
+  .home-tier-grid { grid-template-columns: minmax(0, 1fr); }
+  .home-tier-grid > div:last-child .stack { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 992px) {
+  .home-pool { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-kpis { min-width: 0; width: 100%; }
+}
+@media (max-width: 576px) {
+  .home-hero { padding-top: var(--sp-2); }
+  .home-hero .section-sub { font-size: var(--fs-md); }
+  .home-tier-grid .tierlist-hero { width: 60px; height: 34px; }
+  .home-tier-grid .tierlist-items { min-height: 50px; gap: 5px; padding: 7px; }
+  .home-tier-grid .tierlist-label { font-size: 1.3rem; }
+  .home-tier-grid > div:last-child .stack { grid-template-columns: minmax(0, 1fr); }
+  .home-pool { gap: var(--sp-2); }
+  .home-pool .hero-tile-body { padding: .5rem .6rem .6rem; }
+  .hero-kpis { grid-template-columns: minmax(0, 1fr); }
+  .stat-card .stat-value .stat-hero { font-size: 1.15rem; }
+  .tier-strip img { width: 38px; height: 22px; }
+  .section-head.row-head .cluster { gap: 6px; }
+  .section-head.row-head .chip { height: 28px; padding: 0 .6rem; font-size: var(--fs-xs); }
+}
+
+/* Meter lists: no flex gap between rows (bslib card bodies add 1rem) */
+.card-body:has(> .meter-row) { gap: 0; }
+.home .meter-row { grid-template-columns: minmax(0, 11rem) minmax(0, 1fr) 3.4rem; }
+@media (max-width: 576px) {
+  /* Phone: name + value on one line, the bar full width under them */
+  .home .meter-row { grid-template-columns: minmax(0, 1fr) auto; row-gap: .3rem; padding: .45rem 0; }
+  .home .meter-row .bar-meter { grid-row: 2; grid-column: 1 / -1; }
+  .home .meter-row .meter-val { grid-row: 1; grid-column: 2; }
+  .home-pool .hero-tile .hs .k { letter-spacing: .04em; }
+}
+/* Notes: plain block flow (bslib card bodies are flex columns with a 1rem gap,
+   which doubles up with the markdown margins) */
+.card-body.notes { display: block; }
+.notes > div > *:first-child, .notes > *:first-child { margin-top: 0; }
+.notes td:first-child { white-space: nowrap; }
+/* Shiny's actionButton() always adds .btn-default; let an explicit
+   class = "btn-primary" win over it. */
+.btn.btn-default.btn-primary { background: var(--ice) !important; border-color: var(--ice) !important; color: #0b0e13 !important; }
+.btn.btn-default.btn-primary:hover { background: var(--ice-strong) !important; border-color: var(--ice-strong) !important; }
+/* Space between the My Stats empty state / KPI row and the cards below */
+#me-kpis { margin-bottom: var(--sp-4); }

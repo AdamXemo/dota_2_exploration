@@ -11,12 +11,110 @@ library(htmltools)
 
 pct <- function(x, digits = 1) sprintf(paste0("%.", digits, "f%%"), 100 * x)
 
-# Rune-shaped KPI tile: label on top, big value, small sub-line.
-rune <- function(label, value, sub = NULL) {
-  div(class = "rune",
-      div(class = "label", label),
-      div(class = "value", value),
-      if (!is.null(sub)) div(class = "sub", sub))
+# KPI tile: label on top, big value, small sub-line.
+# (Old name "rune" kept so every page keeps working; it now draws the
+#  design-system .stat-card. `accent = TRUE` tints the one KPI that matters most.)
+rune <- function(label, value, sub = NULL, accent = FALSE) {
+  stat_card(label, value, sub, accent = accent)
+}
+
+stat_card <- function(label, value, sub = NULL, accent = FALSE, badge = NULL) {
+  div(class = paste("stat-card", if (accent) "accent"),
+      div(class = "stat-label", span(label), badge),
+      div(class = "stat-value", value),
+      if (!is.null(sub)) div(class = "stat-sub", sub))
+}
+
+# Small coloured chip for a change in percentage points, e.g. "▲ 1.2 pp".
+# The ▲/▼ glyph comes from CSS (.delta-up / .delta-down), so we print abs().
+# Changes smaller than `flat` pp count as "no real change".
+delta_chip <- function(pp, flat = 0.5, unit = " pp") {
+  cls <- if (abs(pp) < flat) "delta-flat" else if (pp > 0) "delta-up" else "delta-down"
+  span(class = cls, sprintf("%.1f%s", abs(pp), unit))
+}
+
+# -----------------------------------------------------------------------------
+# Navigation links that work in two ways:
+#   - a normal href (?tab=hero&hero=42): open in new tab / copy link works;
+#   - an onclick that tells Shiny "go there" WITHOUT reloading the page.
+# The onclick sends input$goto = list(tab = ..., hero = ..., note = ...),
+# which app.R turns into bslib::nav_select() + updating the page's inputs.
+# -----------------------------------------------------------------------------
+goto_link <- function(..., tab, hero = NULL, note = NULL, class = NULL, title = NULL) {
+  href <- paste0("?tab=", tab, if (!is.null(hero)) paste0("&hero=", hero))
+  args <- c(sprintf("tab:'%s'", tab),
+            if (!is.null(hero)) sprintf("hero:%d", as.integer(hero)),
+            if (!is.null(note)) sprintf("note:'%s'", note))
+  js <- sprintf("Shiny.setInputValue('goto', {%s}, {priority: 'event'}); return false;",
+                paste(args, collapse = ", "))
+  tags$a(href = href, onclick = js, class = class, title = title, ...)
+}
+
+hero_link <- function(id, ..., class = NULL, title = NULL) {
+  goto_link(..., tab = "hero", hero = id, class = class, title = title)
+}
+
+# -----------------------------------------------------------------------------
+# Tier list: one row per tier (S..D), hero portraits inside.
+# `heroes` is a data frame with columns id, name, img, tier, wr_adj, is_main
+# (e.g. bracket_stats() + assign_tier()). Hover a portrait -> name + winrate;
+# click -> hero page.
+# -----------------------------------------------------------------------------
+tier_list <- function(heroes, compact = FALSE) {
+  heroes <- heroes[order(-heroes$wr_adj), ]
+  rows <- lapply(c("S", "A", "B", "C", "D"), function(t) {
+    h <- heroes[heroes$tier == t, ]
+    div(class = paste0("tierlist-row t-", t),
+        div(class = "tierlist-label", t, tags$small(nrow(h))),
+        div(class = "tierlist-items",
+            lapply(seq_len(nrow(h)), function(i)
+              hero_link(h$id[i], class = paste("tierlist-hero", if (h$is_main[i]) "is-main"),
+                        title = sprintf("%s · %s", h$name[i], pct(h$wr_adj[i], 1)),
+                        img(src = h$img[i], alt = h$name[i], loading = "lazy"),
+                        span(class = "tl-name", h$name[i]),
+                        span(class = "tl-stat", pct(h$wr_adj[i], 1))))))
+  })
+  div(class = paste("tierlist", if (compact) "compact"), rows)
+}
+
+# Hero tile: portrait + tier + name + a 2x2 grid of small stats.
+# `stats` is a named list: list("Winrate" = span(...), "Median GPM" = "578").
+hero_tile <- function(db, id, tier, stats, is_main = TRUE) {
+  hero_link(id, class = paste("hero-tile", if (is_main) "is-main"),
+            div(class = "hero-tile-img",
+                img(src = hero_img(db, id), alt = "", loading = "lazy"),
+                tier_badge(tier),
+                if (is_main) span(class = "tag ice", "main")),
+            div(class = "hero-tile-body",
+                div(class = "hero-tile-name", hero_name(db, id)),
+                div(class = "hero-tile-stats",
+                    lapply(names(stats), function(k)
+                      div(class = "hs", span(class = "k", k), span(class = "v", stats[[k]]))))))
+}
+
+# Insight callout: icon, bold title, one or two sentences, optional link.
+# kind = "" (ice), "lilac" (method), "good" (pick), "bad" (avoid).
+insight_callout <- function(title, body, kind = "", icon = "i", link = NULL) {
+  div(class = paste("callout", kind),
+      span(class = "callout-icon", icon),
+      div(span(class = "callout-title", title), body,
+          if (!is.null(link)) div(class = "callout-link", link)))
+}
+
+# Labelled horizontal bar: name (with icon) | bar | value.
+# `share` = how full the bar is (0..1); kind = "" / "good" / "bad" / "lilac".
+meter_row <- function(name, share, value, kind = "", icon = NULL, extra_class = "") {
+  div(class = "meter-row",
+      span(class = "meter-name", icon, name),
+      div(class = paste("bar-meter", kind, extra_class),
+          style = sprintf("--v:%.1f%%", 100 * max(0, min(1, share))), span()),
+      span(class = paste("meter-val", kind), value))
+}
+
+# Friendly "nothing here yet" box.
+empty_state <- function(title, text = NULL, icon = "∅") {
+  div(class = "empty-state", div(class = "empty-icon", icon),
+      div(class = "empty-title", title), if (!is.null(text)) p(text))
 }
 
 tier_badge <- function(tier) span(class = paste0("tier tier-", tier), tier)
