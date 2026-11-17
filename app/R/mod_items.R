@@ -34,7 +34,7 @@ mod_items_ui <- function(id, db) {
     ),
     bslib::card(card_title("Gold efficiency of carry items",
                            "stat value ÷ cost · above 100% = stats worth more than the price · rest = what you pay for the effect"),
-                bslib::card_body(plotOutput(ns("eff_plot"), height = "520px"))),
+                bslib::card_body(plotOutput(ns("eff_plot"), height = "820px"))),
     uiOutput(ns("grid"))
   )
 }

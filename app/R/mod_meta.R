@@ -14,14 +14,17 @@ mod_meta_ui <- function(id) {
     # --- controls + KPI tiles ---
     bslib::layout_columns(
       col_widths = c(3, 3, 3, 3),
-      div(class = "rune",
-          div(class = "label", "Rank bracket"),
+      div(class = "stat-card",
+          div(class = "stat-label", "Rank bracket"),
           selectizeInput(ns("bracket"), NULL, choices = BRACKETS, selected = DEFAULT_BRACKETS,
                          multiple = TRUE, width = "100%")),
       uiOutput(ns("kpi_top")),
       uiOutput(ns("kpi_main")),
       uiOutput(ns("kpi_games"))
     ),
+    # --- compact tier strip: the whole carry pool in one line per tier ---
+    bslib::card(card_title("Tier strip", "all carry-pool heroes in this bracket · click a portrait for the hero page"),
+                bslib::card_body(uiOutput(ns("strip")))),
     # --- meta map + table ---
     bslib::layout_columns(
       col_widths = c(5, 7),
@@ -49,14 +52,16 @@ mod_meta_server <- function(id, db) {
 
     output$kpi_top <- renderUI({
       b <- board()[1, ]
-      rune("Strongest carry", tagList(img(src = b$img), b$name),
-           sprintf("%s adjusted winrate · tier %s", pct(b$wr_adj, 2), b$tier))
+      stat_card("Strongest carry", hero_link(b$id, class = "stat-hero", img(src = b$img, alt = ""), b$name),
+                tagList(span(class = "num good", pct(b$wr_adj, 2)), "adjusted winrate"),
+                accent = TRUE, badge = tier_badge(b$tier))
     })
 
     output$kpi_main <- renderUI({
       m <- stats() |> filter(id %in% MY_MAINS) |> arrange(desc(wr_adj)) |> slice_head(n = 1)
-      rune("Best of your mains", tagList(img(src = m$img), m$name),
-           sprintf("%s adjusted winrate · tier %s", pct(m$wr_adj, 2), assign_tier(m$wr_adj)))
+      stat_card("Best of your mains", hero_link(m$id, class = "stat-hero", img(src = m$img, alt = ""), m$name),
+                tagList(span(class = "num", pct(m$wr_adj, 2)), "adjusted winrate"),
+                badge = tier_badge(assign_tier(m$wr_adj)))
     })
 
     output$kpi_games <- renderUI({
@@ -65,6 +70,24 @@ mod_meta_server <- function(id, db) {
     })
 
     output$map <- renderUI(meta_map(board()))
+
+    # Tier strip: every carry-pool hero, grouped by tier, best first.
+    output$strip <- renderUI({
+      pool <- stats() |>
+        filter(id %in% CARRY_POOL) |>
+        mutate(tier = assign_tier(wr_adj)) |>
+        arrange(desc(wr_adj))
+      div(class = "tier-strip",
+        lapply(c("S", "A", "B", "C", "D"), function(t) {
+          h <- pool[pool$tier == t, ]
+          if (nrow(h) == 0) return(NULL)
+          div(class = "ts-group", tier_badge(t),
+              lapply(seq_len(nrow(h)), function(i)
+                hero_link(h$id[i], class = if (h$id[i] %in% MY_MAINS) "is-main",
+                          title = sprintf("%s · %s", h$name[i], pct(h$wr_adj[i], 1)),
+                          img(src = h$img[i], alt = h$name[i], loading = "lazy"))))
+        }))
+    })
 
     output$table <- reactable::renderReactable({
       b <- board()

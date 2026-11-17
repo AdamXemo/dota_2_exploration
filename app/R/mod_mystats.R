@@ -77,6 +77,11 @@ mod_mystats_server <- function(id, db) {
     })
 
     output$kpis <- renderUI({
+      # Before the first click there is nothing to show: explain what to do.
+      if (input$load == 0) return(empty_state(
+        "No games loaded yet",
+        "Enter your OpenDota account id (the number in your OpenDota or Dotabuff profile URL) and press \u201cLoad my games\u201d. Your match data must be public in the Dota client.",
+        icon = "#"))
       m <- matches()
       mains <- m[m$hero_id %in% MY_MAINS, ]
       bslib::layout_columns(col_widths = c(3, 3, 3, 3),

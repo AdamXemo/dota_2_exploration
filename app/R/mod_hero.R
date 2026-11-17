@@ -50,9 +50,10 @@ mod_hero_server <- function(id, db) {
         if (!is.null(h)) bslib::layout_columns(
           col_widths = c(6, 6),
           bslib::card(card_title("Why it works"), bslib::card_body(class = "lore",
-            p(strong("Win condition: "), h$win_condition),
+            insight_callout("Win condition", h$win_condition, kind = "good", icon = "\u2713"),
             tags$ul(lapply(h$why_it_works, tags$li)),
-            div(lapply(h$power_spikes, function(x) span(class = "pill good", x))))),
+            div(h6(class = "muted", "Power spikes"),
+                div(class = "hero-spikes", lapply(h$power_spikes, function(x) span(class = "tag good", x)))))),
           bslib::card(card_title("Starting kit"), bslib::card_body(starting_block(db, h)))
         ),
         bslib::layout_columns(
@@ -64,7 +65,7 @@ mod_hero_server <- function(id, db) {
             p(h$skill_priority),
             p(strong("Scepter: "), h$aghs$scepter),
             p(strong("Shard: "), h$aghs$shard),
-            p(class = "gold", h$aghs$verdict)))
+            insight_callout("Verdict", h$aghs$verdict, kind = "lilac", icon = "A")))
         ),
         if (!is.null(h)) bslib::layout_columns(
           col_widths = c(8, 4),
@@ -91,15 +92,18 @@ hero_banner <- function(db, hid, h, s, s_low) {
           div(class = "title", hero_name(db, hid), " ", tier_badge(assign_tier(s$wr_adj))),
           div(class = "identity", if (!is.null(h)) h$identity else
               paste(db$hero_stats$roles[[which(db$hero_stats$id == hid)]], collapse = " · ")),
-          if (!is.null(h)) div(style = "margin-top:.4rem",
-            span(class = "pill", h$attack), span(class = "pill", toupper(h$attr)),
-            span(class = "pill", paste("pos", paste(h$positions, collapse = "/"))),
-            span(class = "pill", paste("complexity", strrep("◆", h$complexity))))),
-      bslib::layout_columns(col_widths = c(4, 4, 4), style = "min-width:420px",
-        rune("Winrate", pct(s$wr_adj, 2), "Ancient–Divine, adjusted"),
-        rune("Pick rate", pct(s$pickrate, 1), paste(format(s$picks, big.mark = ","), "games")),
-        rune("MMR trend", span(class = if (trend >= 0) "good" else "bad", sprintf("%+.1f pp", 100 * trend)),
-             "Herald–Crusader → Ancient–Divine")))
+          if (!is.null(h)) div(class = "cluster", style = "margin-top:.6rem",
+            span(class = paste("tag", tolower(h$attr)), span(class = "dot"), toupper(h$attr)),
+            span(class = "tag", h$attack),
+            span(class = "tag", paste("pos", paste(h$positions, collapse = "/"))),
+            span(class = "tag lilac", paste("complexity", strrep("◆", h$complexity))),
+            if (hid %in% MY_MAINS) span(class = "tag ice", "main"))),
+      div(class = "hero-kpis",
+        stat_card("Winrate", pct(s$wr_adj, 2), "Ancient–Divine, adjusted", accent = TRUE),
+        stat_card("Pick rate", pct(s$pickrate, 1), paste(format(s$picks, big.mark = ","), "games")),
+        stat_card("MMR trend", span(class = if (trend >= 0) "good" else "bad", sprintf("%+.1f", 100 * trend),
+                                    span(class = "unit", "pp")),
+                  "Herald–Crusader → Ancient–Divine")))
 }
 
 # Start -> Early -> Core -> Late, item icons with popularity share.

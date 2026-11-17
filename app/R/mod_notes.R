@@ -28,7 +28,7 @@ mod_notes_ui <- function(id) {
   idx <- notes_index()
   bslib::layout_columns(
     col_widths = c(3, 9),
-    bslib::card(card_title("Notes"), bslib::card_body(
+    bslib::card(card_title("Notes", "pick a file"), bslib::card_body(class = "notes-picker",
       selectInput(ns("file"), NULL, choices = idx, selected = idx[[1]][[1]], selectize = FALSE, size = 22),
       p(class = "muted small", "Same files the LLM agent reads (see CLAUDE.md)."))),
     bslib::card(bslib::card_body(class = "lore notes", uiOutput(ns("doc"))))

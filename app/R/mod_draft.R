@@ -51,9 +51,9 @@ mod_draft_server <- function(id, db) {
     output$todo_hint <- renderUI({
       # If adding a +5pp matchup changes nothing, score_candidate() still ignores matchups.
       if (isTRUE(all.equal(score_candidate(0.5, 0.05), score_candidate(0.5, 0)))) {
-        div(class = "callout",
-            strong("TODO(human): "), "score_candidate() in app/R/scoring.R still ignores the enemy ",
-            "draft, so this ranking is meta-only. Implement it to make the helper counter-pick.")
+        insight_callout("TODO(human): score_candidate()", kind = "lilac", icon = "!",
+          tagList("It lives in ", tags$code("app/R/scoring.R"), " and still ignores the enemy draft, ",
+                  "so this ranking is meta-only. Implement it to make the helper counter-pick."))
       }
     })
 
@@ -86,17 +86,18 @@ mod_draft_server <- function(id, db) {
         bar_style <- if (r$score >= 0) sprintf("left:50%%; width:%.1f%%; background:var(--radiant)", w)
                      else sprintf("right:50%%; width:%.1f%%; background:var(--dire)", w)
         div(class = "draft-row",
-            div(class = "rank", i),
-            hero_icon(db, r$id),
+            div(class = "rank", sprintf("%02d", i)),
+            hero_link(r$id, hero_icon(db, r$id)),
             div(
               div(strong(hero_name(db, r$id)),
+                  if (r$id %in% MY_MAINS) span(class = "main-flag", "main"),
+                  " ", tier_badge(assign_tier(r$base)),
                   span(class = "muted small", sprintf("  base %s", pct(r$base, 1)))),
               div(lapply(seq_along(r$enemies), function(j) {
                 a <- r$adv[j]
                 if (is.na(a)) return(NULL)
                 span(class = paste("pill", if (a >= 0) "good" else "bad"),
-                     img(class = "hero-icon sm", src = hero_img(db, r$enemies[j]),
-                         style = "width:28px;height:16px;margin-right:4px"),
+                     img(class = "hero-icon sm", src = hero_img(db, r$enemies[j]), alt = ""),
                      sprintf("%+.1f", 100 * a))
               })),
               div(class = "bar", span(style = bar_style))),
