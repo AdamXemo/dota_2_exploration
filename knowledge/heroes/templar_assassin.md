@@ -65,21 +65,21 @@ Refraction and Meld for burst and trades; Psi Blades value points; Psionic Trap 
 - **Big single-nuke heroes (Lina, Lion, Zeus ult)** — One Refraction charge blocks a huge nuke.
 - **Melee mids** — Psi Blades harass from behind creeps.
 
-## Data: hardest matchups (OpenDota high-MMR, shrunk)
-- Monkey King (-7.9 pp, 60 games)
-- Treant Protector (-7.4 pp, 61 games)
-- Storm Spirit (-7.3 pp, 118 games)
-- Largo (-5.8 pp, 89 games)
-- Tusk (-5.3 pp, 149 games)
-- Gyrocopter (-5.2 pp, 96 games)
+## Data: hardest matchups (Ancient–Divine, last ~week, OpenDota explorer, shrunk)
+- Phantom Lancer (-7.8 pp, 2545 games)
+- Spectre (-6.5 pp, 1971 games)
+- Batrider (-5.8 pp, 350 games)
+- Wraith King (-5.8 pp, 2659 games)
+- Phoenix (-5.5 pp, 1394 games)
+- Bounty Hunter (-5.2 pp, 1717 games)
 
 ## Data: best matchups
-- Lion (+7.5 pp, 183 games)
-- Crystal Maiden (+7.4 pp, 132 games)
-- Phantom Assassin (+5.5 pp, 38 games)
-- Timbersaw (+5.0 pp, 111 games)
-- Kunkka (+4.8 pp, 56 games)
-- Ursa (+4.6 pp, 153 games)
+- Nature's Prophet (+8.7 pp, 2043 games)
+- Shadow Fiend (+8.2 pp, 2251 games)
+- Tiny (+7.9 pp, 1267 games)
+- Kez (+6.7 pp, 1335 games)
+- Timbersaw (+5.7 pp, 1929 games)
+- Lina (+5.2 pp, 3194 games)
 
 ## Live build snapshot (most purchased, high MMR)
 - Start: Iron Branch, Faerie Fire, Tango, Magic Wand, Circlet, Magic Stick

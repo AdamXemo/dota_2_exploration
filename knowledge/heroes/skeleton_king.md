@@ -69,21 +69,21 @@ Wraithfire Blast for kills/escape, Mortal Strike and Bone Guard for farm/push; R
 - **Burst lineups** — They kill you once and then you come back.
 - **Melee carries** — Stun + lifesteal + slow wins duels.
 
-## Data: hardest matchups (OpenDota high-MMR, shrunk)
-- Pudge (-5.8 pp, 78 games)
-- Tusk (-5.0 pp, 32 games)
-- Necrophos (-4.3 pp, 35 games)
-- Ogre Magi (-3.3 pp, 77 games)
-- Hoodwink (-2.7 pp, 36 games)
-- Invoker (-2.5 pp, 55 games)
+## Data: hardest matchups (Ancient–Divine, last ~week, OpenDota explorer, shrunk)
+- Phantom Lancer (-7.7 pp, 7356 games)
+- Meepo (-6.6 pp, 1207 games)
+- Visage (-5.9 pp, 1166 games)
+- Keeper of the Light (-5.7 pp, 2408 games)
+- Dark Seer (-5.3 pp, 3331 games)
+- Naga Siren (-5.3 pp, 759 games)
 
 ## Data: best matchups
-- Zeus (+10.7 pp, 43 games)
-- Lion (+6.9 pp, 86 games)
-- Lifestealer (+4.7 pp, 47 games)
-- Shadow Shaman (+4.4 pp, 42 games)
-- Jakiro (+3.6 pp, 34 games)
-- Tiny (+3.6 pp, 36 games)
+- Shadow Fiend (+9.1 pp, 4870 games)
+- Nature's Prophet (+7.6 pp, 5179 games)
+- Huskar (+6.4 pp, 2437 games)
+- Templar Assassin (+5.9 pp, 2659 games)
+- Tiny (+5.7 pp, 2945 games)
+- Muerta (+5.0 pp, 1735 games)
 
 ## Live build snapshot (most purchased, high MMR)
 - Start: Iron Branch, Quelling Blade, Tango, Gauntlets of Strength, Magic Stick, Circlet

@@ -62,21 +62,21 @@ Shadowraze max early (wave clear and kills), Necromastery souls passively, Feast
 - **Passive melee mids** — Raze harass wins the lane.
 - **Grouped melee lineups** — Requiem hits all of them.
 
-## Data: hardest matchups (OpenDota high-MMR, shrunk)
-- Enigma (-9.1 pp, 65 games)
-- Phoenix (-8.1 pp, 289 games)
-- Venomancer (-7.7 pp, 82 games)
-- Monkey King (-7.0 pp, 117 games)
-- Mirana (-6.6 pp, 97 games)
-- Lone Druid (-6.6 pp, 60 games)
+## Data: hardest matchups (Ancient–Divine, last ~week, OpenDota explorer, shrunk)
+- Phantom Lancer (-5.2 pp, 4664 games)
+- Dragon Knight (-4.9 pp, 6821 games)
+- Visage (-4.6 pp, 904 games)
+- Wraith King (-4.6 pp, 4869 games)
+- Troll Warlord (-4.3 pp, 1067 games)
+- Nyx Assassin (-3.9 pp, 4935 games)
 
 ## Data: best matchups
-- Medusa (+8.1 pp, 83 games)
-- Undying (+6.2 pp, 143 games)
-- Night Stalker (+5.9 pp, 76 games)
-- Disruptor (+5.5 pp, 395 games)
-- Death Prophet (+5.5 pp, 79 games)
-- Razor (+4.8 pp, 196 games)
+- Chen (+8.1 pp, 315 games)
+- Nature's Prophet (+7.5 pp, 3619 games)
+- Tiny (+7.2 pp, 2157 games)
+- Beastmaster (+6.8 pp, 1000 games)
+- Treant Protector (+6.6 pp, 810 games)
+- Kez (+6.5 pp, 2249 games)
 
 ## Live build snapshot (most purchased, high MMR)
 - Start: Faerie Fire, Iron Branch, Tango, Magic Wand, Circlet, Magic Stick

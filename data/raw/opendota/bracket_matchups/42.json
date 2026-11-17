@@ -1,0 +1,642 @@
+{
+  "hero_id": 42,
+  "window_from_match_id": 9083513147,
+  "fetched_at": "2026-11-17 01:58 CET",
+  "rows": [
+    {
+      "hero_id": 129,
+      "games_played": 3636,
+      "wins": 1967
+    },
+    {
+      "hero_id": 106,
+      "games_played": 5276,
+      "wins": 2699
+    },
+    {
+      "hero_id": 120,
+      "games_played": 2956,
+      "wins": 1570
+    },
+    {
+      "hero_id": 8,
+      "games_played": 14350,
+      "wins": 7536
+    },
+    {
+      "hero_id": 138,
+      "games_played": 1735,
+      "wins": 1021
+    },
+    {
+      "hero_id": 80,
+      "games_played": 1810,
+      "wins": 1004
+    },
+    {
+      "hero_id": 16,
+      "games_played": 2615,
+      "wins": 1416
+    },
+    {
+      "hero_id": 54,
+      "games_played": 9481,
+      "wins": 4875
+    },
+    {
+      "hero_id": 103,
+      "games_played": 755,
+      "wins": 398
+    },
+    {
+      "hero_id": 47,
+      "games_played": 4568,
+      "wins": 2484
+    },
+    {
+      "hero_id": 110,
+      "games_played": 3818,
+      "wins": 1845
+    },
+    {
+      "hero_id": 46,
+      "games_played": 2659,
+      "wins": 1587
+    },
+    {
+      "hero_id": 99,
+      "games_played": 2665,
+      "wins": 1464
+    },
+    {
+      "hero_id": 48,
+      "games_played": 9530,
+      "wins": 5157
+    },
+    {
+      "hero_id": 28,
+      "games_played": 3676,
+      "wins": 2013
+    },
+    {
+      "hero_id": 83,
+      "games_played": 989,
+      "wins": 576
+    },
+    {
+      "hero_id": 36,
+      "games_played": 11013,
+      "wins": 5643
+    },
+    {
+      "hero_id": 94,
+      "games_played": 1598,
+      "wins": 874
+    },
+    {
+      "hero_id": 15,
+      "games_played": 4651,
+      "wins": 2541
+    },
+    {
+      "hero_id": 77,
+      "games_played": 1030,
+      "wins": 500
+    },
+    {
+      "hero_id": 30,
+      "games_played": 11309,
+      "wins": 6088
+    },
+    {
+      "hero_id": 4,
+      "games_played": 1720,
+      "wins": 915
+    },
+    {
+      "hero_id": 119,
+      "games_played": 5185,
+      "wins": 2817
+    },
+    {
+      "hero_id": 73,
+      "games_played": 1855,
+      "wins": 1029
+    },
+    {
+      "hero_id": 95,
+      "games_played": 1536,
+      "wins": 842
+    },
+    {
+      "hero_id": 40,
+      "games_played": 4249,
+      "wins": 2293
+    },
+    {
+      "hero_id": 56,
+      "games_played": 2700,
+      "wins": 1506
+    },
+    {
+      "hero_id": 53,
+      "games_played": 5179,
+      "wins": 3179
+    },
+    {
+      "hero_id": 62,
+      "games_played": 4666,
+      "wins": 2301
+    },
+    {
+      "hero_id": 123,
+      "games_played": 7130,
+      "wins": 4062
+    },
+    {
+      "hero_id": 92,
+      "games_played": 1166,
+      "wins": 554
+    },
+    {
+      "hero_id": 23,
+      "games_played": 3416,
+      "wins": 1822
+    },
+    {
+      "hero_id": 101,
+      "games_played": 8342,
+      "wins": 4711
+    },
+    {
+      "hero_id": 20,
+      "games_played": 6133,
+      "wins": 3233
+    },
+    {
+      "hero_id": 44,
+      "games_played": 7309,
+      "wins": 4108
+    },
+    {
+      "hero_id": 82,
+      "games_played": 1207,
+      "wins": 564
+    },
+    {
+      "hero_id": 25,
+      "games_played": 8133,
+      "wins": 4678
+    },
+    {
+      "hero_id": 58,
+      "games_played": 1490,
+      "wins": 783
+    },
+    {
+      "hero_id": 1,
+      "games_played": 13066,
+      "wins": 6323
+    },
+    {
+      "hero_id": 26,
+      "games_played": 16478,
+      "wins": 9505
+    },
+    {
+      "hero_id": 137,
+      "games_played": 2704,
+      "wins": 1393
+    },
+    {
+      "hero_id": 111,
+      "games_played": 3039,
+      "wins": 1550
+    },
+    {
+      "hero_id": 136,
+      "games_played": 2797,
+      "wins": 1524
+    },
+    {
+      "hero_id": 86,
+      "games_played": 18156,
+      "wins": 9676
+    },
+    {
+      "hero_id": 49,
+      "games_played": 11677,
+      "wins": 5800
+    },
+    {
+      "hero_id": 13,
+      "games_played": 2295,
+      "wins": 1326
+    },
+    {
+      "hero_id": 22,
+      "games_played": 9846,
+      "wins": 5431
+    },
+    {
+      "hero_id": 91,
+      "games_played": 2830,
+      "wins": 1453
+    },
+    {
+      "hero_id": 70,
+      "games_played": 4777,
+      "wins": 2754
+    },
+    {
+      "hero_id": 45,
+      "games_played": 3378,
+      "wins": 1809
+    },
+    {
+      "hero_id": 27,
+      "games_played": 8990,
+      "wins": 5053
+    },
+    {
+      "hero_id": 155,
+      "games_played": 1321,
+      "wins": 681
+    },
+    {
+      "hero_id": 60,
+      "games_played": 6385,
+      "wins": 3408
+    },
+    {
+      "hero_id": 105,
+      "games_played": 9795,
+      "wins": 5266
+    },
+    {
+      "hero_id": 93,
+      "games_played": 11758,
+      "wins": 6102
+    },
+    {
+      "hero_id": 21,
+      "games_played": 12244,
+      "wins": 6851
+    },
+    {
+      "hero_id": 97,
+      "games_played": 10484,
+      "wins": 5941
+    },
+    {
+      "hero_id": 75,
+      "games_played": 6925,
+      "wins": 3750
+    },
+    {
+      "hero_id": 5,
+      "games_played": 9341,
+      "wins": 4881
+    },
+    {
+      "hero_id": 114,
+      "games_played": 3851,
+      "wins": 2086
+    },
+    {
+      "hero_id": 43,
+      "games_played": 3251,
+      "wins": 1801
+    },
+    {
+      "hero_id": 11,
+      "games_played": 4870,
+      "wins": 3062
+    },
+    {
+      "hero_id": 135,
+      "games_played": 6858,
+      "wins": 3381
+    },
+    {
+      "hero_id": 126,
+      "games_played": 2897,
+      "wins": 1616
+    },
+    {
+      "hero_id": 39,
+      "games_played": 6547,
+      "wins": 3675
+    },
+    {
+      "hero_id": 112,
+      "games_played": 3936,
+      "wins": 1981
+    },
+    {
+      "hero_id": 3,
+      "games_played": 1873,
+      "wins": 1006
+    },
+    {
+      "hero_id": 131,
+      "games_played": 3852,
+      "wins": 2120
+    },
+    {
+      "hero_id": 61,
+      "games_played": 973,
+      "wins": 508
+    },
+    {
+      "hero_id": 96,
+      "games_played": 3584,
+      "wins": 1957
+    },
+    {
+      "hero_id": 87,
+      "games_played": 7031,
+      "wins": 3712
+    },
+    {
+      "hero_id": 67,
+      "games_played": 5275,
+      "wins": 2713
+    },
+    {
+      "hero_id": 14,
+      "games_played": 20368,
+      "wins": 11207
+    },
+    {
+      "hero_id": 107,
+      "games_played": 3573,
+      "wins": 1905
+    },
+    {
+      "hero_id": 17,
+      "games_played": 4077,
+      "wins": 2281
+    },
+    {
+      "hero_id": 66,
+      "games_played": 338,
+      "wins": 182
+    },
+    {
+      "hero_id": 89,
+      "games_played": 759,
+      "wins": 364
+    },
+    {
+      "hero_id": 121,
+      "games_played": 5984,
+      "wins": 3084
+    },
+    {
+      "hero_id": 50,
+      "games_played": 3192,
+      "wins": 1562
+    },
+    {
+      "hero_id": 33,
+      "games_played": 3754,
+      "wins": 2014
+    },
+    {
+      "hero_id": 0,
+      "games_played": 23,
+      "wins": 13
+    },
+    {
+      "hero_id": 108,
+      "games_played": 3258,
+      "wins": 1688
+    },
+    {
+      "hero_id": 19,
+      "games_played": 2945,
+      "wins": 1752
+    },
+    {
+      "hero_id": 109,
+      "games_played": 2223,
+      "wins": 1246
+    },
+    {
+      "hero_id": 57,
+      "games_played": 1572,
+      "wins": 813
+    },
+    {
+      "hero_id": 51,
+      "games_played": 1975,
+      "wins": 1100
+    },
+    {
+      "hero_id": 31,
+      "games_played": 8414,
+      "wins": 4303
+    },
+    {
+      "hero_id": 65,
+      "games_played": 714,
+      "wins": 421
+    },
+    {
+      "hero_id": 35,
+      "games_played": 11342,
+      "wins": 6105
+    },
+    {
+      "hero_id": 76,
+      "games_played": 9216,
+      "wins": 4754
+    },
+    {
+      "hero_id": 52,
+      "games_played": 1968,
+      "wins": 1019
+    },
+    {
+      "hero_id": 69,
+      "games_played": 6377,
+      "wins": 3623
+    },
+    {
+      "hero_id": 37,
+      "games_played": 3309,
+      "wins": 1683
+    },
+    {
+      "hero_id": 85,
+      "games_played": 5772,
+      "wins": 2893
+    },
+    {
+      "hero_id": 34,
+      "games_played": 3639,
+      "wins": 1954
+    },
+    {
+      "hero_id": 81,
+      "games_played": 2060,
+      "wins": 1095
+    },
+    {
+      "hero_id": 32,
+      "games_played": 4063,
+      "wins": 2174
+    },
+    {
+      "hero_id": 12,
+      "games_played": 7356,
+      "wins": 3377
+    },
+    {
+      "hero_id": 10,
+      "games_played": 2727,
+      "wins": 1530
+    },
+    {
+      "hero_id": 79,
+      "games_played": 1561,
+      "wins": 899
+    },
+    {
+      "hero_id": 90,
+      "games_played": 2408,
+      "wins": 1153
+    },
+    {
+      "hero_id": 18,
+      "games_played": 7002,
+      "wins": 3756
+    },
+    {
+      "hero_id": 59,
+      "games_played": 2437,
+      "wins": 1469
+    },
+    {
+      "hero_id": 78,
+      "games_played": 1706,
+      "wins": 842
+    },
+    {
+      "hero_id": 98,
+      "games_played": 4627,
+      "wins": 2550
+    },
+    {
+      "hero_id": 100,
+      "games_played": 4211,
+      "wins": 2309
+    },
+    {
+      "hero_id": 113,
+      "games_played": 3089,
+      "wins": 1621
+    },
+    {
+      "hero_id": 63,
+      "games_played": 3260,
+      "wins": 1816
+    },
+    {
+      "hero_id": 9,
+      "games_played": 8468,
+      "wins": 4521
+    },
+    {
+      "hero_id": 64,
+      "games_played": 4692,
+      "wins": 2498
+    },
+    {
+      "hero_id": 55,
+      "games_played": 3331,
+      "wins": 1608
+    },
+    {
+      "hero_id": 68,
+      "games_played": 5870,
+      "wins": 3218
+    },
+    {
+      "hero_id": 84,
+      "games_played": 10848,
+      "wins": 5847
+    },
+    {
+      "hero_id": 88,
+      "games_played": 9333,
+      "wins": 4799
+    },
+    {
+      "hero_id": 145,
+      "games_played": 3121,
+      "wins": 1812
+    },
+    {
+      "hero_id": 128,
+      "games_played": 7473,
+      "wins": 3990
+    },
+    {
+      "hero_id": 38,
+      "games_played": 1247,
+      "wins": 671
+    },
+    {
+      "hero_id": 74,
+      "games_played": 13845,
+      "wins": 7062
+    },
+    {
+      "hero_id": 104,
+      "games_played": 10934,
+      "wins": 5939
+    },
+    {
+      "hero_id": 6,
+      "games_played": 8640,
+      "wins": 4954
+    },
+    {
+      "hero_id": 102,
+      "games_played": 1867,
+      "wins": 909
+    },
+    {
+      "hero_id": 71,
+      "games_played": 12639,
+      "wins": 6685
+    },
+    {
+      "hero_id": 29,
+      "games_played": 7673,
+      "wins": 4057
+    },
+    {
+      "hero_id": 2,
+      "games_played": 11796,
+      "wins": 6581
+    },
+    {
+      "hero_id": 72,
+      "games_played": 3415,
+      "wins": 1916
+    },
+    {
+      "hero_id": 41,
+      "games_played": 5422,
+      "wins": 3003
+    },
+    {
+      "hero_id": 7,
+      "games_played": 12647,
+      "wins": 6696
+    }
+  ]
+}

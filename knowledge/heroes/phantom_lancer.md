@@ -61,21 +61,21 @@ Spirit Lance for lane harass and last hits, Juxtapose for illusion scaling, Dopp
 - **Single-target lineups** — They can't kill 15 targets.
 - **Anti-Mage, mana-reliant heroes** — Illusions with Diffusal drain mana; AM can't find the real PL.
 
-## Data: hardest matchups (OpenDota high-MMR, shrunk)
-- Queen of Pain (-7.2 pp, 50 games)
-- Snapfire (-4.1 pp, 68 games)
-- Clockwerk (-3.7 pp, 36 games)
-- Crystal Maiden (-3.6 pp, 31 games)
-- Tiny (-3.1 pp, 44 games)
-- Hoodwink (-2.8 pp, 55 games)
+## Data: hardest matchups (Ancient–Divine, last ~week, OpenDota explorer, shrunk)
+- Meepo (-9.0 pp, 1162 games)
+- Leshrac (-7.8 pp, 2843 games)
+- Dark Seer (-7.1 pp, 2725 games)
+- Sven (-6.0 pp, 12810 games)
+- Dragon Knight (-5.9 pp, 10142 games)
+- Io (-5.5 pp, 3307 games)
 
 ## Data: best matchups
-- Mars (+8.8 pp, 58 games)
-- Slardar (+7.2 pp, 54 games)
-- Terrorblade (+5.8 pp, 32 games)
-- Dark Willow (+5.6 pp, 44 games)
-- Lich (+4.7 pp, 30 games)
-- Shadow Shaman (+4.6 pp, 40 games)
+- Shadow Fiend (+10.2 pp, 4663 games)
+- Templar Assassin (+8.5 pp, 2545 games)
+- Terrorblade (+8.1 pp, 1968 games)
+- Nature's Prophet (+7.5 pp, 4537 games)
+- Huskar (+6.7 pp, 1869 games)
+- Kez (+6.1 pp, 2901 games)
 
 ## Live build snapshot (most purchased, high MMR)
 - Start: Iron Branch, Quelling Blade, Tango, Circlet, Faerie Fire, Magic Stick

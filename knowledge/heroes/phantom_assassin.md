@@ -68,21 +68,21 @@ Stifling Dagger early for last hits and harass, Phantom Strike for kills/escape,
 - **Right-click carries without MKB** — Immaterial makes them miss.
 - **Squishy supports** — Strike + crit = instant kill.
 
-## Data: hardest matchups (OpenDota high-MMR, shrunk)
-- Hoodwink (-5.8 pp, 35 games)
-- Pudge (-5.6 pp, 45 games)
-- Ember Spirit (-4.3 pp, 44 games)
-- Lifestealer (-3.9 pp, 43 games)
-- Spirit Breaker (-3.7 pp, 35 games)
-- Rubick (-3.6 pp, 79 games)
+## Data: hardest matchups (Ancient–Divine, last ~week, OpenDota explorer, shrunk)
+- Wraith King (-6.9 pp, 7309 games)
+- Nyx Assassin (-5.7 pp, 7004 games)
+- Omniknight (-5.3 pp, 1462 games)
+- Troll Warlord (-5.1 pp, 1657 games)
+- Meepo (-4.9 pp, 1096 games)
+- Phoenix (-4.5 pp, 3068 games)
 
 ## Data: best matchups
-- Ogre Magi (+6.5 pp, 73 games)
-- Dragon Knight (+5.0 pp, 59 games)
-- Skywrath Mage (+4.2 pp, 63 games)
-- Mars (+4.1 pp, 61 games)
-- Zeus (+3.3 pp, 38 games)
-- Jakiro (+2.7 pp, 52 games)
+- Nature's Prophet (+8.7 pp, 5352 games)
+- Kez (+8.6 pp, 2909 games)
+- Huskar (+8.4 pp, 2247 games)
+- Shadow Fiend (+7.9 pp, 5237 games)
+- Broodmother (+6.1 pp, 905 games)
+- Terrorblade (+6.1 pp, 2172 games)
 
 ## Live build snapshot (most purchased, high MMR)
 - Start: Iron Branch, Quelling Blade, Tango, Magic Stick, Faerie Fire, Circlet

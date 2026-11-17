@@ -97,10 +97,23 @@ hero_item_popularity <- function(db, id, top = 8) {
   out
 }
 
+# Matchups for hero `id`: one row per opponent (hero_id, games_played, wins).
+# Prefers the Ancient–Divine bracket data from scripts/04_fetch_bracket_matchups.R
+# (research 04 showed the generic /matchups sample is close to noise) and
+# falls back to the generic snapshot when that hero hasn't been fetched yet.
 hero_matchups <- function(id) {
+  bracket <- path_data("raw", "opendota", "bracket_matchups", paste0(id, ".json"))
+  if (file.exists(bracket)) {
+    rows <- jsonlite::fromJSON(bracket)$rows
+    rows <- rows[!is.na(rows$hero_id) & rows$hero_id != id, ]  # drop the hero itself
+    attr(rows, "source") <- "bracket"
+    return(rows)
+  }
   f <- hero_file(id, "matchups.json")
   if (!file.exists(f)) return(NULL)
-  jsonlite::fromJSON(f)
+  rows <- jsonlite::fromJSON(f)
+  attr(rows, "source") <- "generic"
+  rows
 }
 
 # Benchmarks -> named list of data frames (gold_per_min, xp_per_min, ...)

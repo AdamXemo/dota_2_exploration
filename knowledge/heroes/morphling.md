@@ -62,21 +62,21 @@ Waveform early for farm + escape, Attribute Shift is always available (it's a to
 - **Magic-burst lineups** — Shift to STR + BKB and they run out of damage.
 - **Teams with strong morph targets** — Morph turns their best spells against them.
 
-## Data: hardest matchups (OpenDota high-MMR, shrunk)
-- Sniper (-7.8 pp, 52 games)
-- Luna (-7.4 pp, 51 games)
-- Pudge (-6.8 pp, 74 games)
-- Treant Protector (-5.2 pp, 50 games)
-- Spirit Breaker (-4.0 pp, 70 games)
-- Axe (-3.8 pp, 51 games)
+## Data: hardest matchups (Ancient–Divine, last ~week, OpenDota explorer, shrunk)
+- Outworld Devourer (-7.1 pp, 3283 games)
+- Nyx Assassin (-6.7 pp, 2372 games)
+- Meepo (-6.0 pp, 480 games)
+- Phantom Lancer (-5.6 pp, 2474 games)
+- Anti-Mage (-5.4 pp, 4605 games)
+- Bounty Hunter (-5.2 pp, 1650 games)
 
 ## Data: best matchups
-- Weaver (+13.8 pp, 55 games)
-- Lifestealer (+7.4 pp, 43 games)
-- Queen of Pain (+6.5 pp, 67 games)
-- Void Spirit (+6.3 pp, 45 games)
-- Puck (+6.1 pp, 51 games)
-- Invoker (+5.9 pp, 59 games)
+- Treant Protector (+10.8 pp, 446 games)
+- Batrider (+9.2 pp, 328 games)
+- Shadow Fiend (+9.1 pp, 2149 games)
+- Huskar (+8.7 pp, 1013 games)
+- Nature's Prophet (+7.3 pp, 2103 games)
+- Alchemist (+6.5 pp, 710 games)
 
 ## Live build snapshot (most purchased, high MMR)
 - Start: Iron Branch, Circlet, Magic Wand, Faerie Fire, Tango, Magic Stick

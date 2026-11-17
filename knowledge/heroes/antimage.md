@@ -71,21 +71,21 @@ Mana Break + Blink early (Blink gets maxed for farm/escape); one value point in 
 - **Phantom Lancer, Wraith King, Morphling** — AM beats three of your own mains (+4.2 / +4.4 / +4.5 pp) (Research 04, Ancient–Divine data).
 - **Medusa** — Biggest edge found: +13 pp. Mana Shield = her HP is mana.
 
-## Data: hardest matchups (OpenDota high-MMR, shrunk)
-- Timbersaw (-6.1 pp, 37 games)
-- Tiny (-5.0 pp, 37 games)
-- Spirit Breaker (-5.0 pp, 30 games)
-- Lion (-4.5 pp, 54 games)
-- Jakiro (-4.4 pp, 47 games)
-- Crystal Maiden (-3.3 pp, 31 games)
+## Data: hardest matchups (Ancient–Divine, last ~week, OpenDota explorer, shrunk)
+- Meepo (-8.9 pp, 2124 games)
+- Enigma (-7.0 pp, 4606 games)
+- Night Stalker (-6.5 pp, 7250 games)
+- Nyx Assassin (-5.8 pp, 11176 games)
+- Phoenix (-5.0 pp, 5254 games)
+- Riki (-4.8 pp, 5356 games)
 
 ## Data: best matchups
-- Warlock (+5.1 pp, 41 games)
-- Mars (+5.1 pp, 43 games)
-- Ring Master (+4.9 pp, 32 games)
-- Lich (+4.6 pp, 42 games)
-- Dragon Knight (+4.1 pp, 45 games)
-- Disruptor (+4.0 pp, 68 games)
+- Medusa (+13.7 pp, 1816 games)
+- Bristleback (+7.6 pp, 3526 games)
+- Storm Spirit (+7.3 pp, 5467 games)
+- Nature's Prophet (+7.1 pp, 7876 games)
+- Shadow Fiend (+6.5 pp, 6715 games)
+- Morphling (+6.2 pp, 4605 games)
 
 ## Live build snapshot (most purchased, high MMR)
 - Start: Iron Branch, Circlet, Tango, Faerie Fire, Quelling Blade, Magic Stick

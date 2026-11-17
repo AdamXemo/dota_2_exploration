@@ -62,9 +62,21 @@ Flux early for lane kills, Magnetic Field for push/defense, Spark Wraith for far
 - **Slow, farm-oriented drafts** — Arc out-farms and out-pushes them.
 - **Teams with no wave clear** — Split-push wins the game without fighting.
 
-## Data: hardest matchups (OpenDota high-MMR, shrunk)
+## Data: hardest matchups (Ancient–Divine, last ~week, OpenDota explorer, shrunk)
+- Meepo (-12.2 pp, 738 games)
+- Broodmother (-9.6 pp, 813 games)
+- Lycan (-6.7 pp, 571 games)
+- Phantom Lancer (-6.4 pp, 3376 games)
+- Enigma (-6.0 pp, 1630 games)
+- Visage (-5.0 pp, 650 games)
 
 ## Data: best matchups
+- Shadow Fiend (+9.7 pp, 2504 games)
+- Nature's Prophet (+6.8 pp, 2157 games)
+- Doom (+6.7 pp, 1903 games)
+- Templar Assassin (+5.9 pp, 1247 games)
+- Timbersaw (+5.6 pp, 1925 games)
+- Muerta (+5.5 pp, 739 games)
 
 ## Live build snapshot (most purchased, high MMR)
 - Start: Iron Branch, Circlet, Observer Ward, Faerie Fire, Tango, Gloves of Haste

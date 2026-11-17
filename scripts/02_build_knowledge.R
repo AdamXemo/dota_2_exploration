@@ -107,8 +107,10 @@ item_list <- function(x, field = "why") {
 
 for (h in db$curated$heroes) {
   s  <- stats |> filter(id == h$id)
-  mu <- matchup_advantages(hero_matchups(h$id)) |>
-    filter(games >= 30) |>
+  raw_mu <- hero_matchups(h$id)
+  src <- attr(raw_mu, "source")              # "bracket" (Ancient–Divine) or "generic"
+  mu <- matchup_advantages(raw_mu) |>
+    filter(games >= if (identical(src, "bracket")) 300 else 30) |>
     mutate(name = hero_name(db, hero_id))
   worst <- mu |> arrange(advantage) |> slice_head(n = 6)
   best  <- mu |> arrange(desc(advantage)) |> slice_head(n = 6)
@@ -144,7 +146,8 @@ for (h in db$curated$heroes) {
     "## Situational", item_list(h$situational, "when"), "",
     "## Struggles vs", vapply(h$struggles_vs, function(e) sprintf("- **%s** — %s", e$name, e$why), ""), "",
     "## Thrives vs",   vapply(h$thrives_vs,   function(e) sprintf("- **%s** — %s", e$name, e$why), ""), "",
-    "## Data: hardest matchups (OpenDota high-MMR, shrunk)",
+    paste0("## Data: hardest matchups (", if (identical(src, "bracket"))
+      "Ancient–Divine, last ~week, OpenDota explorer" else "OpenDota generic sample", ", shrunk)"),
     sprintf("- %s (%+.1f pp, %d games)", worst$name, 100 * worst$advantage, worst$games), "",
     "## Data: best matchups",
     sprintf("- %s (%+.1f pp, %d games)", best$name, 100 * best$advantage, best$games), "",
