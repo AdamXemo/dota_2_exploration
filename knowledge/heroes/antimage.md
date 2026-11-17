@@ -32,7 +32,6 @@ Mana Break + Blink early (Blink gets maxed for farm/escape); one value point in 
 - **Iron Branch** — Cheap stats; later Magic Wand.
 - **Circlet** — Into Wraith Band if the lane is hard.
 - **Slippers of Agility** — Agility for last-hit damage and armor; Wraith Band component.
-- **Faerie Fire** — Last-hit damage plus an emergency heal.
 
 ### Starting variants
 - *Easy lane (passive offlaner)*: Tango, Quelling Blade, Iron Branch, Iron Branch, Slippers of Agility, Circlet. Rush Ring of Health; skip Wraith Band.
@@ -89,8 +88,8 @@ Mana Break + Blink early (Blink gets maxed for farm/escape); one value point in 
 ## Live build snapshot (most purchased, high MMR)
 - Start: Iron Branch, Circlet, Tango, Faerie Fire, Quelling Blade, Magic Stick
 - Early: Boots of Speed, Power Treads, Ring of Health, Broadsword, Void Stone, Perseverance
-- Core: Broadsword, Blade of Alacrity, Battle Fury, Yasha, Diadem, Manta Style
-- Late: Ultimate Orb, Black King Bar, Eaglesong, Eye of Skadi, Butterfly, Skull Basher
+- Core: Battle Fury, Yasha, Manta Style, Perseverance, Eye of Skadi, Butterfly
+- Late: Black King Bar, Eye of Skadi, Butterfly, Skull Basher, Sange, Abyssal Blade
 
 ## Tips
 - Lane: Last-hit > everything. Don't trade unless the enemy is out of mana.

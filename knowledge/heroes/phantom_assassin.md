@@ -31,11 +31,11 @@ Stifling Dagger early for last hits and harass, Phantom Strike for kills/escape,
 - **Quelling Blade** — Last hits (goes into Battle Fury).
 - **Iron Branch** — Wand.
 - **Slippers of Agility** — Agility.
-- **Orb of Blight** — -armor on hit; goes into Desolator.
+- **Circlet** — Wraith Band path. (Swap for Orb of Blight in the Desolator build.)
 
 ### Starting variants
 - *Battle Fury build (free lane)*: Tango, Quelling Blade, Iron Branch, Iron Branch, Slippers of Agility, Circlet. Ring of Health -> Pers -> Battle Fury.
-- *Desolator tempo build (fighting lane)*: Tango, Quelling Blade, Orb of Blight, Iron Branch, Slippers of Agility. Treads -> Desolator, fight from ~14 min.
+- *Desolator tempo build (fighting lane)*: Tango, Quelling Blade, Orb of Blight, Iron Branch, Iron Branch. 600g exactly. Treads -> Desolator, fight from ~14 min.
 
 ## Laning items
 - **Power Treads** — Attack speed for farm.
@@ -86,8 +86,8 @@ Stifling Dagger early for last hits and harass, Phantom Strike for kills/escape,
 ## Live build snapshot (most purchased, high MMR)
 - Start: Iron Branch, Quelling Blade, Tango, Magic Stick, Faerie Fire, Circlet
 - Early: Boots of Speed, Power Treads, Ring of Health, Broadsword, Void Stone, Perseverance
-- Core: Mithril Hammer, Broadsword, Battle Fury, Desolator, Ogre Axe, Perseverance
-- Late: Skull Basher, Reaver, Black King Bar, Satanic, Sange, Sacred Relic
+- Core: Battle Fury, Desolator, Perseverance, Black King Bar, Power Treads, Yasha
+- Late: Skull Basher, Black King Bar, Satanic, Sange, Abyssal Blade, Desolator
 
 ## Tips
 - Lane: Dagger for ranged last hits and to deny.

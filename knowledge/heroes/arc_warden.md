@@ -31,7 +31,7 @@ Flux early for lane kills, Magnetic Field for push/defense, Spark Wraith for far
 - **Iron Branch** — Stats.
 - **Circlet** — Wraith Band.
 - **Faerie Fire** — Last hits.
-- **Gloves of Haste** — Into Hand of Midas, which the Double also uses: double transmute.
+- **Slippers of Agility** — Agility for last hits; Gloves for Midas come after the first courier trip.
 
 ## Laning items
 - **Hand of Midas** — Two Midases (you + Double): huge gold and XP.
@@ -68,8 +68,8 @@ Flux early for lane kills, Magnetic Field for push/defense, Spark Wraith for far
 ## Live build snapshot (most purchased, high MMR)
 - Start: Iron Branch, Circlet, Observer Ward, Faerie Fire, Tango, Gloves of Haste
 - Early: Hand of Midas, Boots of Speed, Javelin, Mithril Hammer, Power Treads, Bottle
-- Core: Maelstrom, Hyperstone, Mithril Hammer, Mjollnir, Blitz Knuckles, Blade of Alacrity
-- Late: Hyperstone, Bloodthorn, Ultimate Orb, Force Staff, Hurricane Pike, Mystic Staff
+- Core: Maelstrom, Mjollnir, Oblivion Staff, Orchid Malevolence, Boots of Travel, Dragon Lance
+- Late: Bloodthorn, Force Staff, Hurricane Pike, Scythe of Vyse, Black King Bar, Blink Dagger
 
 ## Tips
 - Lane: Use the Double for Midas charges and rune control.

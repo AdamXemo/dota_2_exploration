@@ -88,8 +88,8 @@ Wraithfire Blast for kills/escape, Mortal Strike and Bone Guard for farm/push; R
 ## Live build snapshot (most purchased, high MMR)
 - Start: Iron Branch, Quelling Blade, Tango, Gauntlets of Strength, Magic Stick, Circlet
 - Early: Boots of Speed, Chainmail, Phase Boots, Bracer, Helm of Iron Will, Soul Ring
-- Core: Sacred Relic, Radiance, Talisman of Evasion, Blink Dagger, Mithril Hammer, Armlet of Mordiggian
-- Late: Hyperstone, Black King Bar, Blink Dagger, Assault Cuirass, Orchid Malevolence, Demon Edge
+- Core: Radiance, Blink Dagger, Armlet of Mordiggian, Aghanim's Shard, Desolator, Oblivion Staff
+- Late: Black King Bar, Blink Dagger, Assault Cuirass, Orchid Malevolence, Aghanim's Scepter, Desolator
 
 ## Tips
 - Lane: Use Bone Guard charges to push the wave when the lane gets hard.

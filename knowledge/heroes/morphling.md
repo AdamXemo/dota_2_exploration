@@ -81,8 +81,8 @@ Waveform early for farm + escape, Attribute Shift is always available (it's a to
 ## Live build snapshot (most purchased, high MMR)
 - Start: Iron Branch, Circlet, Magic Wand, Faerie Fire, Tango, Magic Stick
 - Early: Boots of Speed, Power Treads, Morbid Mask, Vladmir's Offering, Wraith Band, Blade of Alacrity
-- Core: Blade of Alacrity, Diadem, Yasha, Manta Style, Vladmir's Offering, Dragon Lance
-- Late: Ultimate Orb, Butterfly, Black King Bar, Eaglesong, Hydra's Breath, Demon Edge
+- Core: Yasha, Manta Style, Vladmir's Offering, Dragon Lance, Specialist's Array, Butterfly
+- Late: Butterfly, Black King Bar, Hydra's Breath, Eye of Skadi, Satanic, Specialist's Array
 
 ## Tips
 - Lane: Waveform through the wave = free last hits and a safe escape.

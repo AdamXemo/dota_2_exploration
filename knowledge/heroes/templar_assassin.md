@@ -27,14 +27,12 @@ Refraction and Meld for burst and trades; Psi Blades value points; Psionic Trap 
 - **Verdict:** Shard is often good mid game (escape stuns into Refraction). Scepter is a situational pickoff tool.
 
 ## Starting items
-- **Tango** — Sustain (Inner Peace adds more).
-- **Iron Branch** — Stats, wand.
-- **Faerie Fire** — Last-hit damage plus a heal.
-- **Circlet** — Wraith Band / Null Talisman.
-- **Blades of Attack** — Last-hit damage, Falcon Blade path.
+- **Magic Wand** — Most common mid start: stats + charges from constant spell casts in mid.
+- **Faerie Fire** — Two Faerie Fires: last-hit damage for the mid duel plus two burst heals.
+- **Faerie Fire** — Second one. Ask a support for a Tango.
 
 ### Starting variants
-- *Mid lane (most common)*: Tango, Faerie Fire, Iron Branch, Iron Branch, Circlet, Blades of Attack. Win the last-hit war; Falcon Blade or Wraith Band next.
+- *Mid lane, stat start*: Tango, Faerie Fire, Iron Branch, Iron Branch, Circlet, Slippers of Agility. 560g: more stats now, Wraith Band later. Blades of Attack comes later on the way to Falcon Blade.
 - *Safe lane carry*: Tango, Quelling Blade, Iron Branch, Iron Branch, Slippers of Agility, Circlet. Play for Desolator + Dragon Lance farm, slower timings.
 
 ## Laning items
@@ -86,8 +84,8 @@ Refraction and Meld for burst and trades; Psi Blades value points; Psionic Trap 
 ## Live build snapshot (most purchased, high MMR)
 - Start: Iron Branch, Faerie Fire, Tango, Magic Wand, Circlet, Magic Stick
 - Early: Boots of Speed, Power Treads, Falcon Blade, Blade of Alacrity, Mithril Hammer, Dragon Lance
-- Core: Mithril Hammer, Blink Dagger, Desolator, Dragon Lance, Blade of Alacrity, Staff of Wizardry
-- Late: Demon Edge, Eaglesong, Daedalus, Black King Bar, Swift Blink, Crystalys
+- Core: Blink Dagger, Desolator, Dragon Lance, Force Staff, Hurricane Pike, Crystalys
+- Late: Daedalus, Black King Bar, Swift Blink, Crystalys, Monkey King Bar, Force Staff
 
 ## Tips
 - Lane: Psi Blade harass through the creep wave.

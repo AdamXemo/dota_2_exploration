@@ -81,8 +81,8 @@ Shadowraze max early (wave clear and kills), Necromastery souls passively, Feast
 ## Live build snapshot (most purchased, high MMR)
 - Start: Faerie Fire, Iron Branch, Tango, Magic Wand, Circlet, Magic Stick
 - Early: Boots of Speed, Power Treads, Falcon Blade, Morbid Mask, Broadsword, Blade of Alacrity
-- Core: Blade of Alacrity, Dragon Lance, Yasha, Staff of Wizardry, Manta Style, Diadem
-- Late: Demon Edge, Crystalys, Reaver, Daedalus, Satanic, Black King Bar
+- Core: Dragon Lance, Yasha, Manta Style, Mask of Madness, Force Staff, Hurricane Pike
+- Late: Crystalys, Daedalus, Satanic, Black King Bar, Silver Edge, Monkey King Bar
 
 ## Tips
 - Lane: Raze waves only when the enemy isn't nearby to deny you; secure souls.

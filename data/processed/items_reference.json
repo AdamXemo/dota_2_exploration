@@ -98,30 +98,6 @@
       "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/black_king_bar.png"
     },
     {
-      "key": "blades_of_attack",
-      "name": "Blades of Attack",
-      "cost": 450,
-      "stats": "+ 9 Damage",
-      "actives": {},
-      "components": {},
-      "category": {},
-      "why": {},
-      "when": {},
-      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blades_of_attack.png"
-    },
-    {
-      "key": "blight_stone",
-      "name": "Orb of Blight",
-      "cost": 300,
-      "stats": {},
-      "actives": "Lesser Corruption: Your attacks reduce the target's armor by -2 for 3 seconds.",
-      "components": {},
-      "category": {},
-      "why": {},
-      "when": {},
-      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/blight_stone.png"
-    },
-    {
       "key": "blink",
       "name": "Blink Dagger",
       "cost": 2250,
@@ -324,18 +300,6 @@
       "why": {},
       "when": {},
       "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/gauntlets.png"
-    },
-    {
-      "key": "gloves",
-      "name": "Gloves of Haste",
-      "cost": 450,
-      "stats": "+ 20 Attack Speed",
-      "actives": {},
-      "components": {},
-      "category": {},
-      "why": {},
-      "when": {},
-      "icon": "https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/items/gloves.png"
     },
     {
       "key": "greater_crit",

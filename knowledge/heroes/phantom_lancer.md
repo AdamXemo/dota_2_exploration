@@ -32,7 +32,6 @@ Spirit Lance for lane harass and last hits, Juxtapose for illusion scaling, Dopp
 - **Iron Branch** — Stats, wand.
 - **Circlet** — Wraith Band.
 - **Slippers of Agility** — Agility.
-- **Faerie Fire** — Burst heal.
 
 ## Laning items
 - **Power Treads** — Attack speed = more Juxtapose procs.
@@ -81,8 +80,8 @@ Spirit Lance for lane harass and last hits, Juxtapose for illusion scaling, Dopp
 ## Live build snapshot (most purchased, high MMR)
 - Start: Iron Branch, Quelling Blade, Tango, Circlet, Faerie Fire, Magic Stick
 - Early: Boots of Speed, Power Treads, Blade of Alacrity, Yasha, Wraith Band, Diadem
-- Core: Blade of Alacrity, Ogre Axe, Staff of Wizardry, Manta Style, Point Booster, Diadem
-- Late: Ultimate Orb, Eye of Skadi, Orchid Malevolence, Bloodthorn, Reaver, Heart of Tarrasque
+- Core: Manta Style, Aghanim's Scepter, Yasha, Oblivion Staff, Orchid Malevolence, Eye of Skadi
+- Late: Eye of Skadi, Orchid Malevolence, Bloodthorn, Heart of Tarrasque, Aghanim's Blessing, Butterfly
 
 ## Tips
 - Lane: Lance for last hits and harass; the illusion it spawns also hits.
