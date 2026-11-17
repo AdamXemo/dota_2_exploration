@@ -1,0 +1,4773 @@
+{
+  "_about": {
+    "title": "Ally synergy matrix for the 8 mains, patch 7.41, Ancient-Divine",
+    "generated": "2026-11-17",
+    "doc": "docs/research/07_synergies.md",
+    "script": "scripts/06_fetch_synergies.R",
+    "window": {
+      "from_match_id": 9083518613,
+      "matches": 1185543,
+      "first_start_utc": "2026-11-09 18:55:16",
+      "last_start_utc": "2026-11-17 00:10:11"
+    },
+    "method": "OpenDota SQL explorer, public_matches, avg_rank_tier 60-79 (Ancient+Divine). For main H and ally A: games = matches with A on H's own team, wins = H's team won. Overall winrates (wr_H, wr_A) from explorer, same window (_overall.json). expected = inv_logit(logit(wr_H) + logit(wr_A)) (additive log-odds: 'no special interaction'). synergy_pp = 100*(shrunk - expected) with shrunk = (wins + 500*expected)/(games + 500). raw_diff_pp = raw winrate - (wr_H + wr_A - 0.5), unshrunk linear check. Only allies with games >= 300 are ranked. ci95_pp = 1.96*binomial SE of the raw winrate. Positions/roles are NOT in public_matches: 'roles' are OpenDota hero tags, not the role played.",
+    "sources": ["S11 OpenDota SQL explorer, public_matches (docs/SOURCES.md, Research 07)", "data/raw/opendota/constants/heroes.json (roles)", "data/raw/opendota/constants/abilities.json + hero_abilities.json (reasons)"],
+    "support_pool": "top_supports/bottom_supports/support_cross use a hand-made pool of usual pos 4/5 heroes (ids in the script, general knowledge): roles are not in the data.",
+    "reason_marking": "Reasons that rely on knowledge not in abilities.json are marked '(general knowledge, verify)'."
+  },
+  "mains": {
+    "Anti-Mage": {
+      "hero_id": 1,
+      "name": "Anti-Mage",
+      "overall_wr": 50.89,
+      "games": 192181,
+      "allies_ranked": 125,
+      "top_allies": [
+        {
+          "hero_id": 112,
+          "name": "Winter Wyvern",
+          "roles": "Support, Disabler, Nuker",
+          "games": 7279,
+          "winrate": 54.95,
+          "ally_overall_wr": 50.52,
+          "expected_wr": 51.41,
+          "synergy_pp": 3.32,
+          "raw_diff_pp": 3.55,
+          "ci95_pp": 1.14,
+          "reason": "Cold Embrace freezes+heals AM and blocks physical damage (save while farming); Winter's Curse makes enemies hit their own ally - free time to Blink in and Mana Void."
+        },
+        {
+          "hero_id": 3,
+          "name": "Bane",
+          "roles": "Support, Disabler, Nuker, Durable",
+          "games": 2541,
+          "winrate": 52.89,
+          "ally_overall_wr": 49.09,
+          "expected_wr": 49.98,
+          "synergy_pp": 2.43,
+          "raw_diff_pp": 2.91,
+          "ci95_pp": 1.94,
+          "reason": "Fiend's Grip steals mana every 0.5 s based on max mana -> emptier pools = bigger Mana Void; Nightmare/Enfeeble shut the enemy offlaner in lane."
+        },
+        {
+          "hero_id": 50,
+          "name": "Dazzle",
+          "roles": "Support, Nuker, Disabler",
+          "games": 5526,
+          "winrate": 54.96,
+          "ally_overall_wr": 51.42,
+          "expected_wr": 52.31,
+          "synergy_pp": 2.43,
+          "raw_diff_pp": 2.65,
+          "ci95_pp": 1.31,
+          "reason": "Shallow Grave keeps AM alive through ganks while he farms; Weave adds ally armor / removes enemy armor (more Mana Break hits land)."
+        },
+        {
+          "hero_id": 57,
+          "name": "Omniknight",
+          "roles": "Support, Durable, Nuker",
+          "games": 2157,
+          "winrate": 55.86,
+          "ally_overall_wr": 52.08,
+          "expected_wr": 52.97,
+          "synergy_pp": 2.35,
+          "raw_diff_pp": 2.89,
+          "ci95_pp": 2.1,
+          "reason": "Guardian Angel = physical immunity, Repel = debuff immunity; Purification heals in lane - covers AM's weak 0-20 min."
+        },
+        {
+          "hero_id": 43,
+          "name": "Death Prophet",
+          "roles": "Carry, Pusher, Nuker, Disabler",
+          "games": 4286,
+          "winrate": 51.68,
+          "ally_overall_wr": 48.6,
+          "expected_wr": 49.49,
+          "synergy_pp": 1.96,
+          "raw_diff_pp": 2.19,
+          "ci95_pp": 1.5,
+          "reason": "Exorcism takes towers fast and Silence locks spellcasters: DP creates map pressure while AM farms (general knowledge, verify)."
+        },
+        {
+          "hero_id": 145,
+          "name": "Kez",
+          "roles": "Carry, Escape, Disabler",
+          "games": 1967,
+          "winrate": 47.74,
+          "ally_overall_wr": 44.42,
+          "expected_wr": 45.3,
+          "synergy_pp": 1.95,
+          "raw_diff_pp": 2.43,
+          "ci95_pp": 2.21,
+          "reason": "Kez is a weak-overall tempo core; AM's late game may cover Kez's falloff (hypothesis, general knowledge, verify; noise?)."
+        },
+        {
+          "hero_id": 102,
+          "name": "Abaddon",
+          "roles": "Support, Carry, Durable",
+          "games": 2556,
+          "winrate": 54.85,
+          "ally_overall_wr": 52,
+          "expected_wr": 52.88,
+          "synergy_pp": 1.65,
+          "raw_diff_pp": 1.97,
+          "ci95_pp": 1.93,
+          "reason": "Aphotic Shield dispels and absorbs damage, Mist Coil heals: breaks lane harass and disables on AM."
+        },
+        {
+          "hero_id": 37,
+          "name": "Warlock",
+          "roles": "Support, Initiator, Disabler",
+          "games": 4983,
+          "winrate": 50.81,
+          "ally_overall_wr": 48.12,
+          "expected_wr": 49.01,
+          "synergy_pp": 1.64,
+          "raw_diff_pp": 1.8,
+          "ci95_pp": 1.39,
+          "reason": "Fatal Bonds shares damage between bound enemies -> Mana Void's AoE damage is spread to the whole bonded team; Chaotic Offering stun sets it up."
+        }
+      ],
+      "bottom_allies": [
+        {
+          "hero_id": 12,
+          "name": "Phantom Lancer",
+          "roles": "Carry, Escape, Pusher, Nuker",
+          "games": 895,
+          "winrate": 47.82,
+          "ally_overall_wr": 53.1,
+          "expected_wr": 53.99,
+          "synergy_pp": -3.96,
+          "raw_diff_pp": -6.17,
+          "ci95_pp": 3.27,
+          "reason": {}
+        },
+        {
+          "hero_id": 53,
+          "name": "Nature's Prophet",
+          "roles": "Carry, Pusher, Escape, Nuker",
+          "games": 4947,
+          "winrate": 41.86,
+          "ally_overall_wr": 43.9,
+          "expected_wr": 44.78,
+          "synergy_pp": -2.65,
+          "raw_diff_pp": -2.93,
+          "ci95_pp": 1.37,
+          "reason": {}
+        },
+        {
+          "hero_id": 137,
+          "name": "Primal Beast",
+          "roles": "Initiator, Durable, Disabler",
+          "games": 3822,
+          "winrate": 50.34,
+          "ally_overall_wr": 52.09,
+          "expected_wr": 52.98,
+          "synergy_pp": -2.33,
+          "raw_diff_pp": -2.64,
+          "ci95_pp": 1.59,
+          "reason": {}
+        },
+        {
+          "hero_id": 109,
+          "name": "Terrorblade",
+          "roles": "Carry, Pusher, Nuker",
+          "games": 498,
+          "winrate": 42.97,
+          "ally_overall_wr": 46.49,
+          "expected_wr": 47.38,
+          "synergy_pp": -2.2,
+          "raw_diff_pp": -4.41,
+          "ci95_pp": 4.35,
+          "reason": {}
+        },
+        {
+          "hero_id": 10,
+          "name": "Morphling",
+          "roles": "Carry, Escape, Durable, Nuker, Disabler",
+          "games": 590,
+          "winrate": 45.08,
+          "ally_overall_wr": 48.25,
+          "expected_wr": 49.13,
+          "synergy_pp": -2.19,
+          "raw_diff_pp": -4.05,
+          "ci95_pp": 4.02,
+          "reason": {}
+        }
+      ],
+      "top_supports": [
+        {
+          "hero_id": 112,
+          "name": "Winter Wyvern",
+          "roles": "Support, Disabler, Nuker",
+          "games": 7279,
+          "winrate": 54.95,
+          "ally_overall_wr": 50.52,
+          "expected_wr": 51.41,
+          "synergy_pp": 3.32,
+          "raw_diff_pp": 3.55,
+          "ci95_pp": 1.14,
+          "reason": "Cold Embrace freezes+heals AM and blocks physical damage (save while farming); Winter's Curse makes enemies hit their own ally - free time to Blink in and Mana Void."
+        },
+        {
+          "hero_id": 3,
+          "name": "Bane",
+          "roles": "Support, Disabler, Nuker, Durable",
+          "games": 2541,
+          "winrate": 52.89,
+          "ally_overall_wr": 49.09,
+          "expected_wr": 49.98,
+          "synergy_pp": 2.43,
+          "raw_diff_pp": 2.91,
+          "ci95_pp": 1.94,
+          "reason": "Fiend's Grip steals mana every 0.5 s based on max mana -> emptier pools = bigger Mana Void; Nightmare/Enfeeble shut the enemy offlaner in lane."
+        },
+        {
+          "hero_id": 50,
+          "name": "Dazzle",
+          "roles": "Support, Nuker, Disabler",
+          "games": 5526,
+          "winrate": 54.96,
+          "ally_overall_wr": 51.42,
+          "expected_wr": 52.31,
+          "synergy_pp": 2.43,
+          "raw_diff_pp": 2.65,
+          "ci95_pp": 1.31,
+          "reason": "Shallow Grave keeps AM alive through ganks while he farms; Weave adds ally armor / removes enemy armor (more Mana Break hits land)."
+        },
+        {
+          "hero_id": 57,
+          "name": "Omniknight",
+          "roles": "Support, Durable, Nuker",
+          "games": 2157,
+          "winrate": 55.86,
+          "ally_overall_wr": 52.08,
+          "expected_wr": 52.97,
+          "synergy_pp": 2.35,
+          "raw_diff_pp": 2.89,
+          "ci95_pp": 2.1,
+          "reason": "Guardian Angel = physical immunity, Repel = debuff immunity; Purification heals in lane - covers AM's weak 0-20 min."
+        },
+        {
+          "hero_id": 102,
+          "name": "Abaddon",
+          "roles": "Support, Carry, Durable",
+          "games": 2556,
+          "winrate": 54.85,
+          "ally_overall_wr": 52,
+          "expected_wr": 52.88,
+          "synergy_pp": 1.65,
+          "raw_diff_pp": 1.97,
+          "ci95_pp": 1.93,
+          "reason": "Aphotic Shield dispels and absorbs damage, Mist Coil heals: breaks lane harass and disables on AM."
+        },
+        {
+          "hero_id": 37,
+          "name": "Warlock",
+          "roles": "Support, Initiator, Disabler",
+          "games": 4983,
+          "winrate": 50.81,
+          "ally_overall_wr": 48.12,
+          "expected_wr": 49.01,
+          "synergy_pp": 1.64,
+          "raw_diff_pp": 1.8,
+          "ci95_pp": 1.39,
+          "reason": "Fatal Bonds shares damage between bound enemies -> Mana Void's AoE damage is spread to the whole bonded team; Chaotic Offering stun sets it up."
+        },
+        {
+          "hero_id": 66,
+          "name": "Chen",
+          "roles": "Support, Pusher",
+          "games": 499,
+          "winrate": 49.5,
+          "ally_overall_wr": 45.61,
+          "expected_wr": 46.49,
+          "synergy_pp": 1.5,
+          "raw_diff_pp": 3,
+          "ci95_pp": 4.39,
+          "reason": "Hand of God heals the whole team globally; Divine Favor armor/regen in lane; creeps pressure the map (small sample, noise?)."
+        },
+        {
+          "hero_id": 105,
+          "name": "Techies",
+          "roles": "Nuker, Disabler",
+          "games": 14693,
+          "winrate": 52.41,
+          "ally_overall_wr": 50.34,
+          "expected_wr": 51.23,
+          "synergy_pp": 1.14,
+          "raw_diff_pp": 1.17,
+          "ci95_pp": 0.81,
+          "reason": "Proximity Mines and Sticky Bomb control space around AM's farm; Reactive Tazer gives speed to escape (general knowledge for 'space', verify)."
+        }
+      ],
+      "bottom_supports": [
+        {
+          "hero_id": 87,
+          "name": "Disruptor",
+          "roles": "Support, Disabler, Nuker, Initiator",
+          "games": 9418,
+          "winrate": 50.32,
+          "ally_overall_wr": 50.86,
+          "expected_wr": 51.75,
+          "synergy_pp": -1.36,
+          "raw_diff_pp": -1.43,
+          "ci95_pp": 1.01,
+          "reason": {}
+        },
+        {
+          "hero_id": 40,
+          "name": "Venomancer",
+          "roles": "Support, Nuker, Initiator, Pusher, Disabler",
+          "games": 5630,
+          "winrate": 47.66,
+          "ally_overall_wr": 48.03,
+          "expected_wr": 48.91,
+          "synergy_pp": -1.16,
+          "raw_diff_pp": -1.26,
+          "ci95_pp": 1.3,
+          "reason": {}
+        },
+        {
+          "hero_id": 20,
+          "name": "Vengeful Spirit",
+          "roles": "Support, Initiator, Disabler, Nuker, Escape",
+          "games": 6123,
+          "winrate": 51.82,
+          "ally_overall_wr": 52.02,
+          "expected_wr": 52.91,
+          "synergy_pp": -1.01,
+          "raw_diff_pp": -1.09,
+          "ci95_pp": 1.25,
+          "reason": {}
+        }
+      ]
+    },
+    "Morphling": {
+      "hero_id": 10,
+      "name": "Morphling",
+      "overall_wr": 48.25,
+      "games": 50382,
+      "allies_ranked": 120,
+      "top_allies": [
+        {
+          "hero_id": 87,
+          "name": "Disruptor",
+          "roles": "Support, Disabler, Nuker, Initiator",
+          "games": 2223,
+          "winrate": 52.05,
+          "ally_overall_wr": 50.86,
+          "expected_wr": 49.1,
+          "synergy_pp": 2.4,
+          "raw_diff_pp": 2.94,
+          "ci95_pp": 2.08,
+          "reason": "Kinetic Field traps targets for Morph's Adaptive Strike/Waveform burst; Glimpse pulls escaping heroes back."
+        },
+        {
+          "hero_id": 145,
+          "name": "Kez",
+          "roles": "Carry, Escape, Disabler",
+          "games": 588,
+          "winrate": 47.11,
+          "ally_overall_wr": 44.42,
+          "expected_wr": 42.69,
+          "synergy_pp": 2.39,
+          "raw_diff_pp": 4.44,
+          "ci95_pp": 4.03,
+          "reason": "Both are high-tempo agility cores; small sample, likely draft-context effect (general knowledge, verify; noise?)."
+        },
+        {
+          "hero_id": 65,
+          "name": "Batrider",
+          "roles": "Initiator, Disabler, Escape",
+          "games": 305,
+          "winrate": 50.82,
+          "ally_overall_wr": 46.27,
+          "expected_wr": 44.53,
+          "synergy_pp": 2.38,
+          "raw_diff_pp": 6.31,
+          "ci95_pp": 5.61,
+          "reason": "Flaming Lasso drags a target to Morph (general knowledge, verify; 305 games, noise?)."
+        },
+        {
+          "hero_id": 16,
+          "name": "Sand King",
+          "roles": "Initiator, Disabler, Support, Nuker, Escape",
+          "games": 958,
+          "winrate": 49.58,
+          "ally_overall_wr": 48.04,
+          "expected_wr": 46.29,
+          "synergy_pp": 2.17,
+          "raw_diff_pp": 3.3,
+          "ci95_pp": 3.17,
+          "reason": "Burrowstrike stun + Epicenter AoE hold enemies inside Morph's damage window."
+        },
+        {
+          "hero_id": 48,
+          "name": "Luna",
+          "roles": "Carry, Nuker, Pusher",
+          "games": 477,
+          "winrate": 52.62,
+          "ally_overall_wr": 50.15,
+          "expected_wr": 48.4,
+          "synergy_pp": 2.06,
+          "raw_diff_pp": 4.22,
+          "ci95_pp": 4.48,
+          "reason": "Two late carries with AoE (Luna) + single-target (Morph): strong late fights (general knowledge, verify; noise?)."
+        },
+        {
+          "hero_id": 61,
+          "name": "Broodmother",
+          "roles": "Carry, Pusher, Escape, Nuker",
+          "games": 416,
+          "winrate": 51.2,
+          "ally_overall_wr": 48.83,
+          "expected_wr": 47.07,
+          "synergy_pp": 1.87,
+          "raw_diff_pp": 4.13,
+          "ci95_pp": 4.8,
+          "reason": "Brood splits lanes and soaks attention while Morph farms (general knowledge, verify; noise?)."
+        },
+        {
+          "hero_id": 107,
+          "name": "Earth Spirit",
+          "roles": "Nuker, Escape, Disabler, Initiator, Durable",
+          "games": 1441,
+          "winrate": 51.15,
+          "ally_overall_wr": 50.52,
+          "expected_wr": 48.77,
+          "synergy_pp": 1.76,
+          "raw_diff_pp": 2.38,
+          "ci95_pp": 2.58,
+          "reason": "Rolling Boulder stun, Geomagnetic Grip silence, Boulder Smash/Grip can also reposition Morph (ally targets)."
+        },
+        {
+          "hero_id": 38,
+          "name": "Beastmaster",
+          "roles": "Initiator, Disabler, Durable, Nuker",
+          "games": 595,
+          "winrate": 48.4,
+          "ally_overall_wr": 46.94,
+          "expected_wr": 45.2,
+          "synergy_pp": 1.74,
+          "raw_diff_pp": 3.21,
+          "ci95_pp": 4.02,
+          "reason": "Primal Roar is a long single-target stun - a free Adaptive Strike/Waveform combo (noise?)."
+        }
+      ],
+      "bottom_allies": [
+        {
+          "hero_id": 8,
+          "name": "Juggernaut",
+          "roles": "Carry, Pusher, Escape",
+          "games": 613,
+          "winrate": 45.19,
+          "ally_overall_wr": 52.82,
+          "expected_wr": 51.06,
+          "synergy_pp": -3.24,
+          "raw_diff_pp": -5.87,
+          "ci95_pp": 3.94,
+          "reason": {}
+        },
+        {
+          "hero_id": 70,
+          "name": "Ursa",
+          "roles": "Carry, Durable, Disabler",
+          "games": 427,
+          "winrate": 41.92,
+          "ally_overall_wr": 50.21,
+          "expected_wr": 48.45,
+          "synergy_pp": -3.01,
+          "raw_diff_pp": -6.53,
+          "ci95_pp": 4.68,
+          "reason": {}
+        },
+        {
+          "hero_id": 91,
+          "name": "Io",
+          "roles": "Support, Escape, Nuker",
+          "games": 1163,
+          "winrate": 45.31,
+          "ally_overall_wr": 50.81,
+          "expected_wr": 49.05,
+          "synergy_pp": -2.61,
+          "raw_diff_pp": -3.74,
+          "ci95_pp": 2.86,
+          "reason": {}
+        },
+        {
+          "hero_id": 19,
+          "name": "Tiny",
+          "roles": "Carry, Nuker, Pusher, Initiator, Durable, Disabler",
+          "games": 863,
+          "winrate": 39.51,
+          "ally_overall_wr": 44.94,
+          "expected_wr": 43.21,
+          "synergy_pp": -2.34,
+          "raw_diff_pp": -3.67,
+          "ci95_pp": 3.26,
+          "reason": {}
+        },
+        {
+          "hero_id": 1,
+          "name": "Anti-Mage",
+          "roles": "Carry, Escape, Nuker",
+          "games": 590,
+          "winrate": 45.08,
+          "ally_overall_wr": 50.89,
+          "expected_wr": 49.13,
+          "synergy_pp": -2.19,
+          "raw_diff_pp": -4.05,
+          "ci95_pp": 4.02,
+          "reason": {}
+        }
+      ],
+      "top_supports": [
+        {
+          "hero_id": 87,
+          "name": "Disruptor",
+          "roles": "Support, Disabler, Nuker, Initiator",
+          "games": 2223,
+          "winrate": 52.05,
+          "ally_overall_wr": 50.86,
+          "expected_wr": 49.1,
+          "synergy_pp": 2.4,
+          "raw_diff_pp": 2.94,
+          "ci95_pp": 2.08,
+          "reason": "Kinetic Field traps targets for Morph's Adaptive Strike/Waveform burst; Glimpse pulls escaping heroes back."
+        },
+        {
+          "hero_id": 65,
+          "name": "Batrider",
+          "roles": "Initiator, Disabler, Escape",
+          "games": 305,
+          "winrate": 50.82,
+          "ally_overall_wr": 46.27,
+          "expected_wr": 44.53,
+          "synergy_pp": 2.38,
+          "raw_diff_pp": 6.31,
+          "ci95_pp": 5.61,
+          "reason": "Flaming Lasso drags a target to Morph (general knowledge, verify; 305 games, noise?)."
+        },
+        {
+          "hero_id": 16,
+          "name": "Sand King",
+          "roles": "Initiator, Disabler, Support, Nuker, Escape",
+          "games": 958,
+          "winrate": 49.58,
+          "ally_overall_wr": 48.04,
+          "expected_wr": 46.29,
+          "synergy_pp": 2.17,
+          "raw_diff_pp": 3.3,
+          "ci95_pp": 3.17,
+          "reason": "Burrowstrike stun + Epicenter AoE hold enemies inside Morph's damage window."
+        },
+        {
+          "hero_id": 107,
+          "name": "Earth Spirit",
+          "roles": "Nuker, Escape, Disabler, Initiator, Durable",
+          "games": 1441,
+          "winrate": 51.15,
+          "ally_overall_wr": 50.52,
+          "expected_wr": 48.77,
+          "synergy_pp": 1.76,
+          "raw_diff_pp": 2.38,
+          "ci95_pp": 2.58,
+          "reason": "Rolling Boulder stun, Geomagnetic Grip silence, Boulder Smash/Grip can also reposition Morph (ally targets)."
+        },
+        {
+          "hero_id": 136,
+          "name": "Marci",
+          "roles": "Support, Carry, Initiator, Disabler, Escape",
+          "games": 1090,
+          "winrate": 50.64,
+          "ally_overall_wr": 50.03,
+          "expected_wr": 48.28,
+          "synergy_pp": 1.62,
+          "raw_diff_pp": 2.37,
+          "ci95_pp": 2.97,
+          "reason": "Dispose/Rebound can throw or follow an ally; Bodyguard gives lifesteal+damage to the target ally (Morph)."
+        },
+        {
+          "hero_id": 131,
+          "name": "Ring Master",
+          "roles": "Support, Nuker, Escape, Disabler",
+          "games": 1595,
+          "winrate": 49.28,
+          "ally_overall_wr": 49.3,
+          "expected_wr": 47.54,
+          "synergy_pp": 1.32,
+          "raw_diff_pp": 1.74,
+          "ci95_pp": 2.45,
+          "reason": "Escape Act boxes an ally (phased, slow resistance) - an extra save on a squishy agility carry."
+        },
+        {
+          "hero_id": 7,
+          "name": "Earthshaker",
+          "roles": "Support, Initiator, Disabler, Nuker",
+          "games": 4645,
+          "winrate": 50.38,
+          "ally_overall_wr": 50.73,
+          "expected_wr": 48.98,
+          "synergy_pp": 1.26,
+          "raw_diff_pp": 1.4,
+          "ci95_pp": 1.44,
+          "reason": "Fissure blocks paths and stuns, Echo Slam big AoE: lockdown that lets Morph burst."
+        },
+        {
+          "hero_id": 68,
+          "name": "Ancient Apparition",
+          "roles": "Support, Disabler, Nuker",
+          "games": 1843,
+          "winrate": 50.52,
+          "ally_overall_wr": 50.71,
+          "expected_wr": 48.96,
+          "synergy_pp": 1.23,
+          "raw_diff_pp": 1.56,
+          "ci95_pp": 2.28,
+          "reason": "Cold Feet / Ice Vortex slows keep targets in place; Ice Vortex amplifies magic damage (Waveform/Adaptive)."
+        }
+      ],
+      "bottom_supports": [
+        {
+          "hero_id": 91,
+          "name": "Io",
+          "roles": "Support, Escape, Nuker",
+          "games": 1163,
+          "winrate": 45.31,
+          "ally_overall_wr": 50.81,
+          "expected_wr": 49.05,
+          "synergy_pp": -2.61,
+          "raw_diff_pp": -3.74,
+          "ci95_pp": 2.86,
+          "reason": {}
+        },
+        {
+          "hero_id": 50,
+          "name": "Dazzle",
+          "roles": "Support, Nuker, Disabler",
+          "games": 1391,
+          "winrate": 47.09,
+          "ally_overall_wr": 51.42,
+          "expected_wr": 49.67,
+          "synergy_pp": -1.9,
+          "raw_diff_pp": -2.58,
+          "ci95_pp": 2.62,
+          "reason": {}
+        },
+        {
+          "hero_id": 20,
+          "name": "Vengeful Spirit",
+          "roles": "Support, Initiator, Disabler, Nuker, Escape",
+          "games": 1583,
+          "winrate": 48.07,
+          "ally_overall_wr": 52.02,
+          "expected_wr": 50.27,
+          "synergy_pp": -1.67,
+          "raw_diff_pp": -2.2,
+          "ci95_pp": 2.46,
+          "reason": {}
+        }
+      ]
+    },
+    "Phantom Lancer": {
+      "hero_id": 12,
+      "name": "Phantom Lancer",
+      "overall_wr": 53.1,
+      "games": 119202,
+      "allies_ranked": 121,
+      "top_allies": [
+        {
+          "hero_id": 105,
+          "name": "Techies",
+          "roles": "Nuker, Disabler",
+          "games": 9751,
+          "winrate": 56.01,
+          "ally_overall_wr": 50.34,
+          "expected_wr": 53.45,
+          "synergy_pp": 2.44,
+          "raw_diff_pp": 2.57,
+          "ci95_pp": 0.99,
+          "reason": "Mines/Sticky Bomb/Blast Off! add AoE and zone control; Techies is weak in long fights where PL's illusions take over (general knowledge, verify)."
+        },
+        {
+          "hero_id": 110,
+          "name": "Phoenix",
+          "roles": "Support, Nuker, Initiator, Escape, Disabler",
+          "games": 4243,
+          "winrate": 57.32,
+          "ally_overall_wr": 51.59,
+          "expected_wr": 54.69,
+          "synergy_pp": 2.35,
+          "raw_diff_pp": 2.62,
+          "ci95_pp": 1.49,
+          "reason": "Sun Ray heals allies, Supernova stuns in a huge area: sustain plus a long AoE lock for illusions to hit."
+        },
+        {
+          "hero_id": 11,
+          "name": "Shadow Fiend",
+          "roles": "Carry, Nuker",
+          "games": 3689,
+          "winrate": 47.49,
+          "ally_overall_wr": 41.8,
+          "expected_wr": 44.85,
+          "synergy_pp": 2.33,
+          "raw_diff_pp": 2.59,
+          "ci95_pp": 1.61,
+          "reason": "SF (usually mid) brings early burst and Requiem AoE fear while PL scales (general knowledge, verify)."
+        },
+        {
+          "hero_id": 68,
+          "name": "Ancient Apparition",
+          "roles": "Support, Disabler, Nuker",
+          "games": 4287,
+          "winrate": 56.12,
+          "ally_overall_wr": 50.71,
+          "expected_wr": 53.81,
+          "synergy_pp": 2.07,
+          "raw_diff_pp": 2.31,
+          "ci95_pp": 1.49,
+          "reason": "Ice Blast stops healing and Bone Chill steals Strength: illusions finish targets that would otherwise regen."
+        },
+        {
+          "hero_id": 145,
+          "name": "Kez",
+          "roles": "Carry, Escape, Disabler",
+          "games": 1137,
+          "winrate": 50.48,
+          "ally_overall_wr": 44.42,
+          "expected_wr": 47.51,
+          "synergy_pp": 2.07,
+          "raw_diff_pp": 2.96,
+          "ci95_pp": 2.91,
+          "reason": "Small sample; Kez's silence/slow + PL's illusions (general knowledge, verify; noise?)."
+        },
+        {
+          "hero_id": 16,
+          "name": "Sand King",
+          "roles": "Initiator, Disabler, Support, Nuker, Escape",
+          "games": 2349,
+          "winrate": 53.51,
+          "ally_overall_wr": 48.04,
+          "expected_wr": 51.14,
+          "synergy_pp": 1.95,
+          "raw_diff_pp": 2.37,
+          "ci95_pp": 2.02,
+          "reason": "Epicenter + Sand Storm AoE: enemies that try to AoE-clear illusions are disabled first (general knowledge, verify)."
+        },
+        {
+          "hero_id": 34,
+          "name": "Tinker",
+          "roles": "Carry, Nuker, Pusher",
+          "games": 3628,
+          "winrate": 54,
+          "ally_overall_wr": 48.73,
+          "expected_wr": 51.83,
+          "synergy_pp": 1.9,
+          "raw_diff_pp": 2.17,
+          "ci95_pp": 1.62,
+          "reason": "Tinker pushes/clears waves from range, PL keeps lanes safe late (general knowledge, verify)."
+        },
+        {
+          "hero_id": 25,
+          "name": "Lina",
+          "roles": "Support, Carry, Nuker, Disabler",
+          "games": 6798,
+          "winrate": 52.41,
+          "ally_overall_wr": 47.26,
+          "expected_wr": 50.37,
+          "synergy_pp": 1.9,
+          "raw_diff_pp": 2.05,
+          "ci95_pp": 1.19,
+          "reason": "Lina's burst/stun adds the magic damage PL lacks early (general knowledge, verify)."
+        }
+      ],
+      "bottom_allies": [
+        {
+          "hero_id": 1,
+          "name": "Anti-Mage",
+          "roles": "Carry, Escape, Nuker",
+          "games": 895,
+          "winrate": 47.82,
+          "ally_overall_wr": 50.89,
+          "expected_wr": 53.99,
+          "synergy_pp": -3.96,
+          "raw_diff_pp": -6.17,
+          "ci95_pp": 3.27,
+          "reason": {}
+        },
+        {
+          "hero_id": 82,
+          "name": "Meepo",
+          "roles": "Carry, Escape, Nuker, Disabler, Initiator, Pusher",
+          "games": 913,
+          "winrate": 50.49,
+          "ally_overall_wr": 53.05,
+          "expected_wr": 56.13,
+          "synergy_pp": -3.64,
+          "raw_diff_pp": -5.66,
+          "ci95_pp": 3.24,
+          "reason": {}
+        },
+        {
+          "hero_id": 54,
+          "name": "Lifestealer",
+          "roles": "Carry, Durable, Escape, Disabler",
+          "games": 478,
+          "winrate": 47.07,
+          "ally_overall_wr": 51.35,
+          "expected_wr": 54.44,
+          "synergy_pp": -3.6,
+          "raw_diff_pp": -7.38,
+          "ci95_pp": 4.47,
+          "reason": {}
+        },
+        {
+          "hero_id": 17,
+          "name": "Storm Spirit",
+          "roles": "Carry, Escape, Nuker, Initiator, Disabler",
+          "games": 3084,
+          "winrate": 46.73,
+          "ally_overall_wr": 47.39,
+          "expected_wr": 50.5,
+          "synergy_pp": -3.24,
+          "raw_diff_pp": -3.77,
+          "ci95_pp": 1.76,
+          "reason": {}
+        },
+        {
+          "hero_id": 57,
+          "name": "Omniknight",
+          "roles": "Support, Durable, Nuker",
+          "games": 1313,
+          "winrate": 51.41,
+          "ally_overall_wr": 52.08,
+          "expected_wr": 55.17,
+          "synergy_pp": -2.73,
+          "raw_diff_pp": -3.78,
+          "ci95_pp": 2.7,
+          "reason": {}
+        }
+      ],
+      "top_supports": [
+        {
+          "hero_id": 105,
+          "name": "Techies",
+          "roles": "Nuker, Disabler",
+          "games": 9751,
+          "winrate": 56.01,
+          "ally_overall_wr": 50.34,
+          "expected_wr": 53.45,
+          "synergy_pp": 2.44,
+          "raw_diff_pp": 2.57,
+          "ci95_pp": 0.99,
+          "reason": "Mines/Sticky Bomb/Blast Off! add AoE and zone control; Techies is weak in long fights where PL's illusions take over (general knowledge, verify)."
+        },
+        {
+          "hero_id": 110,
+          "name": "Phoenix",
+          "roles": "Support, Nuker, Initiator, Escape, Disabler",
+          "games": 4243,
+          "winrate": 57.32,
+          "ally_overall_wr": 51.59,
+          "expected_wr": 54.69,
+          "synergy_pp": 2.35,
+          "raw_diff_pp": 2.62,
+          "ci95_pp": 1.49,
+          "reason": "Sun Ray heals allies, Supernova stuns in a huge area: sustain plus a long AoE lock for illusions to hit."
+        },
+        {
+          "hero_id": 68,
+          "name": "Ancient Apparition",
+          "roles": "Support, Disabler, Nuker",
+          "games": 4287,
+          "winrate": 56.12,
+          "ally_overall_wr": 50.71,
+          "expected_wr": 53.81,
+          "synergy_pp": 2.07,
+          "raw_diff_pp": 2.31,
+          "ci95_pp": 1.49,
+          "reason": "Ice Blast stops healing and Bone Chill steals Strength: illusions finish targets that would otherwise regen."
+        },
+        {
+          "hero_id": 16,
+          "name": "Sand King",
+          "roles": "Initiator, Disabler, Support, Nuker, Escape",
+          "games": 2349,
+          "winrate": 53.51,
+          "ally_overall_wr": 48.04,
+          "expected_wr": 51.14,
+          "synergy_pp": 1.95,
+          "raw_diff_pp": 2.37,
+          "ci95_pp": 2.02,
+          "reason": "Epicenter + Sand Storm AoE: enemies that try to AoE-clear illusions are disabled first (general knowledge, verify)."
+        },
+        {
+          "hero_id": 90,
+          "name": "Keeper of the Light",
+          "roles": "Support, Nuker, Disabler",
+          "games": 2916,
+          "winrate": 56.28,
+          "ally_overall_wr": 50.95,
+          "expected_wr": 54.05,
+          "synergy_pp": 1.9,
+          "raw_diff_pp": 2.22,
+          "ci95_pp": 1.8,
+          "reason": "Chakra Magic restores mana - PL's Doppelganger/Spirit Lance are mana-hungry early; Blinding Light knockbacks."
+        },
+        {
+          "hero_id": 7,
+          "name": "Earthshaker",
+          "roles": "Support, Initiator, Disabler, Nuker",
+          "games": 13931,
+          "winrate": 55.8,
+          "ally_overall_wr": 50.73,
+          "expected_wr": 53.83,
+          "synergy_pp": 1.9,
+          "raw_diff_pp": 1.97,
+          "ci95_pp": 0.82,
+          "reason": "Fissure + Echo Slam control enemies that would otherwise kite or AoE illusions."
+        },
+        {
+          "hero_id": 101,
+          "name": "Skywrath Mage",
+          "roles": "Support, Nuker, Disabler",
+          "games": 6204,
+          "winrate": 54.09,
+          "ally_overall_wr": 49,
+          "expected_wr": 52.11,
+          "synergy_pp": 1.84,
+          "raw_diff_pp": 1.99,
+          "ci95_pp": 1.24,
+          "reason": "Ancient Seal silence + Mystic Flare: kill pickoffs before PL comes online; silence stops AoE-illusion clears."
+        },
+        {
+          "hero_id": 83,
+          "name": "Treant Protector",
+          "roles": "Support, Initiator, Durable, Disabler, Escape",
+          "games": 824,
+          "winrate": 51.09,
+          "ally_overall_wr": 45.44,
+          "expected_wr": 48.54,
+          "synergy_pp": 1.59,
+          "raw_diff_pp": 2.54,
+          "ci95_pp": 3.41,
+          "reason": "Living Armor heals/blocks damage, Overgrowth roots the whole enemy team for illusions to hit (noise?)."
+        }
+      ],
+      "bottom_supports": [
+        {
+          "hero_id": 57,
+          "name": "Omniknight",
+          "roles": "Support, Durable, Nuker",
+          "games": 1313,
+          "winrate": 51.41,
+          "ally_overall_wr": 52.08,
+          "expected_wr": 55.17,
+          "synergy_pp": -2.73,
+          "raw_diff_pp": -3.78,
+          "ci95_pp": 2.7,
+          "reason": {}
+        },
+        {
+          "hero_id": 91,
+          "name": "Io",
+          "roles": "Support, Escape, Nuker",
+          "games": 2229,
+          "winrate": 50.83,
+          "ally_overall_wr": 50.81,
+          "expected_wr": 53.91,
+          "synergy_pp": -2.51,
+          "raw_diff_pp": -3.08,
+          "ci95_pp": 2.08,
+          "reason": {}
+        },
+        {
+          "hero_id": 84,
+          "name": "Ogre Magi",
+          "roles": "Support, Nuker, Disabler, Durable, Initiator",
+          "games": 7743,
+          "winrate": 50.86,
+          "ally_overall_wr": 50.34,
+          "expected_wr": 53.44,
+          "synergy_pp": -2.43,
+          "raw_diff_pp": -2.58,
+          "ci95_pp": 1.11,
+          "reason": {}
+        }
+      ]
+    },
+    "Wraith King": {
+      "hero_id": 42,
+      "name": "Wraith King",
+      "overall_wr": 53.7,
+      "games": 137850,
+      "allies_ranked": 126,
+      "top_allies": [
+        {
+          "hero_id": 68,
+          "name": "Ancient Apparition",
+          "roles": "Support, Disabler, Nuker",
+          "games": 5516,
+          "winrate": 58.19,
+          "ally_overall_wr": 50.71,
+          "expected_wr": 54.4,
+          "synergy_pp": 3.48,
+          "raw_diff_pp": 3.79,
+          "ci95_pp": 1.3,
+          "reason": "Cold Feet/Ice Vortex/Bone Chill slow and stun-trap targets a no-blink WK must walk to; Ice Blast stops enemy healing (no lifesteal race)."
+        },
+        {
+          "hero_id": 137,
+          "name": "Primal Beast",
+          "roles": "Initiator, Durable, Disabler",
+          "games": 1411,
+          "winrate": 59.04,
+          "ally_overall_wr": 52.09,
+          "expected_wr": 55.77,
+          "synergy_pp": 2.41,
+          "raw_diff_pp": 3.25,
+          "ci95_pp": 2.57,
+          "reason": "Onslaught/Pulverize initiate and hold targets; WK follows on foot with Wraithfire Blast (general knowledge for WK, verify)."
+        },
+        {
+          "hero_id": 136,
+          "name": "Marci",
+          "roles": "Support, Carry, Initiator, Disabler, Escape",
+          "games": 2238,
+          "winrate": 56.34,
+          "ally_overall_wr": 50.03,
+          "expected_wr": 53.73,
+          "synergy_pp": 2.14,
+          "raw_diff_pp": 2.62,
+          "ci95_pp": 2.05,
+          "reason": "Rebound/Dispose throw WK or enemies into range; Bodyguard adds lifesteal+damage to WK."
+        },
+        {
+          "hero_id": 72,
+          "name": "Gyrocopter",
+          "roles": "Carry, Nuker, Disabler",
+          "games": 3169,
+          "winrate": 52.98,
+          "ally_overall_wr": 46.91,
+          "expected_wr": 50.61,
+          "synergy_pp": 2.05,
+          "raw_diff_pp": 2.37,
+          "ci95_pp": 1.74,
+          "reason": "Second core with AoE magic (Call Down, Rocket Barrage) next to WK's pure right-click (general knowledge, verify)."
+        },
+        {
+          "hero_id": 66,
+          "name": "Chen",
+          "roles": "Support, Pusher",
+          "games": 304,
+          "winrate": 54.28,
+          "ally_overall_wr": 45.61,
+          "expected_wr": 49.3,
+          "synergy_pp": 1.88,
+          "raw_diff_pp": 4.97,
+          "ci95_pp": 5.6,
+          "reason": "Hand of God global heal; Penitence makes allies attack the target faster (304 games, noise?)."
+        },
+        {
+          "hero_id": 113,
+          "name": "Arc Warden",
+          "roles": "Carry, Escape, Nuker",
+          "games": 2857,
+          "winrate": 57.19,
+          "ally_overall_wr": 51.52,
+          "expected_wr": 55.2,
+          "synergy_pp": 1.69,
+          "raw_diff_pp": 1.98,
+          "ci95_pp": 1.81,
+          "reason": "Arc's double items/split push with WK's tanky fighting (general knowledge, verify)."
+        },
+        {
+          "hero_id": 79,
+          "name": "Shadow Demon",
+          "roles": "Support, Disabler, Initiator, Nuker",
+          "games": 1536,
+          "winrate": 51.89,
+          "ally_overall_wr": 45.96,
+          "expected_wr": 49.65,
+          "synergy_pp": 1.68,
+          "raw_diff_pp": 2.23,
+          "ci95_pp": 2.5,
+          "reason": "Demonic Purge removes enemy buffs (Ghost/Euls/BKB? verify) and slows; Disruption saves WK; Menace raises damage taken."
+        },
+        {
+          "hero_id": 47,
+          "name": "Viper",
+          "roles": "Carry, Durable, Initiator, Disabler",
+          "games": 3923,
+          "winrate": 54.5,
+          "ally_overall_wr": 49.05,
+          "expected_wr": 52.75,
+          "synergy_pp": 1.56,
+          "raw_diff_pp": 1.76,
+          "ci95_pp": 1.56,
+          "reason": "Viper Strike/Poison Attack slow and break passives: kiting heroes can't run from WK (general knowledge, verify)."
+        }
+      ],
+      "bottom_allies": [
+        {
+          "hero_id": 111,
+          "name": "Oracle",
+          "roles": "Support, Nuker, Disabler, Escape",
+          "games": 2952,
+          "winrate": 51.49,
+          "ally_overall_wr": 51.09,
+          "expected_wr": 54.78,
+          "synergy_pp": -2.82,
+          "raw_diff_pp": -3.3,
+          "ci95_pp": 1.8,
+          "reason": {}
+        },
+        {
+          "hero_id": 38,
+          "name": "Beastmaster",
+          "roles": "Initiator, Disabler, Durable, Nuker",
+          "games": 685,
+          "winrate": 45.84,
+          "ally_overall_wr": 46.94,
+          "expected_wr": 50.64,
+          "synergy_pp": -2.78,
+          "raw_diff_pp": -4.8,
+          "ci95_pp": 3.73,
+          "reason": {}
+        },
+        {
+          "hero_id": 54,
+          "name": "Lifestealer",
+          "roles": "Carry, Durable, Escape, Disabler",
+          "games": 5331,
+          "winrate": 52.04,
+          "ally_overall_wr": 51.35,
+          "expected_wr": 55.03,
+          "synergy_pp": -2.74,
+          "raw_diff_pp": -3.01,
+          "ci95_pp": 1.34,
+          "reason": {}
+        },
+        {
+          "hero_id": 89,
+          "name": "Naga Siren",
+          "roles": "Carry, Support, Pusher, Disabler, Initiator, Escape",
+          "games": 506,
+          "winrate": 48.62,
+          "ally_overall_wr": 49.71,
+          "expected_wr": 53.41,
+          "synergy_pp": -2.41,
+          "raw_diff_pp": -4.79,
+          "ci95_pp": 4.35,
+          "reason": {}
+        },
+        {
+          "hero_id": 102,
+          "name": "Abaddon",
+          "roles": "Support, Carry, Durable",
+          "games": 1566,
+          "winrate": 52.55,
+          "ally_overall_wr": 52,
+          "expected_wr": 55.67,
+          "synergy_pp": -2.37,
+          "raw_diff_pp": -3.14,
+          "ci95_pp": 2.47,
+          "reason": {}
+        }
+      ],
+      "top_supports": [
+        {
+          "hero_id": 68,
+          "name": "Ancient Apparition",
+          "roles": "Support, Disabler, Nuker",
+          "games": 5516,
+          "winrate": 58.19,
+          "ally_overall_wr": 50.71,
+          "expected_wr": 54.4,
+          "synergy_pp": 3.48,
+          "raw_diff_pp": 3.79,
+          "ci95_pp": 1.3,
+          "reason": "Cold Feet/Ice Vortex/Bone Chill slow and stun-trap targets a no-blink WK must walk to; Ice Blast stops enemy healing (no lifesteal race)."
+        },
+        {
+          "hero_id": 136,
+          "name": "Marci",
+          "roles": "Support, Carry, Initiator, Disabler, Escape",
+          "games": 2238,
+          "winrate": 56.34,
+          "ally_overall_wr": 50.03,
+          "expected_wr": 53.73,
+          "synergy_pp": 2.14,
+          "raw_diff_pp": 2.62,
+          "ci95_pp": 2.05,
+          "reason": "Rebound/Dispose throw WK or enemies into range; Bodyguard adds lifesteal+damage to WK."
+        },
+        {
+          "hero_id": 66,
+          "name": "Chen",
+          "roles": "Support, Pusher",
+          "games": 304,
+          "winrate": 54.28,
+          "ally_overall_wr": 45.61,
+          "expected_wr": 49.3,
+          "synergy_pp": 1.88,
+          "raw_diff_pp": 4.97,
+          "ci95_pp": 5.6,
+          "reason": "Hand of God global heal; Penitence makes allies attack the target faster (304 games, noise?)."
+        },
+        {
+          "hero_id": 79,
+          "name": "Shadow Demon",
+          "roles": "Support, Disabler, Initiator, Nuker",
+          "games": 1536,
+          "winrate": 51.89,
+          "ally_overall_wr": 45.96,
+          "expected_wr": 49.65,
+          "synergy_pp": 1.68,
+          "raw_diff_pp": 2.23,
+          "ci95_pp": 2.5,
+          "reason": "Demonic Purge removes enemy buffs (Ghost/Euls/BKB? verify) and slows; Disruption saves WK; Menace raises damage taken."
+        },
+        {
+          "hero_id": 155,
+          "name": "Largo",
+          "roles": "Durable, Disabler, Support",
+          "games": 1018,
+          "winrate": 55.99,
+          "ally_overall_wr": 50.15,
+          "expected_wr": 53.84,
+          "synergy_pp": 1.44,
+          "raw_diff_pp": 2.15,
+          "ci95_pp": 3.05,
+          "reason": "Croak of Genius lowers WK's mana costs and adds damage; songs give speed/heal/slow resistance (Hotfeet Hustle)."
+        },
+        {
+          "hero_id": 40,
+          "name": "Venomancer",
+          "roles": "Support, Nuker, Initiator, Pusher, Disabler",
+          "games": 4446,
+          "winrate": 53.22,
+          "ally_overall_wr": 48.03,
+          "expected_wr": 51.73,
+          "synergy_pp": 1.34,
+          "raw_diff_pp": 1.49,
+          "ci95_pp": 1.47,
+          "reason": "Venomous Gale/Poison Sting slows: WK reaches targets; Noxious Plague AoE damage."
+        },
+        {
+          "hero_id": 101,
+          "name": "Skywrath Mage",
+          "roles": "Support, Nuker, Disabler",
+          "games": 7741,
+          "winrate": 53.96,
+          "ally_overall_wr": 49,
+          "expected_wr": 52.7,
+          "synergy_pp": 1.18,
+          "raw_diff_pp": 1.26,
+          "ci95_pp": 1.11,
+          "reason": "Ancient Seal silences escape spells; Concussive Shot slows targets WK can't otherwise catch."
+        },
+        {
+          "hero_id": 83,
+          "name": "Treant Protector",
+          "roles": "Support, Initiator, Durable, Disabler, Escape",
+          "games": 863,
+          "winrate": 50.75,
+          "ally_overall_wr": 45.44,
+          "expected_wr": 49.13,
+          "synergy_pp": 1.03,
+          "raw_diff_pp": 1.61,
+          "ci95_pp": 3.34,
+          "reason": "Overgrowth roots everyone around Treant, Leech Seed roots one: lockdown for a melee walker."
+        }
+      ],
+      "bottom_supports": [
+        {
+          "hero_id": 111,
+          "name": "Oracle",
+          "roles": "Support, Nuker, Disabler, Escape",
+          "games": 2952,
+          "winrate": 51.49,
+          "ally_overall_wr": 51.09,
+          "expected_wr": 54.78,
+          "synergy_pp": -2.82,
+          "raw_diff_pp": -3.3,
+          "ci95_pp": 1.8,
+          "reason": {}
+        },
+        {
+          "hero_id": 102,
+          "name": "Abaddon",
+          "roles": "Support, Carry, Durable",
+          "games": 1566,
+          "winrate": 52.55,
+          "ally_overall_wr": 52,
+          "expected_wr": 55.67,
+          "synergy_pp": -2.37,
+          "raw_diff_pp": -3.14,
+          "ci95_pp": 2.47,
+          "reason": {}
+        },
+        {
+          "hero_id": 62,
+          "name": "Bounty Hunter",
+          "roles": "Escape, Nuker",
+          "games": 4421,
+          "winrate": 54.76,
+          "ally_overall_wr": 53.18,
+          "expected_wr": 56.85,
+          "synergy_pp": -1.88,
+          "raw_diff_pp": -2.12,
+          "ci95_pp": 1.47,
+          "reason": {}
+        }
+      ]
+    },
+    "Templar Assassin": {
+      "hero_id": 46,
+      "name": "Templar Assassin",
+      "overall_wr": 46.23,
+      "games": 50990,
+      "allies_ranked": 121,
+      "top_allies": [
+        {
+          "hero_id": 38,
+          "name": "Beastmaster",
+          "roles": "Initiator, Disabler, Durable, Nuker",
+          "games": 605,
+          "winrate": 49.59,
+          "ally_overall_wr": 46.94,
+          "expected_wr": 43.21,
+          "synergy_pp": 3.49,
+          "raw_diff_pp": 6.41,
+          "ci95_pp": 3.98,
+          "reason": "Primal Roar long single-target stun = free Meld hits; Wild Axes amplify damage taken (605 games, noise?)."
+        },
+        {
+          "hero_id": 107,
+          "name": "Earth Spirit",
+          "roles": "Nuker, Escape, Disabler, Initiator, Durable",
+          "games": 1450,
+          "winrate": 50.48,
+          "ally_overall_wr": 50.52,
+          "expected_wr": 46.75,
+          "synergy_pp": 2.77,
+          "raw_diff_pp": 3.73,
+          "ci95_pp": 2.57,
+          "reason": "Rolling Boulder stun + Geomagnetic Grip silence lock targets for Meld; Boulder Smash can kick an enemy toward TA."
+        },
+        {
+          "hero_id": 87,
+          "name": "Disruptor",
+          "roles": "Support, Disabler, Nuker, Initiator",
+          "games": 2289,
+          "winrate": 49.63,
+          "ally_overall_wr": 50.86,
+          "expected_wr": 47.09,
+          "synergy_pp": 2.09,
+          "raw_diff_pp": 2.54,
+          "ci95_pp": 2.05,
+          "reason": "Kinetic Field traps the target for TA's Psionic Traps + Meld; Glimpse pulls back escapes."
+        },
+        {
+          "hero_id": 79,
+          "name": "Shadow Demon",
+          "roles": "Support, Disabler, Initiator, Nuker",
+          "games": 603,
+          "winrate": 45.61,
+          "ally_overall_wr": 45.96,
+          "expected_wr": 42.24,
+          "synergy_pp": 1.84,
+          "raw_diff_pp": 3.41,
+          "ci95_pp": 3.98,
+          "reason": "Disruption saves TA (and creates illusions); Menace and Disseminate raise damage on the TA target."
+        },
+        {
+          "hero_id": 28,
+          "name": "Slardar",
+          "roles": "Carry, Durable, Initiator, Disabler, Escape",
+          "games": 1505,
+          "winrate": 47.31,
+          "ally_overall_wr": 48.68,
+          "expected_wr": 44.92,
+          "synergy_pp": 1.79,
+          "raw_diff_pp": 2.4,
+          "ci95_pp": 2.52,
+          "reason": "Corrosive Haze removes armor (TA is armor-reduction physical burst) + Slithereen Crush stun."
+        },
+        {
+          "hero_id": 99,
+          "name": "Bristleback",
+          "roles": "Carry, Durable, Initiator, Nuker",
+          "games": 984,
+          "winrate": 45.83,
+          "ally_overall_wr": 46.93,
+          "expected_wr": 43.19,
+          "synergy_pp": 1.75,
+          "raw_diff_pp": 2.68,
+          "ci95_pp": 3.11,
+          "reason": "Frontline that soaks damage/attention so fragile TA can hit (general knowledge, verify; noise?)."
+        },
+        {
+          "hero_id": 7,
+          "name": "Earthshaker",
+          "roles": "Support, Initiator, Disabler, Nuker",
+          "games": 4536,
+          "winrate": 48.72,
+          "ally_overall_wr": 50.73,
+          "expected_wr": 46.96,
+          "synergy_pp": 1.58,
+          "raw_diff_pp": 1.76,
+          "ci95_pp": 1.45,
+          "reason": "Fissure blocks escape paths; Echo Slam AoE - targets stay in TA's range."
+        },
+        {
+          "hero_id": 83,
+          "name": "Treant Protector",
+          "roles": "Support, Initiator, Durable, Disabler, Escape",
+          "games": 425,
+          "winrate": 44.71,
+          "ally_overall_wr": 45.44,
+          "expected_wr": 41.73,
+          "synergy_pp": 1.37,
+          "raw_diff_pp": 3.03,
+          "ci95_pp": 4.73,
+          "reason": "Living Armor heals TA and blocks damage; Overgrowth roots (noise?)."
+        }
+      ],
+      "bottom_allies": [
+        {
+          "hero_id": 56,
+          "name": "Clinkz",
+          "roles": "Carry, Escape, Pusher",
+          "games": 445,
+          "winrate": 40.22,
+          "ally_overall_wr": 50.32,
+          "expected_wr": 46.55,
+          "synergy_pp": -2.98,
+          "raw_diff_pp": -6.33,
+          "ci95_pp": 4.56,
+          "reason": {}
+        },
+        {
+          "hero_id": 44,
+          "name": "Phantom Assassin",
+          "roles": "Carry, Escape",
+          "games": 839,
+          "winrate": 42.31,
+          "ally_overall_wr": 50.77,
+          "expected_wr": 47,
+          "synergy_pp": -2.94,
+          "raw_diff_pp": -4.69,
+          "ci95_pp": 3.34,
+          "reason": {}
+        },
+        {
+          "hero_id": 52,
+          "name": "Leshrac",
+          "roles": "Carry, Support, Nuker, Pusher, Disabler",
+          "games": 577,
+          "winrate": 44.02,
+          "ally_overall_wr": 53.01,
+          "expected_wr": 49.24,
+          "synergy_pp": -2.79,
+          "raw_diff_pp": -5.22,
+          "ci95_pp": 4.05,
+          "reason": {}
+        },
+        {
+          "hero_id": 35,
+          "name": "Sniper",
+          "roles": "Carry, Nuker",
+          "games": 2777,
+          "winrate": 42.1,
+          "ally_overall_wr": 48.88,
+          "expected_wr": 45.12,
+          "synergy_pp": -2.57,
+          "raw_diff_pp": -3.02,
+          "ci95_pp": 1.84,
+          "reason": {}
+        },
+        {
+          "hero_id": 32,
+          "name": "Riki",
+          "roles": "Carry, Escape, Disabler",
+          "games": 793,
+          "winrate": 44.64,
+          "ally_overall_wr": 52.28,
+          "expected_wr": 48.51,
+          "synergy_pp": -2.37,
+          "raw_diff_pp": -3.87,
+          "ci95_pp": 3.46,
+          "reason": {}
+        }
+      ],
+      "top_supports": [
+        {
+          "hero_id": 107,
+          "name": "Earth Spirit",
+          "roles": "Nuker, Escape, Disabler, Initiator, Durable",
+          "games": 1450,
+          "winrate": 50.48,
+          "ally_overall_wr": 50.52,
+          "expected_wr": 46.75,
+          "synergy_pp": 2.77,
+          "raw_diff_pp": 3.73,
+          "ci95_pp": 2.57,
+          "reason": "Rolling Boulder stun + Geomagnetic Grip silence lock targets for Meld; Boulder Smash can kick an enemy toward TA."
+        },
+        {
+          "hero_id": 87,
+          "name": "Disruptor",
+          "roles": "Support, Disabler, Nuker, Initiator",
+          "games": 2289,
+          "winrate": 49.63,
+          "ally_overall_wr": 50.86,
+          "expected_wr": 47.09,
+          "synergy_pp": 2.09,
+          "raw_diff_pp": 2.54,
+          "ci95_pp": 2.05,
+          "reason": "Kinetic Field traps the target for TA's Psionic Traps + Meld; Glimpse pulls back escapes."
+        },
+        {
+          "hero_id": 79,
+          "name": "Shadow Demon",
+          "roles": "Support, Disabler, Initiator, Nuker",
+          "games": 603,
+          "winrate": 45.61,
+          "ally_overall_wr": 45.96,
+          "expected_wr": 42.24,
+          "synergy_pp": 1.84,
+          "raw_diff_pp": 3.41,
+          "ci95_pp": 3.98,
+          "reason": "Disruption saves TA (and creates illusions); Menace and Disseminate raise damage on the TA target."
+        },
+        {
+          "hero_id": 7,
+          "name": "Earthshaker",
+          "roles": "Support, Initiator, Disabler, Nuker",
+          "games": 4536,
+          "winrate": 48.72,
+          "ally_overall_wr": 50.73,
+          "expected_wr": 46.96,
+          "synergy_pp": 1.58,
+          "raw_diff_pp": 1.76,
+          "ci95_pp": 1.45,
+          "reason": "Fissure blocks escape paths; Echo Slam AoE - targets stay in TA's range."
+        },
+        {
+          "hero_id": 83,
+          "name": "Treant Protector",
+          "roles": "Support, Initiator, Durable, Disabler, Escape",
+          "games": 425,
+          "winrate": 44.71,
+          "ally_overall_wr": 45.44,
+          "expected_wr": 41.73,
+          "synergy_pp": 1.37,
+          "raw_diff_pp": 3.03,
+          "ci95_pp": 4.73,
+          "reason": "Living Armor heals TA and blocks damage; Overgrowth roots (noise?)."
+        },
+        {
+          "hero_id": 40,
+          "name": "Venomancer",
+          "roles": "Support, Nuker, Initiator, Pusher, Disabler",
+          "games": 1355,
+          "winrate": 45.98,
+          "ally_overall_wr": 48.03,
+          "expected_wr": 44.28,
+          "synergy_pp": 1.24,
+          "raw_diff_pp": 1.72,
+          "ci95_pp": 2.65,
+          "reason": "Slows from Venomous Gale/Poison Sting keep targets in TA range."
+        },
+        {
+          "hero_id": 16,
+          "name": "Sand King",
+          "roles": "Initiator, Disabler, Support, Nuker, Escape",
+          "games": 942,
+          "winrate": 45.86,
+          "ally_overall_wr": 48.04,
+          "expected_wr": 44.28,
+          "synergy_pp": 1.03,
+          "raw_diff_pp": 1.59,
+          "ci95_pp": 3.18,
+          "reason": "Burrowstrike stun + Epicenter: lockdown for TA burst."
+        },
+        {
+          "hero_id": 27,
+          "name": "Shadow Shaman",
+          "roles": "Support, Pusher, Disabler, Nuker, Initiator",
+          "games": 3090,
+          "winrate": 48.35,
+          "ally_overall_wr": 51.11,
+          "expected_wr": 47.34,
+          "synergy_pp": 0.87,
+          "raw_diff_pp": 1.01,
+          "ci95_pp": 1.76,
+          "reason": "Hex + Shackles: two long disables = free kills for TA."
+        }
+      ],
+      "bottom_supports": [
+        {
+          "hero_id": 91,
+          "name": "Io",
+          "roles": "Support, Escape, Nuker",
+          "games": 1058,
+          "winrate": 44.52,
+          "ally_overall_wr": 50.81,
+          "expected_wr": 47.04,
+          "synergy_pp": -1.71,
+          "raw_diff_pp": -2.52,
+          "ci95_pp": 2.99,
+          "reason": {}
+        },
+        {
+          "hero_id": 50,
+          "name": "Dazzle",
+          "roles": "Support, Nuker, Disabler",
+          "games": 1471,
+          "winrate": 45.48,
+          "ally_overall_wr": 51.42,
+          "expected_wr": 47.65,
+          "synergy_pp": -1.62,
+          "raw_diff_pp": -2.17,
+          "ci95_pp": 2.54,
+          "reason": {}
+        },
+        {
+          "hero_id": 62,
+          "name": "Bounty Hunter",
+          "roles": "Escape, Nuker",
+          "games": 1740,
+          "winrate": 47.47,
+          "ally_overall_wr": 53.18,
+          "expected_wr": 49.41,
+          "synergy_pp": -1.51,
+          "raw_diff_pp": -1.95,
+          "ci95_pp": 2.35,
+          "reason": {}
+        }
+      ]
+    },
+    "Shadow Fiend": {
+      "hero_id": 11,
+      "name": "Shadow Fiend",
+      "overall_wr": 41.8,
+      "games": 88550,
+      "allies_ranked": 125,
+      "top_allies": [
+        {
+          "hero_id": 28,
+          "name": "Slardar",
+          "roles": "Carry, Durable, Initiator, Disabler, Escape",
+          "games": 2272,
+          "winrate": 43.62,
+          "ally_overall_wr": 48.68,
+          "expected_wr": 40.51,
+          "synergy_pp": 2.54,
+          "raw_diff_pp": 3.15,
+          "ci95_pp": 2.04,
+          "reason": "Corrosive Haze removes armor and gives True Sight; Slithereen Crush stuns - SF's raze/Requiem follow-up lands on a held target."
+        },
+        {
+          "hero_id": 99,
+          "name": "Bristleback",
+          "roles": "Carry, Durable, Initiator, Nuker",
+          "games": 1748,
+          "winrate": 41.99,
+          "ally_overall_wr": 46.93,
+          "expected_wr": 38.83,
+          "synergy_pp": 2.45,
+          "raw_diff_pp": 3.27,
+          "ci95_pp": 2.31,
+          "reason": "Tanky frontline that soaks damage while SF stands back; (general knowledge, verify)."
+        },
+        {
+          "hero_id": 6,
+          "name": "Drow Ranger",
+          "roles": "Carry, Disabler, Pusher",
+          "games": 3903,
+          "winrate": 41.56,
+          "ally_overall_wr": 46.95,
+          "expected_wr": 38.86,
+          "synergy_pp": 2.39,
+          "raw_diff_pp": 2.81,
+          "ci95_pp": 1.55,
+          "reason": "Precision Aura gives agility to RANGED allies (SF is ranged); Gust silences enemies jumping on SF."
+        },
+        {
+          "hero_id": 12,
+          "name": "Phantom Lancer",
+          "roles": "Carry, Escape, Pusher, Nuker",
+          "games": 3689,
+          "winrate": 47.49,
+          "ally_overall_wr": 53.1,
+          "expected_wr": 44.85,
+          "synergy_pp": 2.33,
+          "raw_diff_pp": 2.59,
+          "ci95_pp": 1.61,
+          "reason": "PL illusions draw attention and spells while SF farms/razes; both scale (general knowledge, verify)."
+        },
+        {
+          "hero_id": 84,
+          "name": "Ogre Magi",
+          "roles": "Support, Nuker, Disabler, Durable, Initiator",
+          "games": 6648,
+          "winrate": 44.22,
+          "ally_overall_wr": 50.34,
+          "expected_wr": 42.13,
+          "synergy_pp": 1.95,
+          "raw_diff_pp": 2.09,
+          "ci95_pp": 1.19,
+          "reason": "Bloodlust gives SF attack speed + move speed; Fireblast stun = free razes; Fire Shield blocks hero attacks."
+        },
+        {
+          "hero_id": 27,
+          "name": "Shadow Shaman",
+          "roles": "Support, Pusher, Disabler, Nuker, Initiator",
+          "games": 5404,
+          "winrate": 45,
+          "ally_overall_wr": 51.11,
+          "expected_wr": 42.88,
+          "synergy_pp": 1.94,
+          "raw_diff_pp": 2.1,
+          "ci95_pp": 1.33,
+          "reason": "Hex + Shackles hold the target for three razes or a Requiem walk-in."
+        },
+        {
+          "hero_id": 59,
+          "name": "Huskar",
+          "roles": "Carry, Durable, Initiator",
+          "games": 1139,
+          "winrate": 41.09,
+          "ally_overall_wr": 46.5,
+          "expected_wr": 38.43,
+          "synergy_pp": 1.85,
+          "raw_diff_pp": 2.79,
+          "ci95_pp": 2.86,
+          "reason": "Huskar's lane/mid-game damage + SF's AoE: early-game fight team (general knowledge, verify; noise?)."
+        },
+        {
+          "hero_id": 103,
+          "name": "Elder Titan",
+          "roles": "Initiator, Disabler, Nuker, Durable",
+          "games": 543,
+          "winrate": 46.78,
+          "ally_overall_wr": 51.61,
+          "expected_wr": 43.37,
+          "synergy_pp": 1.77,
+          "raw_diff_pp": 3.37,
+          "ci95_pp": 4.2,
+          "reason": "Natural Order removes armor AND magic resistance - boosts both SF's right-click and raze/Requiem damage (noise?)."
+        }
+      ],
+      "bottom_allies": [
+        {
+          "hero_id": 109,
+          "name": "Terrorblade",
+          "roles": "Carry, Pusher, Nuker",
+          "games": 1317,
+          "winrate": 35.38,
+          "ally_overall_wr": 46.49,
+          "expected_wr": 38.42,
+          "synergy_pp": -2.2,
+          "raw_diff_pp": -2.91,
+          "ci95_pp": 2.58,
+          "reason": {}
+        },
+        {
+          "hero_id": 76,
+          "name": "Outworld Devourer",
+          "roles": "Carry, Nuker, Disabler",
+          "games": 2307,
+          "winrate": 43.26,
+          "ally_overall_wr": 54.17,
+          "expected_wr": 45.91,
+          "synergy_pp": -2.18,
+          "raw_diff_pp": -2.7,
+          "ci95_pp": 2.02,
+          "reason": {}
+        },
+        {
+          "hero_id": 23,
+          "name": "Kunkka",
+          "roles": "Carry, Support, Disabler, Initiator, Durable, Nuker",
+          "games": 1751,
+          "winrate": 38.09,
+          "ally_overall_wr": 48.78,
+          "expected_wr": 40.61,
+          "synergy_pp": -1.96,
+          "raw_diff_pp": -2.48,
+          "ci95_pp": 2.27,
+          "reason": {}
+        },
+        {
+          "hero_id": 119,
+          "name": "Dark Willow",
+          "roles": "Support, Nuker, Disabler, Escape",
+          "games": 2961,
+          "winrate": 39.55,
+          "ally_overall_wr": 50.03,
+          "expected_wr": 41.83,
+          "synergy_pp": -1.95,
+          "raw_diff_pp": -2.28,
+          "ci95_pp": 1.76,
+          "reason": {}
+        },
+        {
+          "hero_id": 49,
+          "name": "Dragon Knight",
+          "roles": "Carry, Pusher, Durable, Disabler, Initiator, Nuker",
+          "games": 5128,
+          "winrate": 42.24,
+          "ally_overall_wr": 52.56,
+          "expected_wr": 44.31,
+          "synergy_pp": -1.89,
+          "raw_diff_pp": -2.12,
+          "ci95_pp": 1.35,
+          "reason": {}
+        }
+      ],
+      "top_supports": [
+        {
+          "hero_id": 84,
+          "name": "Ogre Magi",
+          "roles": "Support, Nuker, Disabler, Durable, Initiator",
+          "games": 6648,
+          "winrate": 44.22,
+          "ally_overall_wr": 50.34,
+          "expected_wr": 42.13,
+          "synergy_pp": 1.95,
+          "raw_diff_pp": 2.09,
+          "ci95_pp": 1.19,
+          "reason": "Bloodlust gives SF attack speed + move speed; Fireblast stun = free razes; Fire Shield blocks hero attacks."
+        },
+        {
+          "hero_id": 27,
+          "name": "Shadow Shaman",
+          "roles": "Support, Pusher, Disabler, Nuker, Initiator",
+          "games": 5404,
+          "winrate": 45,
+          "ally_overall_wr": 51.11,
+          "expected_wr": 42.88,
+          "synergy_pp": 1.94,
+          "raw_diff_pp": 2.1,
+          "ci95_pp": 1.33,
+          "reason": "Hex + Shackles hold the target for three razes or a Requiem walk-in."
+        },
+        {
+          "hero_id": 103,
+          "name": "Elder Titan",
+          "roles": "Initiator, Disabler, Nuker, Durable",
+          "games": 543,
+          "winrate": 46.78,
+          "ally_overall_wr": 51.61,
+          "expected_wr": 43.37,
+          "synergy_pp": 1.77,
+          "raw_diff_pp": 3.37,
+          "ci95_pp": 4.2,
+          "reason": "Natural Order removes armor AND magic resistance - boosts both SF's right-click and raze/Requiem damage (noise?)."
+        },
+        {
+          "hero_id": 65,
+          "name": "Batrider",
+          "roles": "Initiator, Disabler, Escape",
+          "games": 448,
+          "winrate": 41.96,
+          "ally_overall_wr": 46.27,
+          "expected_wr": 38.21,
+          "synergy_pp": 1.77,
+          "raw_diff_pp": 3.9,
+          "ci95_pp": 4.57,
+          "reason": "Lasso drags a target into raze range (general knowledge, verify; noise?)."
+        },
+        {
+          "hero_id": 100,
+          "name": "Tusk",
+          "roles": "Initiator, Disabler, Nuker",
+          "games": 3117,
+          "winrate": 42.73,
+          "ally_overall_wr": 49.29,
+          "expected_wr": 41.11,
+          "synergy_pp": 1.4,
+          "raw_diff_pp": 1.64,
+          "ci95_pp": 1.74,
+          "reason": "Snowball can carry SF into position; Walrus Kick/Ice Shards lock the target; Drinking Buddies gives armor+speed."
+        },
+        {
+          "hero_id": 57,
+          "name": "Omniknight",
+          "roles": "Support, Durable, Nuker",
+          "games": 1221,
+          "winrate": 45.54,
+          "ally_overall_wr": 52.08,
+          "expected_wr": 43.84,
+          "synergy_pp": 1.21,
+          "raw_diff_pp": 1.66,
+          "ci95_pp": 2.79,
+          "reason": "Repel (debuff immunity) / Guardian Angel save SF when he is jumped."
+        },
+        {
+          "hero_id": 83,
+          "name": "Treant Protector",
+          "roles": "Support, Initiator, Durable, Disabler, Escape",
+          "games": 721,
+          "winrate": 39.11,
+          "ally_overall_wr": 45.44,
+          "expected_wr": 37.43,
+          "synergy_pp": 1,
+          "raw_diff_pp": 1.87,
+          "ci95_pp": 3.56,
+          "reason": "Living Armor heals/blocks damage on SF; Overgrowth roots (noise?)."
+        },
+        {
+          "hero_id": 102,
+          "name": "Abaddon",
+          "roles": "Support, Carry, Durable",
+          "games": 1256,
+          "winrate": 45.14,
+          "ally_overall_wr": 52,
+          "expected_wr": 43.75,
+          "synergy_pp": 1,
+          "raw_diff_pp": 1.35,
+          "ci95_pp": 2.75,
+          "reason": "Aphotic Shield dispels stuns/silences off SF and absorbs damage."
+        }
+      ],
+      "bottom_supports": [
+        {
+          "hero_id": 119,
+          "name": "Dark Willow",
+          "roles": "Support, Nuker, Disabler, Escape",
+          "games": 2961,
+          "winrate": 39.55,
+          "ally_overall_wr": 50.03,
+          "expected_wr": 41.83,
+          "synergy_pp": -1.95,
+          "raw_diff_pp": -2.28,
+          "ci95_pp": 1.76,
+          "reason": {}
+        },
+        {
+          "hero_id": 40,
+          "name": "Venomancer",
+          "roles": "Support, Nuker, Initiator, Pusher, Disabler",
+          "games": 2404,
+          "winrate": 37.81,
+          "ally_overall_wr": 48.03,
+          "expected_wr": 39.89,
+          "synergy_pp": -1.72,
+          "raw_diff_pp": -2.01,
+          "ci95_pp": 1.94,
+          "reason": {}
+        },
+        {
+          "hero_id": 30,
+          "name": "Witch Doctor",
+          "roles": "Support, Nuker, Disabler",
+          "games": 6471,
+          "winrate": 41.29,
+          "ally_overall_wr": 51.23,
+          "expected_wr": 43,
+          "synergy_pp": -1.58,
+          "raw_diff_pp": -1.73,
+          "ci95_pp": 1.2,
+          "reason": {}
+        }
+      ]
+    },
+    "Arc Warden": {
+      "hero_id": 113,
+      "name": "Arc Warden",
+      "overall_wr": 51.52,
+      "games": 56083,
+      "allies_ranked": 123,
+      "top_allies": [
+        {
+          "hero_id": 70,
+          "name": "Ursa",
+          "roles": "Carry, Durable, Disabler",
+          "games": 2100,
+          "winrate": 54.9,
+          "ally_overall_wr": 50.21,
+          "expected_wr": 51.73,
+          "synergy_pp": 2.57,
+          "raw_diff_pp": 3.18,
+          "ci95_pp": 2.13,
+          "reason": "Strong early right-click core: Arc's Magnetic Field/Spark Wraith + Ursa take objectives fast (general knowledge, verify)."
+        },
+        {
+          "hero_id": 100,
+          "name": "Tusk",
+          "roles": "Initiator, Disabler, Nuker",
+          "games": 1727,
+          "winrate": 54.08,
+          "ally_overall_wr": 49.29,
+          "expected_wr": 50.81,
+          "synergy_pp": 2.53,
+          "raw_diff_pp": 3.27,
+          "ci95_pp": 2.35,
+          "reason": "Walrus Kick/Ice Shards lock targets; Tag Team adds physical damage taken - Arc + Tempest Double both hit for it."
+        },
+        {
+          "hero_id": 71,
+          "name": "Spirit Breaker",
+          "roles": "Carry, Initiator, Disabler, Durable, Escape",
+          "games": 4630,
+          "winrate": 55.9,
+          "ally_overall_wr": 51.63,
+          "expected_wr": 53.14,
+          "synergy_pp": 2.48,
+          "raw_diff_pp": 2.75,
+          "ci95_pp": 1.43,
+          "reason": "Charge of Darkness and Nether Strike bash pick-offs across the map while Arc split-pushes (map pressure, general knowledge for 'split', verify)."
+        },
+        {
+          "hero_id": 51,
+          "name": "Clockwerk",
+          "roles": "Initiator, Disabler, Durable, Nuker",
+          "games": 720,
+          "winrate": 54.31,
+          "ally_overall_wr": 48.61,
+          "expected_wr": 50.13,
+          "synergy_pp": 2.46,
+          "raw_diff_pp": 4.18,
+          "ci95_pp": 3.64,
+          "reason": "Hookshot/Power Cogs trap a target for Arc's double Flux/Spark Wraith (noise?)."
+        },
+        {
+          "hero_id": 89,
+          "name": "Naga Siren",
+          "roles": "Carry, Support, Pusher, Disabler, Initiator, Escape",
+          "games": 366,
+          "winrate": 56.83,
+          "ally_overall_wr": 49.71,
+          "expected_wr": 51.23,
+          "synergy_pp": 2.37,
+          "raw_diff_pp": 5.6,
+          "ci95_pp": 5.07,
+          "reason": "Naga + Arc: double split push; Song of the Siren resets fights (366 games, noise?)."
+        },
+        {
+          "hero_id": 2,
+          "name": "Axe",
+          "roles": "Initiator, Durable, Disabler, Carry",
+          "games": 3885,
+          "winrate": 52.87,
+          "ally_overall_wr": 48.83,
+          "expected_wr": 50.35,
+          "synergy_pp": 2.23,
+          "raw_diff_pp": 2.52,
+          "ci95_pp": 1.57,
+          "reason": "Berserker's Call holds the enemy team still for Spark Wraith + Magnetic Field fights."
+        },
+        {
+          "hero_id": 19,
+          "name": "Tiny",
+          "roles": "Carry, Nuker, Pusher, Initiator, Durable, Disabler",
+          "games": 943,
+          "winrate": 49.42,
+          "ally_overall_wr": 44.94,
+          "expected_wr": 46.45,
+          "synergy_pp": 1.94,
+          "raw_diff_pp": 2.96,
+          "ci95_pp": 3.19,
+          "reason": "Tiny stun/burst early + Arc's late game (general knowledge, verify; noise?)."
+        },
+        {
+          "hero_id": 22,
+          "name": "Zeus",
+          "roles": "Nuker, Carry",
+          "games": 2545,
+          "winrate": 53.87,
+          "ally_overall_wr": 50.08,
+          "expected_wr": 51.6,
+          "synergy_pp": 1.9,
+          "raw_diff_pp": 2.27,
+          "ci95_pp": 1.94,
+          "reason": "Global magic damage (Thundergod's Wrath) complements Arc's single-target late game (general knowledge, verify)."
+        }
+      ],
+      "bottom_allies": [
+        {
+          "hero_id": 106,
+          "name": "Ember Spirit",
+          "roles": "Carry, Escape, Nuker, Disabler, Initiator",
+          "games": 484,
+          "winrate": 40.5,
+          "ally_overall_wr": 49.34,
+          "expected_wr": 50.86,
+          "synergy_pp": -5.1,
+          "raw_diff_pp": -10.36,
+          "ci95_pp": 4.37,
+          "reason": {}
+        },
+        {
+          "hero_id": 17,
+          "name": "Storm Spirit",
+          "roles": "Carry, Escape, Nuker, Initiator, Disabler",
+          "games": 389,
+          "winrate": 38.56,
+          "ally_overall_wr": 47.39,
+          "expected_wr": 48.91,
+          "synergy_pp": -4.53,
+          "raw_diff_pp": -10.35,
+          "ci95_pp": 4.84,
+          "reason": {}
+        },
+        {
+          "hero_id": 90,
+          "name": "Keeper of the Light",
+          "roles": "Support, Nuker, Disabler",
+          "games": 626,
+          "winrate": 44.41,
+          "ally_overall_wr": 50.95,
+          "expected_wr": 52.47,
+          "synergy_pp": -4.48,
+          "raw_diff_pp": -8.06,
+          "ci95_pp": 3.89,
+          "reason": {}
+        },
+        {
+          "hero_id": 34,
+          "name": "Tinker",
+          "roles": "Carry, Nuker, Pusher",
+          "games": 513,
+          "winrate": 43.66,
+          "ally_overall_wr": 48.73,
+          "expected_wr": 50.25,
+          "synergy_pp": -3.33,
+          "raw_diff_pp": -6.58,
+          "ci95_pp": 4.29,
+          "reason": {}
+        },
+        {
+          "hero_id": 35,
+          "name": "Sniper",
+          "roles": "Carry, Nuker",
+          "games": 1992,
+          "winrate": 46.49,
+          "ally_overall_wr": 48.88,
+          "expected_wr": 50.4,
+          "synergy_pp": -3.13,
+          "raw_diff_pp": -3.92,
+          "ci95_pp": 2.19,
+          "reason": {}
+        }
+      ],
+      "top_supports": [
+        {
+          "hero_id": 100,
+          "name": "Tusk",
+          "roles": "Initiator, Disabler, Nuker",
+          "games": 1727,
+          "winrate": 54.08,
+          "ally_overall_wr": 49.29,
+          "expected_wr": 50.81,
+          "synergy_pp": 2.53,
+          "raw_diff_pp": 3.27,
+          "ci95_pp": 2.35,
+          "reason": "Walrus Kick/Ice Shards lock targets; Tag Team adds physical damage taken - Arc + Tempest Double both hit for it."
+        },
+        {
+          "hero_id": 71,
+          "name": "Spirit Breaker",
+          "roles": "Carry, Initiator, Disabler, Durable, Escape",
+          "games": 4630,
+          "winrate": 55.9,
+          "ally_overall_wr": 51.63,
+          "expected_wr": 53.14,
+          "synergy_pp": 2.48,
+          "raw_diff_pp": 2.75,
+          "ci95_pp": 1.43,
+          "reason": "Charge of Darkness and Nether Strike bash pick-offs across the map while Arc split-pushes (map pressure, general knowledge for 'split', verify)."
+        },
+        {
+          "hero_id": 87,
+          "name": "Disruptor",
+          "roles": "Support, Disabler, Nuker, Initiator",
+          "games": 2277,
+          "winrate": 54.55,
+          "ally_overall_wr": 50.86,
+          "expected_wr": 52.38,
+          "synergy_pp": 1.78,
+          "raw_diff_pp": 2.17,
+          "ci95_pp": 2.05,
+          "reason": "Kinetic Field traps targets for Spark Wraiths and double Flux; Glimpse brings escapes back."
+        },
+        {
+          "hero_id": 64,
+          "name": "Jakiro",
+          "roles": "Support, Nuker, Pusher, Disabler",
+          "games": 1673,
+          "winrate": 51.46,
+          "ally_overall_wr": 47.71,
+          "expected_wr": 49.23,
+          "synergy_pp": 1.72,
+          "raw_diff_pp": 2.24,
+          "ci95_pp": 2.39,
+          "reason": "Ice Path stun + Liquid Frost/Fire push waves and towers fast (Arc wants early towers, general knowledge, verify)."
+        },
+        {
+          "hero_id": 57,
+          "name": "Omniknight",
+          "roles": "Support, Durable, Nuker",
+          "games": 682,
+          "winrate": 56.45,
+          "ally_overall_wr": 52.08,
+          "expected_wr": 53.6,
+          "synergy_pp": 1.65,
+          "raw_diff_pp": 2.85,
+          "ci95_pp": 3.72,
+          "reason": "Guardian Angel/Repel save Arc (and the double, if Omni casts on it) from physical burst (noise?)."
+        },
+        {
+          "hero_id": 123,
+          "name": "Hoodwink",
+          "roles": "Support, Nuker, Escape, Disabler",
+          "games": 3330,
+          "winrate": 50.51,
+          "ally_overall_wr": 47.19,
+          "expected_wr": 48.71,
+          "synergy_pp": 1.56,
+          "raw_diff_pp": 1.8,
+          "ci95_pp": 1.7,
+          "reason": "Bushwhack stuns near trees; Sharpshooter adds Break + long-range damage for picks."
+        },
+        {
+          "hero_id": 62,
+          "name": "Bounty Hunter",
+          "roles": "Escape, Nuker",
+          "games": 2008,
+          "winrate": 56.57,
+          "ally_overall_wr": 53.18,
+          "expected_wr": 54.7,
+          "synergy_pp": 1.5,
+          "raw_diff_pp": 1.87,
+          "ci95_pp": 2.17,
+          "reason": "Track gives True Sight + damage taken + extra gold on kills; Friendly Shadow can hide Arc while split-pushing."
+        },
+        {
+          "hero_id": 105,
+          "name": "Techies",
+          "roles": "Nuker, Disabler",
+          "games": 4552,
+          "winrate": 53.38,
+          "ally_overall_wr": 50.34,
+          "expected_wr": 51.86,
+          "synergy_pp": 1.37,
+          "raw_diff_pp": 1.52,
+          "ci95_pp": 1.45,
+          "reason": "Mines/Sticky Bomb defend Arc's base area while he split-pushes (general knowledge, verify)."
+        }
+      ],
+      "bottom_supports": [
+        {
+          "hero_id": 90,
+          "name": "Keeper of the Light",
+          "roles": "Support, Nuker, Disabler",
+          "games": 626,
+          "winrate": 44.41,
+          "ally_overall_wr": 50.95,
+          "expected_wr": 52.47,
+          "synergy_pp": -4.48,
+          "raw_diff_pp": -8.06,
+          "ci95_pp": 3.89,
+          "reason": {}
+        },
+        {
+          "hero_id": 136,
+          "name": "Marci",
+          "roles": "Support, Carry, Initiator, Disabler, Escape",
+          "games": 905,
+          "winrate": 47.18,
+          "ally_overall_wr": 50.03,
+          "expected_wr": 51.55,
+          "synergy_pp": -2.81,
+          "raw_diff_pp": -4.37,
+          "ci95_pp": 3.25,
+          "reason": {}
+        },
+        {
+          "hero_id": 102,
+          "name": "Abaddon",
+          "roles": "Support, Carry, Durable",
+          "games": 801,
+          "winrate": 50.06,
+          "ally_overall_wr": 52,
+          "expected_wr": 53.51,
+          "synergy_pp": -2.12,
+          "raw_diff_pp": -3.45,
+          "ci95_pp": 3.46,
+          "reason": {}
+        }
+      ]
+    },
+    "Phantom Assassin": {
+      "hero_id": 44,
+      "name": "Phantom Assassin",
+      "overall_wr": 50.77,
+      "games": 121711,
+      "allies_ranked": 125,
+      "top_allies": [
+        {
+          "hero_id": 74,
+          "name": "Invoker",
+          "roles": "Carry, Nuker, Disabler, Escape, Pusher",
+          "games": 13068,
+          "winrate": 54.56,
+          "ally_overall_wr": 51.75,
+          "expected_wr": 52.52,
+          "synergy_pp": 1.97,
+          "raw_diff_pp": 2.04,
+          "ci95_pp": 0.85,
+          "reason": "Invoker mid brings global/AoE control (Cold Snap, Tornado, EMP; general knowledge, verify) - PA crits on held targets."
+        },
+        {
+          "hero_id": 22,
+          "name": "Zeus",
+          "roles": "Nuker, Carry",
+          "games": 8944,
+          "winrate": 52.9,
+          "ally_overall_wr": 50.08,
+          "expected_wr": 50.84,
+          "synergy_pp": 1.94,
+          "raw_diff_pp": 2.05,
+          "ci95_pp": 1.03,
+          "reason": "Global magic damage and vision while PA right-clicks; covers PA's lack of magic damage (general knowledge, verify)."
+        },
+        {
+          "hero_id": 75,
+          "name": "Silencer",
+          "roles": "Carry, Support, Disabler, Initiator, Nuker",
+          "games": 5544,
+          "winrate": 52.36,
+          "ally_overall_wr": 49.7,
+          "expected_wr": 50.47,
+          "synergy_pp": 1.74,
+          "raw_diff_pp": 1.9,
+          "ci95_pp": 1.31,
+          "reason": "Global Silence stops enemy saves/escapes for the whole team; Last Word silences the target PA jumps."
+        },
+        {
+          "hero_id": 65,
+          "name": "Batrider",
+          "roles": "Initiator, Disabler, Escape",
+          "games": 689,
+          "winrate": 49.93,
+          "ally_overall_wr": 46.27,
+          "expected_wr": 47.03,
+          "synergy_pp": 1.68,
+          "raw_diff_pp": 2.89,
+          "ci95_pp": 3.73,
+          "reason": "Lasso drags a target into PA (general knowledge, verify; noise?)."
+        },
+        {
+          "hero_id": 77,
+          "name": "Lycan",
+          "roles": "Carry, Pusher, Durable, Escape",
+          "games": 861,
+          "winrate": 54.59,
+          "ally_overall_wr": 51.22,
+          "expected_wr": 51.99,
+          "synergy_pp": 1.65,
+          "raw_diff_pp": 2.6,
+          "ci95_pp": 3.33,
+          "reason": "Lycan pushes buildings fast while PA fights (general knowledge, verify; noise?)."
+        },
+        {
+          "hero_id": 129,
+          "name": "Mars",
+          "roles": "Carry, Initiator, Disabler, Durable",
+          "games": 3414,
+          "winrate": 50.67,
+          "ally_overall_wr": 48.06,
+          "expected_wr": 48.83,
+          "synergy_pp": 1.61,
+          "raw_diff_pp": 1.84,
+          "ci95_pp": 1.68,
+          "reason": "Arena of Blood traps enemies inside with PA (general knowledge, verify)."
+        },
+        {
+          "hero_id": 72,
+          "name": "Gyrocopter",
+          "roles": "Carry, Nuker, Disabler",
+          "games": 2307,
+          "winrate": 49.63,
+          "ally_overall_wr": 46.91,
+          "expected_wr": 47.68,
+          "synergy_pp": 1.61,
+          "raw_diff_pp": 1.95,
+          "ci95_pp": 2.04,
+          "reason": "AoE magic (Rocket Barrage, Call Down) on top of PA's single-target physical damage."
+        },
+        {
+          "hero_id": 35,
+          "name": "Sniper",
+          "roles": "Carry, Nuker",
+          "games": 9524,
+          "winrate": 51.24,
+          "ally_overall_wr": 48.88,
+          "expected_wr": 49.65,
+          "synergy_pp": 1.51,
+          "raw_diff_pp": 1.59,
+          "ci95_pp": 1,
+          "reason": "Long-range physical damage and Shrapnel slow; draws focus away from PA (general knowledge, verify)."
+        }
+      ],
+      "bottom_allies": [
+        {
+          "hero_id": 8,
+          "name": "Juggernaut",
+          "roles": "Carry, Pusher, Escape",
+          "games": 1337,
+          "winrate": 46.07,
+          "ally_overall_wr": 52.82,
+          "expected_wr": 53.58,
+          "synergy_pp": -5.46,
+          "raw_diff_pp": -7.51,
+          "ci95_pp": 2.67,
+          "reason": {}
+        },
+        {
+          "hero_id": 54,
+          "name": "Lifestealer",
+          "roles": "Carry, Durable, Escape, Disabler",
+          "games": 923,
+          "winrate": 45.72,
+          "ally_overall_wr": 51.35,
+          "expected_wr": 52.11,
+          "synergy_pp": -4.15,
+          "raw_diff_pp": -6.39,
+          "ci95_pp": 3.21,
+          "reason": {}
+        },
+        {
+          "hero_id": 82,
+          "name": "Meepo",
+          "roles": "Carry, Escape, Nuker, Disabler, Initiator, Pusher",
+          "games": 814,
+          "winrate": 47.91,
+          "ally_overall_wr": 53.05,
+          "expected_wr": 53.81,
+          "synergy_pp": -3.65,
+          "raw_diff_pp": -5.9,
+          "ci95_pp": 3.43,
+          "reason": {}
+        },
+        {
+          "hero_id": 70,
+          "name": "Ursa",
+          "roles": "Carry, Durable, Disabler",
+          "games": 985,
+          "winrate": 46.19,
+          "ally_overall_wr": 50.21,
+          "expected_wr": 50.98,
+          "synergy_pp": -3.17,
+          "raw_diff_pp": -4.78,
+          "ci95_pp": 3.11,
+          "reason": {}
+        },
+        {
+          "hero_id": 46,
+          "name": "Templar Assassin",
+          "roles": "Carry, Escape",
+          "games": 839,
+          "winrate": 42.31,
+          "ally_overall_wr": 46.23,
+          "expected_wr": 47,
+          "synergy_pp": -2.94,
+          "raw_diff_pp": -4.69,
+          "ci95_pp": 3.34,
+          "reason": {}
+        }
+      ],
+      "top_supports": [
+        {
+          "hero_id": 75,
+          "name": "Silencer",
+          "roles": "Carry, Support, Disabler, Initiator, Nuker",
+          "games": 5544,
+          "winrate": 52.36,
+          "ally_overall_wr": 49.7,
+          "expected_wr": 50.47,
+          "synergy_pp": 1.74,
+          "raw_diff_pp": 1.9,
+          "ci95_pp": 1.31,
+          "reason": "Global Silence stops enemy saves/escapes for the whole team; Last Word silences the target PA jumps."
+        },
+        {
+          "hero_id": 65,
+          "name": "Batrider",
+          "roles": "Initiator, Disabler, Escape",
+          "games": 689,
+          "winrate": 49.93,
+          "ally_overall_wr": 46.27,
+          "expected_wr": 47.03,
+          "synergy_pp": 1.68,
+          "raw_diff_pp": 2.89,
+          "ci95_pp": 3.73,
+          "reason": "Lasso drags a target into PA (general knowledge, verify; noise?)."
+        },
+        {
+          "hero_id": 107,
+          "name": "Earth Spirit",
+          "roles": "Nuker, Escape, Disabler, Initiator, Durable",
+          "games": 3092,
+          "winrate": 53.01,
+          "ally_overall_wr": 50.52,
+          "expected_wr": 51.29,
+          "synergy_pp": 1.48,
+          "raw_diff_pp": 1.72,
+          "ci95_pp": 1.76,
+          "reason": "Rolling Boulder stun, Geomagnetic Grip silence: lockdown for crits."
+        },
+        {
+          "hero_id": 87,
+          "name": "Disruptor",
+          "roles": "Support, Disabler, Nuker, Initiator",
+          "games": 5316,
+          "winrate": 53.14,
+          "ally_overall_wr": 50.86,
+          "expected_wr": 51.63,
+          "synergy_pp": 1.38,
+          "raw_diff_pp": 1.51,
+          "ci95_pp": 1.34,
+          "reason": "Kinetic Field traps the target for PA's Phantom Strike follow-up; Glimpse undoes escapes."
+        },
+        {
+          "hero_id": 64,
+          "name": "Jakiro",
+          "roles": "Support, Nuker, Pusher, Disabler",
+          "games": 4837,
+          "winrate": 49.66,
+          "ally_overall_wr": 47.71,
+          "expected_wr": 48.47,
+          "synergy_pp": 1.07,
+          "raw_diff_pp": 1.18,
+          "ci95_pp": 1.41,
+          "reason": "Ice Path stun + Liquid Frost slow; Macropyre AoE damage while PA crits."
+        },
+        {
+          "hero_id": 101,
+          "name": "Skywrath Mage",
+          "roles": "Support, Nuker, Disabler",
+          "games": 6558,
+          "winrate": 50.88,
+          "ally_overall_wr": 49,
+          "expected_wr": 49.77,
+          "synergy_pp": 1.04,
+          "raw_diff_pp": 1.11,
+          "ci95_pp": 1.21,
+          "reason": "Ancient Seal silences escapes/BKB-less saves; Concussive Shot slows."
+        },
+        {
+          "hero_id": 88,
+          "name": "Nyx Assassin",
+          "roles": "Disabler, Nuker, Initiator, Escape",
+          "games": 7104,
+          "winrate": 55.18,
+          "ally_overall_wr": 53.47,
+          "expected_wr": 54.23,
+          "synergy_pp": 0.89,
+          "raw_diff_pp": 0.95,
+          "ci95_pp": 1.16,
+          "reason": "Impale stun + Mind Flare: pick-off combo, then PA finishes."
+        },
+        {
+          "hero_id": 84,
+          "name": "Ogre Magi",
+          "roles": "Support, Nuker, Disabler, Durable, Initiator",
+          "games": 9952,
+          "winrate": 52.01,
+          "ally_overall_wr": 50.34,
+          "expected_wr": 51.11,
+          "synergy_pp": 0.86,
+          "raw_diff_pp": 0.9,
+          "ci95_pp": 0.98,
+          "reason": "Bloodlust attack speed = more crit procs; Fireblast stun; Fire Shield blocks hero attacks."
+        }
+      ],
+      "bottom_supports": [
+        {
+          "hero_id": 91,
+          "name": "Io",
+          "roles": "Support, Escape, Nuker",
+          "games": 2048,
+          "winrate": 48.88,
+          "ally_overall_wr": 50.81,
+          "expected_wr": 51.58,
+          "synergy_pp": -2.17,
+          "raw_diff_pp": -2.7,
+          "ci95_pp": 2.16,
+          "reason": {}
+        },
+        {
+          "hero_id": 21,
+          "name": "Windranger",
+          "roles": "Carry, Support, Disabler, Escape, Nuker",
+          "games": 8766,
+          "winrate": 47.42,
+          "ally_overall_wr": 48.53,
+          "expected_wr": 49.29,
+          "synergy_pp": -1.77,
+          "raw_diff_pp": -1.87,
+          "ci95_pp": 1.05,
+          "reason": {}
+        },
+        {
+          "hero_id": 111,
+          "name": "Oracle",
+          "roles": "Support, Nuker, Disabler, Escape",
+          "games": 3040,
+          "winrate": 50.59,
+          "ally_overall_wr": 51.09,
+          "expected_wr": 51.86,
+          "synergy_pp": -1.09,
+          "raw_diff_pp": -1.27,
+          "ci95_pp": 1.78,
+          "reason": {}
+        }
+      ]
+    }
+  },
+  "support_cross": {
+    "Abaddon": {
+      "support_id": 102,
+      "by_main": [
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 1.65,
+          "games": 2556
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 1,
+          "games": 1256
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.02,
+          "games": 1743
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -0.75,
+          "games": 743
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -1.17,
+          "games": 718
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -1.59,
+          "games": 1484
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -2.12,
+          "games": 801
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -2.37,
+          "games": 1566
+        }
+      ]
+    },
+    "Ancient Apparition": {
+      "support_id": 68,
+      "by_main": [
+        {
+          "main": "Wraith King",
+          "synergy_pp": 3.48,
+          "games": 5516
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 2.07,
+          "games": 4287
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 1.23,
+          "games": 1843
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.64,
+          "games": 4760
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.45,
+          "games": 1736
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 0.05,
+          "games": 6528
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.4,
+          "games": 1804
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.57,
+          "games": 2881
+        }
+      ]
+    },
+    "Bane": {
+      "support_id": 3,
+      "by_main": [
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 2.43,
+          "games": 2541
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.69,
+          "games": 1661
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.58,
+          "games": 691
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.44,
+          "games": 1709
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 0.26,
+          "games": 819
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -0.15,
+          "games": 741
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.58,
+          "games": 1376
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -1.05,
+          "games": 1721
+        }
+      ]
+    },
+    "Batrider": {
+      "support_id": 65,
+      "by_main": [
+        {
+          "main": "Morphling",
+          "synergy_pp": 2.38,
+          "games": 305
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 1.77,
+          "games": 448
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 1.68,
+          "games": 689
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.77,
+          "games": 306
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -1,
+          "games": 962
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -1.28,
+          "games": 576
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -2.14,
+          "games": 660
+        }
+      ]
+    },
+    "Bounty Hunter": {
+      "support_id": 62,
+      "by_main": [
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 1.5,
+          "games": 2008
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 0.44,
+          "games": 7127
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -0.34,
+          "games": 1796
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.92,
+          "games": 2701
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -0.95,
+          "games": 4212
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.97,
+          "games": 3748
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -1.51,
+          "games": 1740
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -1.88,
+          "games": 4421
+        }
+      ]
+    },
+    "Chen": {
+      "support_id": 66,
+      "by_main": [
+        {
+          "main": "Wraith King",
+          "synergy_pp": 1.88,
+          "games": 304
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 1.5,
+          "games": 499
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -0.37,
+          "games": 312
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.77,
+          "games": 355
+        }
+      ]
+    },
+    "Crystal Maiden": {
+      "support_id": 5,
+      "by_main": [
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.62,
+          "games": 3213
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.27,
+          "games": 3122
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.24,
+          "games": 5500
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.25,
+          "games": 12917
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -0.27,
+          "games": 8025
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.37,
+          "games": 8257
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.5,
+          "games": 3330
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -0.84,
+          "games": 9880
+        }
+      ]
+    },
+    "Dark Willow": {
+      "support_id": 119,
+      "by_main": [
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 1.36,
+          "games": 2204
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 0.64,
+          "games": 8095
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.56,
+          "games": 5494
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.48,
+          "games": 1995
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 0.12,
+          "games": 4834
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -0.64,
+          "games": 2003
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.86,
+          "games": 4262
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -1.95,
+          "games": 2961
+        }
+      ]
+    },
+    "Dazzle": {
+      "support_id": 50,
+      "by_main": [
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 2.43,
+          "games": 5526
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.68,
+          "games": 3495
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 0.07,
+          "games": 1714
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.18,
+          "games": 2323
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -0.93,
+          "games": 3556
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -1.28,
+          "games": 3382
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -1.62,
+          "games": 1471
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -1.9,
+          "games": 1391
+        }
+      ]
+    },
+    "Disruptor": {
+      "support_id": 87,
+      "by_main": [
+        {
+          "main": "Morphling",
+          "synergy_pp": 2.4,
+          "games": 2223
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 2.09,
+          "games": 2289
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 1.78,
+          "games": 2277
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 1.38,
+          "games": 5316
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 1.25,
+          "games": 5701
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 0.22,
+          "games": 3495
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -0.02,
+          "games": 6738
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -1.36,
+          "games": 9418
+        }
+      ]
+    },
+    "Earth Spirit": {
+      "support_id": 107,
+      "by_main": [
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 2.77,
+          "games": 1450
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 1.76,
+          "games": 1441
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 1.48,
+          "games": 3092
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.07,
+          "games": 5248
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -0.14,
+          "games": 3307
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.18,
+          "games": 1180
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.39,
+          "games": 1930
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -0.52,
+          "games": 3042
+        }
+      ]
+    },
+    "Earthshaker": {
+      "support_id": 7,
+      "by_main": [
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 1.9,
+          "games": 13931
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 1.58,
+          "games": 4536
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 1.26,
+          "games": 4645
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 0.88,
+          "games": 3658
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.52,
+          "games": 9815
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 0.38,
+          "games": 17575
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.1,
+          "games": 10814
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.7,
+          "games": 6541
+        }
+      ]
+    },
+    "Elder Titan": {
+      "support_id": 103,
+      "by_main": [
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 1.77,
+          "games": 543
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.85,
+          "games": 550
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 0.74,
+          "games": 630
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.06,
+          "games": 318
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.23,
+          "games": 683
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.36,
+          "games": 371
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.49,
+          "games": 966
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -0.86,
+          "games": 303
+        }
+      ]
+    },
+    "Grimstroke": {
+      "support_id": 121,
+      "by_main": [
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.4,
+          "games": 5829
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.37,
+          "games": 2171
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.23,
+          "games": 2182
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.17,
+          "games": 5024
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.13,
+          "games": 9010
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -0.28,
+          "games": 5710
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.41,
+          "games": 3334
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -1.69,
+          "games": 2527
+        }
+      ]
+    },
+    "Hoodwink": {
+      "support_id": 123,
+      "by_main": [
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 1.56,
+          "games": 3330
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 1.35,
+          "games": 7151
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 1,
+          "games": 7386
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.49,
+          "games": 2807
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 0.39,
+          "games": 11173
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.35,
+          "games": 2968
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.36,
+          "games": 5901
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.41,
+          "games": 4594
+        }
+      ]
+    },
+    "Io": {
+      "support_id": 91,
+      "by_main": [
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 1.15,
+          "games": 1446
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.04,
+          "games": 3549
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -1.32,
+          "games": 2047
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -1.64,
+          "games": 2611
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -1.71,
+          "games": 1058
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -2.17,
+          "games": 2048
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -2.51,
+          "games": 2229
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -2.61,
+          "games": 1163
+        }
+      ]
+    },
+    "Jakiro": {
+      "support_id": 64,
+      "by_main": [
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 1.72,
+          "games": 1673
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 1.12,
+          "games": 6423
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 1.07,
+          "games": 4837
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 0.61,
+          "games": 3957
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.27,
+          "games": 1620
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.12,
+          "games": 1635
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -0.22,
+          "games": 5089
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.32,
+          "games": 2936
+        }
+      ]
+    },
+    "Keeper of the Light": {
+      "support_id": 90,
+      "by_main": [
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 1.9,
+          "games": 2916
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.93,
+          "games": 1052
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.35,
+          "games": 2188
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.34,
+          "games": 1167
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -0.36,
+          "games": 995
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.8,
+          "games": 3699
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -1.77,
+          "games": 2436
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -4.48,
+          "games": 626
+        }
+      ]
+    },
+    "Largo": {
+      "support_id": 155,
+      "by_main": [
+        {
+          "main": "Wraith King",
+          "synergy_pp": 1.44,
+          "games": 1018
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.78,
+          "games": 1180
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 0.77,
+          "games": 662
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 0.46,
+          "games": 952
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 0.43,
+          "games": 1326
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.18,
+          "games": 1976
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -0.24,
+          "games": 615
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -1.2,
+          "games": 602
+        }
+      ]
+    },
+    "Lich": {
+      "support_id": 31,
+      "by_main": [
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 1.08,
+          "games": 3062
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 0.99,
+          "games": 11735
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 0.93,
+          "games": 7161
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.24,
+          "games": 2775
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -0.03,
+          "games": 8698
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.45,
+          "games": 4562
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.77,
+          "games": 7189
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -0.92,
+          "games": 2706
+        }
+      ]
+    },
+    "Lion": {
+      "support_id": 26,
+      "by_main": [
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 0.92,
+          "games": 9625
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 0.7,
+          "games": 13775
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.41,
+          "games": 14900
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.2,
+          "games": 16659
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.08,
+          "games": 5764
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.17,
+          "games": 22771
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.51,
+          "games": 5367
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -0.64,
+          "games": 5794
+        }
+      ]
+    },
+    "Marci": {
+      "support_id": 136,
+      "by_main": [
+        {
+          "main": "Wraith King",
+          "synergy_pp": 2.14,
+          "games": 2238
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 1.62,
+          "games": 1090
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 0.72,
+          "games": 1639
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.24,
+          "games": 3805
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.91,
+          "games": 2188
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -1.42,
+          "games": 1046
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -1.95,
+          "games": 2391
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -2.81,
+          "games": 905
+        }
+      ]
+    },
+    "Mirana": {
+      "support_id": 9,
+      "by_main": [
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.4,
+          "games": 2738
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -0.01,
+          "games": 6637
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.06,
+          "games": 4230
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.62,
+          "games": 6707
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.67,
+          "games": 2719
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.84,
+          "games": 11204
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -0.94,
+          "games": 8687
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -1.07,
+          "games": 2592
+        }
+      ]
+    },
+    "Nyx Assassin": {
+      "support_id": 88,
+      "by_main": [
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.89,
+          "games": 7104
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.72,
+          "games": 8235
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 0.42,
+          "games": 4296
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 0.16,
+          "games": 6780
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.02,
+          "games": 11787
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -0.17,
+          "games": 2649
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.2,
+          "games": 2494
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -1.19,
+          "games": 3014
+        }
+      ]
+    },
+    "Ogre Magi": {
+      "support_id": 84,
+      "by_main": [
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 1.95,
+          "games": 6648
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.86,
+          "games": 9952
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.44,
+          "games": 3737
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.53,
+          "games": 13204
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -0.67,
+          "games": 9234
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -1.2,
+          "games": 3605
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -1.94,
+          "games": 3529
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -2.43,
+          "games": 7743
+        }
+      ]
+    },
+    "Omniknight": {
+      "support_id": 57,
+      "by_main": [
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 2.35,
+          "games": 2157
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 1.65,
+          "games": 682
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 1.21,
+          "games": 1221
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.18,
+          "games": 614
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.01,
+          "games": 596
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.12,
+          "games": 1505
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -0.32,
+          "games": 1132
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -2.73,
+          "games": 1313
+        }
+      ]
+    },
+    "Oracle": {
+      "support_id": 111,
+      "by_main": [
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 0.71,
+          "games": 4531
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 0.32,
+          "games": 1635
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.12,
+          "games": 2095
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -0.73,
+          "games": 1302
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -1.09,
+          "games": 3040
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -1.25,
+          "games": 1265
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -1.61,
+          "games": 2866
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -2.82,
+          "games": 2952
+        }
+      ]
+    },
+    "Phoenix": {
+      "support_id": 110,
+      "by_main": [
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 2.35,
+          "games": 4243
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 1.02,
+          "games": 1587
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 1,
+          "games": 6350
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.28,
+          "games": 3527
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.25,
+          "games": 3812
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -0.08,
+          "games": 1679
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -1.17,
+          "games": 1584
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -1.22,
+          "games": 2205
+        }
+      ]
+    },
+    "Pudge": {
+      "support_id": 14,
+      "by_main": [
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.42,
+          "games": 6871
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.03,
+          "games": 6804
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.01,
+          "games": 17534
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.03,
+          "games": 6866
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.04,
+          "games": 11761
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -0.38,
+          "games": 15972
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.45,
+          "games": 26213
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -0.63,
+          "games": 16356
+        }
+      ]
+    },
+    "Ring Master": {
+      "support_id": 131,
+      "by_main": [
+        {
+          "main": "Morphling",
+          "synergy_pp": 1.32,
+          "games": 1595
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 1.22,
+          "games": 4188
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 0.9,
+          "games": 6169
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.53,
+          "games": 1781
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.53,
+          "games": 3361
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 0.28,
+          "games": 1921
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.18,
+          "games": 3739
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -1.53,
+          "games": 2619
+        }
+      ]
+    },
+    "Rubick": {
+      "support_id": 86,
+      "by_main": [
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.76,
+          "games": 16210
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 0.55,
+          "games": 15764
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 0.18,
+          "games": 24729
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.12,
+          "games": 6401
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.11,
+          "games": 17882
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -0.09,
+          "games": 6447
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.12,
+          "games": 5938
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.35,
+          "games": 10021
+        }
+      ]
+    },
+    "Sand King": {
+      "support_id": 16,
+      "by_main": [
+        {
+          "main": "Morphling",
+          "synergy_pp": 2.17,
+          "games": 958
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 1.95,
+          "games": 2349
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 1.03,
+          "games": 942
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.82,
+          "games": 2410
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.66,
+          "games": 1765
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.51,
+          "games": 3651
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.65,
+          "games": 1392
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -1.67,
+          "games": 786
+        }
+      ]
+    },
+    "Shadow Demon": {
+      "support_id": 79,
+      "by_main": [
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 1.84,
+          "games": 603
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 1.68,
+          "games": 1536
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 0.44,
+          "games": 703
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 0.32,
+          "games": 1055
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 0.1,
+          "games": 1488
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.09,
+          "games": 667
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.22,
+          "games": 1411
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.72,
+          "games": 2154
+        }
+      ]
+    },
+    "Shadow Shaman": {
+      "support_id": 27,
+      "by_main": [
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 1.94,
+          "games": 5404
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.87,
+          "games": 3090
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.19,
+          "games": 8225
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 0.09,
+          "games": 2926
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -0.2,
+          "games": 2730
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.75,
+          "games": 7589
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.78,
+          "games": 11790
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -1.48,
+          "games": 6659
+        }
+      ]
+    },
+    "Silencer": {
+      "support_id": 75,
+      "by_main": [
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 1.74,
+          "games": 5544
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 0.29,
+          "games": 3320
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.04,
+          "games": 1929
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -0.21,
+          "games": 2026
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -0.26,
+          "games": 7011
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.31,
+          "games": 8562
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -1.26,
+          "games": 4967
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -1.34,
+          "games": 1862
+        }
+      ]
+    },
+    "Skywrath Mage": {
+      "support_id": 101,
+      "by_main": [
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 1.84,
+          "games": 6204
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 1.18,
+          "games": 7741
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 1.04,
+          "games": 6558
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.46,
+          "games": 2439
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 0.36,
+          "games": 3902
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.2,
+          "games": 2361
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.07,
+          "games": 9517
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -1.45,
+          "games": 2303
+        }
+      ]
+    },
+    "Snapfire": {
+      "support_id": 128,
+      "by_main": [
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.48,
+          "games": 7066
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 0.34,
+          "games": 6957
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -0.19,
+          "games": 2718
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -0.19,
+          "games": 2949
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.29,
+          "games": 10806
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.51,
+          "games": 6414
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.88,
+          "games": 2335
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -1.17,
+          "games": 4216
+        }
+      ]
+    },
+    "Spirit Breaker": {
+      "support_id": 71,
+      "by_main": [
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 2.48,
+          "games": 4630
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 1.16,
+          "games": 4074
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 0.6,
+          "games": 7520
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -0.22,
+          "games": 4224
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.35,
+          "games": 17148
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -0.48,
+          "games": 9991
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.61,
+          "games": 9751
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -0.81,
+          "games": 9931
+        }
+      ]
+    },
+    "Techies": {
+      "support_id": 105,
+      "by_main": [
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 2.44,
+          "games": 9751
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 1.37,
+          "games": 4552
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 1.14,
+          "games": 14693
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 1.11,
+          "games": 3943
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.6,
+          "games": 9104
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.13,
+          "games": 8560
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -0.4,
+          "games": 3753
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -1.43,
+          "games": 6322
+        }
+      ]
+    },
+    "Treant Protector": {
+      "support_id": 83,
+      "by_main": [
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 1.59,
+          "games": 824
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 1.37,
+          "games": 425
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 1.03,
+          "games": 863
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 1,
+          "games": 721
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 0.91,
+          "games": 1265
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.5,
+          "games": 943
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.39,
+          "games": 422
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -1.02,
+          "games": 403
+        }
+      ]
+    },
+    "Tusk": {
+      "support_id": 100,
+      "by_main": [
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 2.53,
+          "games": 1727
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 1.4,
+          "games": 3117
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.79,
+          "games": 1902
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.58,
+          "games": 1835
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.36,
+          "games": 3560
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -0.4,
+          "games": 3455
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -0.6,
+          "games": 3537
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.69,
+          "games": 5545
+        }
+      ]
+    },
+    "Undying": {
+      "support_id": 85,
+      "by_main": [
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.76,
+          "games": 5277
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 0.65,
+          "games": 8646
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 0.52,
+          "games": 3767
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -0.06,
+          "games": 5303
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -0.36,
+          "games": 2391
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.47,
+          "games": 2482
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.52,
+          "games": 5050
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -0.84,
+          "games": 2342
+        }
+      ]
+    },
+    "Vengeful Spirit": {
+      "support_id": 20,
+      "by_main": [
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.75,
+          "games": 1772
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.26,
+          "games": 5614
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -0.01,
+          "games": 3505
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.09,
+          "games": 2010
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.19,
+          "games": 4703
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -0.79,
+          "games": 3674
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -1.01,
+          "games": 6123
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -1.67,
+          "games": 1583
+        }
+      ]
+    },
+    "Venomancer": {
+      "support_id": 40,
+      "by_main": [
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 1.58,
+          "games": 3261
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 1.34,
+          "games": 4446
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 1.24,
+          "games": 1355
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.34,
+          "games": 1410
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": 0.04,
+          "games": 1365
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.77,
+          "games": 3898
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -1.16,
+          "games": 5630
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -1.72,
+          "games": 2404
+        }
+      ]
+    },
+    "Warlock": {
+      "support_id": 37,
+      "by_main": [
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 1.64,
+          "games": 4983
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.43,
+          "games": 3302
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -0.58,
+          "games": 3616
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -1.07,
+          "games": 1343
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -1.12,
+          "games": 1230
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -1.28,
+          "games": 2159
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -1.3,
+          "games": 1211
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": -1.78,
+          "games": 2948
+        }
+      ]
+    },
+    "Windranger": {
+      "support_id": 21,
+      "by_main": [
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": 0.84,
+          "games": 5916
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.58,
+          "games": 11235
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": 0.26,
+          "games": 3528
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.24,
+          "games": 3545
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 0.09,
+          "games": 8541
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": -0.29,
+          "games": 14536
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.45,
+          "games": 3745
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -1.77,
+          "games": 8766
+        }
+      ]
+    },
+    "Winter Wyvern": {
+      "support_id": 112,
+      "by_main": [
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 3.32,
+          "games": 7279
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": 0.55,
+          "games": 1706
+        },
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 0.47,
+          "games": 4812
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.12,
+          "games": 2010
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -0.31,
+          "games": 1765
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": -0.38,
+          "games": 3520
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -1.12,
+          "games": 2724
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": -1.41,
+          "games": 4051
+        }
+      ]
+    },
+    "Witch Doctor": {
+      "support_id": 30,
+      "by_main": [
+        {
+          "main": "Phantom Lancer",
+          "synergy_pp": 1.12,
+          "games": 10073
+        },
+        {
+          "main": "Phantom Assassin",
+          "synergy_pp": 0.76,
+          "games": 9987
+        },
+        {
+          "main": "Wraith King",
+          "synergy_pp": 0.75,
+          "games": 11081
+        },
+        {
+          "main": "Anti-Mage",
+          "synergy_pp": 0.64,
+          "games": 15455
+        },
+        {
+          "main": "Arc Warden",
+          "synergy_pp": -0.11,
+          "games": 4258
+        },
+        {
+          "main": "Templar Assassin",
+          "synergy_pp": -0.26,
+          "games": 3895
+        },
+        {
+          "main": "Morphling",
+          "synergy_pp": -0.43,
+          "games": 3736
+        },
+        {
+          "main": "Shadow Fiend",
+          "synergy_pp": -1.58,
+          "games": 6471
+        }
+      ]
+    }
+  }
+}

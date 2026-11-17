@@ -96,3 +96,22 @@ The bracket matchup pull behind research 04 is reproducible with
 If the explorer times out (statement timeout ≈ 15 s, common under load), re-run the script later:
 finished heroes are skipped.
 
+
+## Research 07 — synergies
+_Doc: `docs/research/07_synergies.md` · data: `data/processed/synergy_matrix.json` · script: `scripts/06_fetch_synergies.R` (added 2026-11-17)._
+
+- **S11 explorer `public_matches`** — main source. One query per main: unnest the main's **own** team
+  array (minus the main and `hero_id 0`), count games/wins per ally. Bracket `avg_rank_tier >= 60 AND < 80`.
+  Window `match_id > 9083518613` (2026-11-09 18:55 UTC → 2026-11-17 00:10 UTC, **1,185,543 matches**).
+  Plus one query for every hero's overall games/wins in the **same window** (baseline for "expected")
+  and one for window facts. Raw: `data/raw/opendota/bracket_synergies/<hero_id>.json`, `_overall.json`, `_window.json`.
+- **S4 constants/heroes** — ally role tags (hero tags, not positions played).
+- **S5 hero_abilities / S6 abilities** — every mechanic line in the "why" column; other claims marked
+  *(general knowledge, verify)*.
+- Method: log-odds additive expectation `inv_logit(logit(wr_H)+logit(wr_A))`, shrunk with 500 prior games,
+  n ≥ 300. Support lists use a hand-made pos 4/5 pool (general knowledge) because the data has no roles.
+- Limits: no position/lane; teammates are random in solo queue; Morphling and TA ally spreads are close to
+  pure noise (SD of z ≈ 1.1).
+- API notes: 10 explorer requests in total (≥ 3 s apart), **0 timeouts**; each query took ≈ 3–8 s with the
+  10M-id window. Unnesting both team arrays for all 1.19M matches (≈ 11.9M rows) also finished under the
+  ≈ 15 s limit. No HTTP 429.
