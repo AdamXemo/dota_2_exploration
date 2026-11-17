@@ -10,7 +10,19 @@ Dota 2 research lab for a **position-1 carry** player (Ancient–Divine), built 
 
 Mains: Anti-Mage · Morphling · Phantom Lancer · Wraith King · Templar Assassin · Shadow Fiend · Arc Warden · Phantom Assassin.
 
-![Carry meta page](docs/img/carry_meta.png)
+![Home: carry tier list, your pool, insights](docs/img/home.png)
+
+| Page | What it answers |
+|------|-----------------|
+| 00 Home | Patch tier list (click a hero), your 8 mains at a glance, the key findings |
+| 01 Carry Meta | Meta map (pick rate × winrate), top-15 table, your pool across brackets |
+| 02 Heroes | Live build rail with item icons, timed core build, why it works, matchups |
+| 03 Item Codex | Item cards + gold efficiency (what you pay for stats vs the effect) |
+| 04 Draft | Rank your pool against the enemy draft (Ancient–Divine matchups) |
+| 05 My Stats | Your OpenDota games: winrate, GPM percentile, item timings vs targets |
+| 06 Notes | The knowledge pack and research write-ups, readable in-app |
+
+More screenshots: [hero page](docs/img/hero_page.png) · [carry meta](docs/img/carry_meta.png) · [draft](docs/img/draft.png)
 
 ## Quick start
 ```bash
@@ -44,7 +56,9 @@ data/
   curated/              hand-written truth: heroes.json, item_notes.json, mechanics.json
   processed/            generated: carry_meta.json, items_reference.json
 knowledge/              LLM context pack (see knowledge/README.md)
-docs/                   roadmap, research write-ups, screenshots
+docs/                   roadmap, research, design system, sources, screenshots
+tests/                  base-R test suite (Rscript tests/run_tests.R)
+tools/screenshot.py     dev tool: real-time headless screenshots of the app
 ```
 
 ## Roadmap

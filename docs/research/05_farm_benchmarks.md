@@ -8,7 +8,7 @@ not filtered by rank, so treat "50th percentile" as "a typical public game"._
 ## TL;DR
 - **Median GPM targets** for your mains: Arc 705 · AM 672 · PL 639 · TA 629 · PA 618 ·
   Morph 589 · WK 578 · SF 572. Top-10% games sit ~150–250 GPM higher.
-- **Wraith King wins with the *least* gold** (578 GPM median, lowest of the pool) and still has
+- **Wraith King wins on very little gold** (578 GPM median, second-lowest of your pool; only SF's 572 is lower) and still has
   the highest winrate in your bracket. He's a *gold-efficient* carry: his kit (Reincarnation,
   lifesteal, stun) does the work items do for others. If your team needs farm too, WK is a good pick.
 - **Anti-Mage is the opposite:** 672 GPM and 9.5 LH/min at the median, with the lowest
