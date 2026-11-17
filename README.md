@@ -20,7 +20,9 @@ Rscript -e 'shiny::runApp("app")'     # open the dashboard
 The repo ships with a data snapshot (patch 7.41), so the app works offline. To refresh:
 ```bash
 Rscript scripts/01_fetch_opendota.R   # new OpenDota snapshot (resumable, ~3 min)
+Rscript scripts/04_fetch_bracket_matchups.R  # Ancient–Divine matchups via the OpenDota SQL explorer
 Rscript scripts/02_build_knowledge.R  # regenerate knowledge/ + data/processed/
+Rscript scripts/03_item_efficiency.R  # item gold-efficiency table
 ```
 
 ## Repository layout

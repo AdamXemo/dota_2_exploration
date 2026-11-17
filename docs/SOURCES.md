@@ -88,3 +88,11 @@ Images in the app come from the Steam CDN path given by S1/S4 (`cdn.cloudflare.s
 ## 4. How to cite in a new doc
 Put a `_Data:` line under the title that names the source IDs (S1…S18), the date, and the sample size.
 Add any new endpoint or site to the master table first.
+
+## Reproducibility note (added by the lead)
+The bracket matchup pull behind research 04 is reproducible with
+`scripts/04_fetch_bracket_matchups.R` (SQL written out in the script). Its snapshot lives in
+`data/raw/opendota/bracket_matchups/` and is what the app's Draft Helper and hero pages use.
+If the explorer times out (statement timeout ≈ 15 s, common under load), re-run the script later:
+finished heroes are skipped.
+
