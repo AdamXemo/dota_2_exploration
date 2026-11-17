@@ -1,8 +1,10 @@
-# dota_2_exploration — the Ancient Codex
+# Dota Carry Lab
+
+_repo: `dota_2_exploration`_
 
 Dota 2 research lab for a **position-1 carry** player (Ancient–Divine), built in **R**:
 
-- 📊 **Shiny dashboard** with a dark "Ancient Codex" theme: carry meta board, hero build pages with item icons, (soon) draft helper and personal stats.
+- 📊 **Shiny dashboard** with a cold, esports-tool dark UI: carry meta board + tier list, hero build pages with item icons, item codex, draft helper and personal stats.
 - 🧠 **Knowledge pack** (`knowledge/`): compressed Dota notes + JSON that an LLM agent can load to give fast, patch-aware advice.
 - 🔬 **Research write-ups** (`docs/research/`): one analysis per roadmap step, for example the [patch 7.41 carry meta](docs/research/01_carry_meta_7.41.md).
 
@@ -33,7 +35,7 @@ app/                    Shiny app
     theme.R             bslib theme + ggplot theme
     components.R        reusable UI pieces (rune tiles, meta map, item icons)
     mod_*.R             one module per page
-  www/styles.css        the Ancient Codex look
+  www/styles.css        design system implementation (spec: docs/design/DESIGN_SYSTEM.md)
 scripts/                data pipeline (run from repo root)
 data/
   raw/opendota/         API snapshot (committed, so the app works offline)

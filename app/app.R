@@ -1,5 +1,5 @@
 # =============================================================================
-# app.R — entry point of the "Ancient Codex" dashboard.
+# app.R — entry point of the "Dota Carry Lab" dashboard.
 #
 # Run it from the repo root with:   shiny::runApp("app")
 # (or open this file in RStudio and press "Run App").
@@ -17,7 +17,7 @@ db <- load_db()
 # --- UI: a navbar page, one nav_panel per "chapter" --------------------------
 ui <- bslib::page_navbar(
   id = "nav",
-  title = tagList("ANCIENT CODEX",
+  title = tagList("DOTA CARRY LAB",
                   span(class = "brand-sub", paste0("patch ", db$meta$patch, " · carry lab"))),
   theme = codex_theme(),
   fillable = FALSE,
