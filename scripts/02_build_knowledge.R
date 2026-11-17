@@ -83,9 +83,11 @@ items_ref <- lapply(all_keys, function(k) {
     key        = k,
     name       = it$dname,
     cost       = it$cost,
-    # Only attributes with a display string are real "stats" (+25 Agility...)
+    # Only attributes with a display string are real stats ("+25 Agility");
+    # skip zero values like Skadi's leftover "+ 0 Health".
     stats      = unname(unlist(lapply(it$attrib, function(a)
-                   if (!is.null(a$display)) sub("{value}", a$value, a$display, fixed = TRUE)))),
+                   if (!is.null(a$display) && !identical(as.character(a$value), "0"))
+                     sub("{value}", a$value, a$display, fixed = TRUE)))),
     actives    = unname(unlist(lapply(it$abilities, function(a) paste0(a$title, ": ", a$description)))),
     components = unlist(it$components),
     category   = if (length(note)) note[[1]]$cat else NULL,
