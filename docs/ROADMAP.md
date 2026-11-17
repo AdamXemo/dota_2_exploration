@@ -15,7 +15,7 @@ and a few focused commits. Status: ✅ done · 🔨 in progress · ⏳ planned.
 | 7 | Polish, deploy guide (shinyapps.io), independent review pass | Patch-update checklist: how to refresh everything when 7.42 lands | ⏳ |
 | 8 | Power curves data (`scripts/05_fetch_power_curves.R`) → future Meta/Hero visuals | When does each carry win? Winrate by game duration, Ancient–Divine → `docs/research/06_power_curves.md` | 🔨 |
 | 9 | Synergy data (`scripts/06_fetch_synergies.R`) → future Draft "with allies" mode | Which teammates make your carries win, and why → `docs/research/07_synergies.md` | 🔨 |
-| 10 | Quality + agent ergonomics: base-R test suite (`tests/run_tests.R`) 🔨, in-game cheat cards (`knowledge/cards/`) ✅ | — | 🔨 |
+| 10 | Quality + agent ergonomics: base-R test suite (`tests/run_tests.R`, 29 tests) ✅, in-game cheat cards (`knowledge/cards/`) ✅ | — | ✅ |
 
 ## Conventions
 - Commits: Conventional Commits (`feat:`, `data:`, `docs:`, `chore:`, `fix:`), body = bullet list of what & why.

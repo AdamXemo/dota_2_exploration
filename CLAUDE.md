@@ -33,5 +33,6 @@ R + Shiny Dota 2 research lab for a **position-1 carry in Ancient–Divine**. Tw
   exercises. Don't implement them unless asked; you may review them.
 - Commits: Conventional Commits (`feat:`, `fix:`, `docs:`, `data:`, `chore:`) with a bullet body.
 - Design: cold, practical esports-tool UI. No fantasy/"storybook" styling.
+- Run `Rscript tests/run_tests.R` after changing scoring, data or curated JSON (must stay green).
 - Verify UI changes by running the app and taking a headless Chrome screenshot (deep links:
   `?tab=hero&hero=42`, `?tab=items`, `?tab=draft`, `?tab=me`).
