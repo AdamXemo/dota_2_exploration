@@ -1,0 +1,173 @@
+{
+  "patch": "7.41",
+  "fetched": "2026-11-17 01:20 CET",
+  "bracket": "Ancient + Divine",
+  "method": "Winrate shrunk toward 50% with 3000 prior games; pool = hand-picked position-1 heroes.",
+  "heroes": [
+    {
+      "rank": 1,
+      "tier": "S",
+      "name": "Wraith King",
+      "id": 42,
+      "winrate": 0.5341,
+      "wr_adj": 0.5332,
+      "pickrate": 0.1186,
+      "games": 112229,
+      "is_main": true
+    },
+    {
+      "rank": 2,
+      "tier": "S",
+      "name": "Juggernaut",
+      "id": 8,
+      "winrate": 0.5294,
+      "wr_adj": 0.5289,
+      "pickrate": 0.1868,
+      "games": 176838,
+      "is_main": false
+    },
+    {
+      "rank": 3,
+      "tier": "S",
+      "name": "Phantom Lancer",
+      "id": 12,
+      "winrate": 0.5273,
+      "wr_adj": 0.5265,
+      "pickrate": 0.1057,
+      "games": 100068,
+      "is_main": true
+    },
+    {
+      "rank": 4,
+      "tier": "S",
+      "name": "Dragon Knight",
+      "id": 49,
+      "winrate": 0.526,
+      "wr_adj": 0.5255,
+      "pickrate": 0.1788,
+      "games": 169247,
+      "is_main": false
+    },
+    {
+      "rank": 5,
+      "tier": "A",
+      "name": "Spectre",
+      "id": 67,
+      "winrate": 0.5248,
+      "wr_adj": 0.5238,
+      "pickrate": 0.0755,
+      "games": 71437,
+      "is_main": false
+    },
+    {
+      "rank": 6,
+      "tier": "A",
+      "name": "Arc Warden",
+      "id": 113,
+      "winrate": 0.5197,
+      "wr_adj": 0.5185,
+      "pickrate": 0.0489,
+      "games": 46244,
+      "is_main": true
+    },
+    {
+      "rank": 7,
+      "tier": "A",
+      "name": "Bloodseeker",
+      "id": 4,
+      "winrate": 0.5205,
+      "wr_adj": 0.5183,
+      "pickrate": 0.0253,
+      "games": 23983,
+      "is_main": false
+    },
+    {
+      "rank": 8,
+      "tier": "A",
+      "name": "Sven",
+      "id": 18,
+      "winrate": 0.5175,
+      "wr_adj": 0.5171,
+      "pickrate": 0.1108,
+      "games": 104836,
+      "is_main": false
+    },
+    {
+      "rank": 9,
+      "tier": "A",
+      "name": "Lifestealer",
+      "id": 54,
+      "winrate": 0.5144,
+      "wr_adj": 0.5141,
+      "pickrate": 0.1421,
+      "games": 134488,
+      "is_main": false
+    },
+    {
+      "rank": 10,
+      "tier": "A",
+      "name": "Lycan",
+      "id": 77,
+      "winrate": 0.5147,
+      "wr_adj": 0.5124,
+      "pickrate": 0.0167,
+      "games": 15764,
+      "is_main": false
+    },
+    {
+      "rank": 11,
+      "tier": "B",
+      "name": "Anti-Mage",
+      "id": 1,
+      "winrate": 0.5088,
+      "wr_adj": 0.5087,
+      "pickrate": 0.1714,
+      "games": 162199,
+      "is_main": true
+    },
+    {
+      "rank": 12,
+      "tier": "B",
+      "name": "Troll Warlord",
+      "id": 95,
+      "winrate": 0.5099,
+      "wr_adj": 0.5085,
+      "pickrate": 0.02,
+      "games": 18946,
+      "is_main": false
+    },
+    {
+      "rank": 13,
+      "tier": "B",
+      "name": "Chaos Knight",
+      "id": 81,
+      "winrate": 0.5016,
+      "wr_adj": 0.5015,
+      "pickrate": 0.026,
+      "games": 24566,
+      "is_main": false
+    },
+    {
+      "rank": 14,
+      "tier": "B",
+      "name": "Luna",
+      "id": 48,
+      "winrate": 0.5014,
+      "wr_adj": 0.5014,
+      "pickrate": 0.1453,
+      "games": 137560,
+      "is_main": false
+    },
+    {
+      "rank": 15,
+      "tier": "B",
+      "name": "Ursa",
+      "id": 70,
+      "winrate": 0.5008,
+      "wr_adj": 0.5008,
+      "pickrate": 0.0812,
+      "games": 76888,
+      "is_main": false
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "_about": "Core Dota 2 mechanics in machine-readable form for quick LLM lookup. Formulas are stable across recent patches (7.3x-7.41); constants marked 'verify' change more often, so check the patch notes / in-game tooltip if a patch just dropped.",
+  "attributes": {
+    "strength":  {"per_point": {"max_hp": 22, "hp_regen": 0.1}, "note": "Also adds status-resist-free HP pool; STR heroes get +1 damage per point."},
+    "agility":   {"per_point": {"armor": 0.167, "attack_speed": 1}, "note": "AGI heroes get +1 damage per point."},
+    "intellect": {"per_point": {"max_mana": 12, "mana_regen": 0.05, "magic_resistance_pct": 0.1}, "note": "INT heroes get +1 damage per point."},
+    "universal": {"note": "Universal heroes get ~0.7 damage per point of EVERY attribute (verify)."}
+  },
+  "physical_damage": {
+    "armor_multiplier_formula": "damage_taken_multiplier = 1 - (0.06 * armor) / (1 + 0.06 * abs(armor))",
+    "examples": {"0_armor": 1.0, "5_armor": 0.769, "10_armor": 0.625, "20_armor": 0.455, "-5_armor": 1.231},
+    "insight": "Each point of armor is worth more 'effective HP' the more HP you have. Armor reduction (Desolator, Assault, Meld) is multiplicative with crit/attack damage, which is why PA/TA love it."
+  },
+  "magic_damage": {
+    "base_hero_magic_resistance_pct": 25,
+    "stacking": "Multiplicative: total = 1 - product(1 - each_source). 25% base + 15% (Cloak-type) = 1 - 0.75*0.85 = 36.25%.",
+    "black_king_bar": "Debuff immunity + 60% magic resistance (current item data). Pure damage and many ultimates still pierce."
+  },
+  "pure_damage": "Ignores armor and magic resistance. Blocked by Debuff Immunity only when the spell itself is blocked.",
+  "attack": {
+    "attacks_per_second_formula": "attacks_per_second = (100 + bonus_attack_speed) / (100 * BAT)",
+    "bat_default": 1.7,
+    "attack_speed_cap": "~700 total (verify)",
+    "insight": "Lower BAT (base attack time) multiplies all attack speed. Attack speed has diminishing value once you hit the cap; damage/crit becomes better."
+  },
+  "evasion_true_strike": {
+    "evasion_stacking": "Multiplicative, like magic resistance (Butterfly 35% + PA Immaterial stack diminishingly).",
+    "counters": ["monkey_king_bar (chance to pierce)", "bloodthorn (chance to pierce)", "witch_blade/parasma first-hit true strike", "some abilities with true strike"],
+    "note": "Evasion only works vs attacks. Spells ignore it."
+  },
+  "status_effects": {
+    "status_resistance": "Reduces duration of disables (stun, silence, root...). Stacks multiplicatively.",
+    "slow_resistance": "Separate from status resistance; reduces movement/attack slows (S&Y, Abyssal, Morph Ebb and Flow).",
+    "debuff_immunity": "BKB-style: most disables don't apply. 'Pierces debuff immunity' spells still work (e.g. Abyssal Overwhelm, many ults).",
+    "break": "Disables passive abilities (WK lifesteal + Reincarnation, PA Immaterial, Spectre Dispersion). Sources: Silver Edge, Doom, PA Aghanim's Fan of Knives, Viper.",
+    "dispel": {
+      "basic": "Removes most buffs/debuffs, NOT stuns. Sources: Manta, Satanic active, Nullifier (on target), BKB on cast.",
+      "strong": "Also removes stuns. Sources: Aeon Disk proc, Abaddon Aphotic Shield, Slark Dark Pact. (Disperser dispels self/ally/target; check its tooltip for basic vs strong.)"
+    },
+    "silence_vs_mute": "Silence = no spells. Mute = no items. Hex = neither + can't attack."
+  },
+  "economy": {
+    "creep_wave_interval_s": 30,
+    "siege_creep": "Every 5th wave (verify).",
+    "pull_timings": "Small/medium camp pulls around x:15 and x:45 so neutrals meet the wave.",
+    "stack_timing": "Aggro a camp around x:53-x:55 and lead it out of the spawn box; it respawns at the minute.",
+    "deny": "Denying a creep gives the enemy reduced XP and no gold. Denying in lane = XP advantage.",
+    "streak_bounty": "Killing a hero on a kill streak gives extra gold; dying with a streak feeds the enemy.",
+    "comeback": "The losing team gets bonus gold/XP from kills (catch-up mechanics). A big lead can flip after one bad fight."
+  },
+  "map_objects": {
+    "power_runes": "Spawn in river every 2 min from 6:00 (verify). Arc Warden gets permanent stats from them (Runic Infusion).",
+    "bounty_runes": "Every 3 min near the jungle; team gold.",
+    "wisdom_runes": "Every ~7 min at the far map edge (verify); big XP for whoever is behind.",
+    "lotus_pools": "Healing lotuses accumulate (verify timing).",
+    "tormentor": "Spawns mid-game on both sides (~15-20 min, verify). Killing it gives a free Aghanim's Shard to the team.",
+    "roshan": "Moves between two pits (day/night). Drops Aegis (extra life), later also Cheese and more (verify). Respawn 8-11 min.",
+    "neutral_items": "Tiered drops/crafting that unlock around 5/15/25/35/60 min (verify, the system changed in 7.38)."
+  },
+  "day_night": "Day/night cycle of 5 min each. Night = less vision for most heroes, good for ganks.",
+  "positions": {
+    "1": "Safe-lane carry. Highest farm priority, weakest early, wins late.",
+    "2": "Mid. Solo XP, runes, tempo and ganks.",
+    "3": "Offlaner. Pressures the enemy carry, initiates, front line.",
+    "4": "Soft support. Roams, makes plays, secondary farm.",
+    "5": "Hard support. Wards, pulls, saves the carry in lane."
+  }
+}
