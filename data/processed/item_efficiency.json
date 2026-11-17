@@ -1,0 +1,1062 @@
+{
+  "method": "value = sum(stat x cheapest basic price); efficiency = value / cost",
+  "stat_prices": {
+    "str": 46.67,
+    "agi": 46.67,
+    "int": 46.67,
+    "damage": 50,
+    "armor": 87.5,
+    "attack_speed": 22.5,
+    "hp": 2,
+    "mana": 2,
+    "hp_regen": 140,
+    "mana_regen": 250,
+    "move_speed": 11.11,
+    "evasion": 86.67,
+    "magic_resist": 45,
+    "lifesteal": 50,
+    "all": 140
+  },
+  "items": [
+    {
+      "key": "falcon_blade",
+      "name": "Falcon Blade",
+      "cost": 1125,
+      "stat_value": 1550,
+      "efficiency": 1.378,
+      "premium": -425,
+      "has_active": false,
+      "stats": "+200 hp, +1.8 mana_regen, +14 damage"
+    },
+    {
+      "key": "power_treads",
+      "name": "Power Treads",
+      "cost": 1400,
+      "stat_value": 1640,
+      "efficiency": 1.172,
+      "premium": -240,
+      "has_active": true,
+      "stats": "+55 move_speed, +10 str, +25 attack_speed"
+    },
+    {
+      "key": "mask_of_madness",
+      "name": "Mask of Madness",
+      "cost": 1900,
+      "stat_value": 2200,
+      "efficiency": 1.158,
+      "premium": -300,
+      "has_active": true,
+      "stats": "+20 damage, +24 lifesteal"
+    },
+    {
+      "key": "heavens_halberd",
+      "name": "Heaven's Halberd",
+      "cost": 3400,
+      "stat_value": 3794,
+      "efficiency": 1.116,
+      "premium": -394,
+      "has_active": true,
+      "stats": "+9 armor, +6 hp_regen, +25 evasion"
+    },
+    {
+      "key": "bfury",
+      "name": "Battle Fury",
+      "cost": 3900,
+      "stat_value": 4238,
+      "efficiency": 1.087,
+      "premium": -338,
+      "has_active": true,
+      "stats": "+50 damage, +7.5 hp_regen, +2.75 mana_regen"
+    },
+    {
+      "key": "butterfly",
+      "name": "Butterfly",
+      "cost": 5450,
+      "stat_value": 5917,
+      "efficiency": 1.086,
+      "premium": -467,
+      "has_active": false,
+      "stats": "+35 agi, +35 evasion, +25 damage"
+    },
+    {
+      "key": "nullifier",
+      "name": "Nullifier",
+      "cost": 4350,
+      "stat_value": 4625,
+      "efficiency": 1.063,
+      "premium": -275,
+      "has_active": true,
+      "stats": "+75 damage, +10 armor"
+    },
+    {
+      "key": "radiance",
+      "name": "Radiance",
+      "cost": 4700,
+      "stat_value": 4917,
+      "efficiency": 1.046,
+      "premium": -217,
+      "has_active": true,
+      "stats": "+55 damage, +25 evasion"
+    },
+    {
+      "key": "armlet",
+      "name": "Armlet of Mordiggian",
+      "cost": 2500,
+      "stat_value": 2538,
+      "efficiency": 1.015,
+      "premium": -38,
+      "has_active": true,
+      "stats": "+15 damage, +25 attack_speed, +6 armor, +5 hp_regen"
+    },
+    {
+      "key": "mage_slayer",
+      "name": "Mage Slayer",
+      "cost": 3100,
+      "stat_value": 3115,
+      "efficiency": 1.005,
+      "premium": -15,
+      "has_active": true,
+      "stats": "+20 magic_resist, +6 hp_regen, +2.5 mana_regen, +15 damage"
+    },
+    {
+      "key": "oblivion_staff",
+      "name": "Oblivion Staff",
+      "cost": 1625,
+      "stat_value": 1567,
+      "efficiency": 0.964,
+      "premium": 58,
+      "has_active": false,
+      "stats": "+10 int, +35 attack_speed, +1.25 mana_regen"
+    },
+    {
+      "key": "pers",
+      "name": "Perseverance",
+      "cost": 1400,
+      "stat_value": 1332,
+      "efficiency": 0.952,
+      "premium": 68,
+      "has_active": false,
+      "stats": "+5.5 hp_regen, +2.25 mana_regen"
+    },
+    {
+      "key": "essence_distiller",
+      "name": "Essence Distiller",
+      "cost": 1775,
+      "stat_value": 1682,
+      "efficiency": 0.948,
+      "premium": 92,
+      "has_active": true,
+      "stats": "+1.75 mana_regen, +3 all, +6 armor, +150 mana"
+    },
+    {
+      "key": "orchid",
+      "name": "Orchid Malevolence",
+      "cost": 3275,
+      "stat_value": 2972,
+      "efficiency": 0.908,
+      "premium": 302,
+      "has_active": true,
+      "stats": "+35 attack_speed, +20 damage, +2.5 mana_regen, +12 int"
+    },
+    {
+      "key": "sphere",
+      "name": "Linken's Sphere",
+      "cost": 4800,
+      "stat_value": 4212,
+      "efficiency": 0.878,
+      "premium": 588,
+      "has_active": true,
+      "stats": "+16 all, +6.5 hp_regen, +4.25 mana_regen"
+    },
+    {
+      "key": "helm_of_the_dominator",
+      "name": "Helm of the Dominator",
+      "cost": 2550,
+      "stat_value": 2205,
+      "efficiency": 0.865,
+      "premium": 345,
+      "has_active": true,
+      "stats": "+6 all, +6 armor, +6 hp_regen"
+    },
+    {
+      "key": "greater_crit",
+      "name": "Daedalus",
+      "cost": 5100,
+      "stat_value": 4400,
+      "efficiency": 0.863,
+      "premium": 700,
+      "has_active": true,
+      "stats": "+88 damage"
+    },
+    {
+      "key": "boots_of_bearing",
+      "name": "Boots of Bearing",
+      "cost": 4225,
+      "stat_value": 3616,
+      "efficiency": 0.856,
+      "premium": 609,
+      "has_active": true,
+      "stats": "+8 str, +65 move_speed, +18 hp_regen"
+    },
+    {
+      "key": "lotus_orb",
+      "name": "Lotus Orb",
+      "cost": 3850,
+      "stat_value": 3285,
+      "efficiency": 0.853,
+      "premium": 565,
+      "has_active": true,
+      "stats": "+10 armor, +6.5 hp_regen, +4 mana_regen, +250 mana"
+    },
+    {
+      "key": "phylactery",
+      "name": "Phylactery",
+      "cost": 2600,
+      "stat_value": 2172,
+      "efficiency": 0.836,
+      "premium": 428,
+      "has_active": true,
+      "stats": "+6 all, +5.5 hp_regen, +2.25 mana_regen"
+    },
+    {
+      "key": "skadi",
+      "name": "Eye of Skadi",
+      "cost": 5900,
+      "stat_value": 4900,
+      "efficiency": 0.831,
+      "premium": 1000,
+      "has_active": true,
+      "stats": "+35 all"
+    },
+    {
+      "key": "angels_demise",
+      "name": "Khanda",
+      "cost": 5600,
+      "stat_value": 4650,
+      "efficiency": 0.83,
+      "premium": 950,
+      "has_active": true,
+      "stats": "+450 hp, +450 mana, +8 all, +7 hp_regen, +3 mana_regen"
+    },
+    {
+      "key": "witch_blade",
+      "name": "Witch Blade",
+      "cost": 2775,
+      "stat_value": 2272,
+      "efficiency": 0.819,
+      "premium": 502,
+      "has_active": true,
+      "stats": "+40 attack_speed, +12 int, +1.5 mana_regen, +5 armor"
+    },
+    {
+      "key": "harpoon",
+      "name": "Harpoon",
+      "cost": 4700,
+      "stat_value": 3850,
+      "efficiency": 0.819,
+      "premium": 850,
+      "has_active": true,
+      "stats": "+25 damage, +25 str, +10 agi, +10 int, +2 mana_regen"
+    },
+    {
+      "key": "helm_of_the_overlord",
+      "name": "Helm of the Overlord",
+      "cost": 5650,
+      "stat_value": 4532,
+      "efficiency": 0.802,
+      "premium": 1118,
+      "has_active": true,
+      "stats": "+21 all, +7 armor, +7 hp_regen"
+    },
+    {
+      "key": "lesser_crit",
+      "name": "Crystalys",
+      "cost": 2000,
+      "stat_value": 1600,
+      "efficiency": 0.8,
+      "premium": 400,
+      "has_active": true,
+      "stats": "+32 damage"
+    },
+    {
+      "key": "echo_sabre",
+      "name": "Echo Sabre",
+      "cost": 2700,
+      "stat_value": 2138,
+      "efficiency": 0.792,
+      "premium": 562,
+      "has_active": true,
+      "stats": "+20 damage, +15 str, +1.75 mana_regen"
+    },
+    {
+      "key": "moon_shard",
+      "name": "Moon Shard",
+      "cost": 4000,
+      "stat_value": 3150,
+      "efficiency": 0.787,
+      "premium": 850,
+      "has_active": true,
+      "stats": "+140 attack_speed"
+    },
+    {
+      "key": "desolator",
+      "name": "Desolator",
+      "cost": 3500,
+      "stat_value": 2750,
+      "efficiency": 0.786,
+      "premium": 750,
+      "has_active": true,
+      "stats": "+55 damage"
+    },
+    {
+      "key": "satanic",
+      "name": "Satanic",
+      "cost": 5050,
+      "stat_value": 3917,
+      "efficiency": 0.776,
+      "premium": 1133,
+      "has_active": true,
+      "stats": "+25 str, +25 damage, +30 lifesteal"
+    },
+    {
+      "key": "consecrated_wraps",
+      "name": "Consecrated Wraps",
+      "cost": 2600,
+      "stat_value": 2015,
+      "efficiency": 0.775,
+      "premium": 585,
+      "has_active": true,
+      "stats": "+15 magic_resist, +6 all, +250 hp"
+    },
+    {
+      "key": "trident",
+      "name": "Trident",
+      "cost": 6301,
+      "stat_value": 4875,
+      "efficiency": 0.774,
+      "premium": 1426,
+      "has_active": false,
+      "stats": "+30 str, +30 agi, +30 int, +30 attack_speed"
+    },
+    {
+      "key": "silver_edge",
+      "name": "Silver Edge",
+      "cost": 5700,
+      "stat_value": 4288,
+      "efficiency": 0.752,
+      "premium": 1412,
+      "has_active": true,
+      "stats": "+70 damage, +35 attack_speed"
+    },
+    {
+      "key": "refresher",
+      "name": "Refresher Orb",
+      "cost": 5000,
+      "stat_value": 3710,
+      "efficiency": 0.742,
+      "premium": 1290,
+      "has_active": true,
+      "stats": "+14 hp_regen, +7 mana_regen"
+    },
+    {
+      "key": "bloodthorn",
+      "name": "Bloodthorn",
+      "cost": 6400,
+      "stat_value": 4742,
+      "efficiency": 0.741,
+      "premium": 1658,
+      "has_active": true,
+      "stats": "+25 int, +70 attack_speed, +4 mana_regen, +20 damage"
+    },
+    {
+      "key": "spirit_vessel",
+      "name": "Spirit Vessel",
+      "cost": 2725,
+      "stat_value": 2012,
+      "efficiency": 0.739,
+      "premium": 712,
+      "has_active": true,
+      "stats": "+1.75 mana_regen, +10 all, +2 armor"
+    },
+    {
+      "key": "crimson_guard",
+      "name": "Crimson Guard",
+      "cost": 3725,
+      "stat_value": 2705,
+      "efficiency": 0.726,
+      "premium": 1020,
+      "has_active": true,
+      "stats": "+250 hp, +12 hp_regen, +6 armor"
+    },
+    {
+      "key": "monkey_king_bar",
+      "name": "Monkey King Bar",
+      "cost": 5000,
+      "stat_value": 3625,
+      "efficiency": 0.725,
+      "premium": 1375,
+      "has_active": true,
+      "stats": "+50 damage, +50 attack_speed"
+    },
+    {
+      "key": "pavise",
+      "name": "Pavise",
+      "cost": 1350,
+      "stat_value": 962,
+      "efficiency": 0.713,
+      "premium": 388,
+      "has_active": true,
+      "stats": "+3 armor, +175 mana, +175 hp"
+    },
+    {
+      "key": "basher",
+      "name": "Skull Basher",
+      "cost": 2875,
+      "stat_value": 1967,
+      "efficiency": 0.684,
+      "premium": 908,
+      "has_active": true,
+      "stats": "+30 damage, +10 str"
+    },
+    {
+      "key": "sheepstick",
+      "name": "Scythe of Vyse",
+      "cost": 5200,
+      "stat_value": 3525,
+      "efficiency": 0.678,
+      "premium": 1675,
+      "has_active": true,
+      "stats": "+30 int, +8.5 mana_regen"
+    },
+    {
+      "key": "octarine_core",
+      "name": "Octarine Core",
+      "cost": 4900,
+      "stat_value": 3300,
+      "efficiency": 0.673,
+      "premium": 1600,
+      "has_active": false,
+      "stats": "+450 hp, +450 mana, +6 mana_regen"
+    },
+    {
+      "key": "vanguard",
+      "name": "Vanguard",
+      "cost": 1700,
+      "stat_value": 1130,
+      "efficiency": 0.665,
+      "premium": 570,
+      "has_active": true,
+      "stats": "+250 hp, +4.5 hp_regen"
+    },
+    {
+      "key": "dagon",
+      "name": "Dagon",
+      "cost": 3050,
+      "stat_value": 1940,
+      "efficiency": 0.636,
+      "premium": 1110,
+      "has_active": true,
+      "stats": "+6 all, +200 hp, +350 mana"
+    },
+    {
+      "key": "devastator",
+      "name": "Parasma",
+      "cost": 5975,
+      "stat_value": 3754,
+      "efficiency": 0.628,
+      "premium": 2221,
+      "has_active": true,
+      "stats": "+40 int, +40 attack_speed, +7 armor, +1.5 mana_regen"
+    },
+    {
+      "key": "invis_sword",
+      "name": "Shadow Blade",
+      "cost": 3250,
+      "stat_value": 2038,
+      "efficiency": 0.627,
+      "premium": 1212,
+      "has_active": true,
+      "stats": "+25 damage, +35 attack_speed"
+    },
+    {
+      "key": "phase_boots",
+      "name": "Phase Boots",
+      "cost": 1450,
+      "stat_value": 906,
+      "efficiency": 0.625,
+      "premium": 544,
+      "has_active": true,
+      "stats": "+50 move_speed, +4 armor"
+    },
+    {
+      "key": "bloodstone",
+      "name": "Bloodstone",
+      "cost": 4700,
+      "stat_value": 2900,
+      "efficiency": 0.617,
+      "premium": 1800,
+      "has_active": true,
+      "stats": "+650 hp, +450 mana, +15 int"
+    },
+    {
+      "key": "hurricane_pike",
+      "name": "Hurricane Pike",
+      "cost": 4450,
+      "stat_value": 2733,
+      "efficiency": 0.614,
+      "premium": 1717,
+      "has_active": true,
+      "stats": "+15 int, +200 hp, +20 agi, +15 str"
+    },
+    {
+      "key": "dragon_lance",
+      "name": "Dragon Lance",
+      "cost": 1900,
+      "stat_value": 1167,
+      "efficiency": 0.614,
+      "premium": 733,
+      "has_active": false,
+      "stats": "+15 agi, +10 str"
+    },
+    {
+      "key": "maelstrom",
+      "name": "Maelstrom",
+      "cost": 2950,
+      "stat_value": 1812,
+      "efficiency": 0.614,
+      "premium": 1138,
+      "has_active": true,
+      "stats": "+25 damage, +25 attack_speed"
+    },
+    {
+      "key": "specialists_array",
+      "name": "Specialist's Array",
+      "cost": 2550,
+      "stat_value": 1560,
+      "efficiency": 0.612,
+      "premium": 990,
+      "has_active": true,
+      "stats": "+12 agi, +20 damage"
+    },
+    {
+      "key": "mjollnir",
+      "name": "Mjollnir",
+      "cost": 5500,
+      "stat_value": 3275,
+      "efficiency": 0.595,
+      "premium": 2225,
+      "has_active": true,
+      "stats": "+25 damage, +90 attack_speed"
+    },
+    {
+      "key": "meteor_hammer",
+      "name": "Meteor Hammer",
+      "cost": 2850,
+      "stat_value": 1680,
+      "efficiency": 0.589,
+      "premium": 1170,
+      "has_active": true,
+      "stats": "+6 str, +6 agi, +24 int"
+    },
+    {
+      "key": "blade_mail",
+      "name": "Blade Mail",
+      "cost": 2400,
+      "stat_value": 1362,
+      "efficiency": 0.568,
+      "premium": 1038,
+      "has_active": true,
+      "stats": "+15 damage, +7 armor"
+    },
+    {
+      "key": "hydras_breath",
+      "name": "Hydra's Breath",
+      "cost": 5900,
+      "stat_value": 3350,
+      "efficiency": 0.568,
+      "premium": 2550,
+      "has_active": true,
+      "stats": "+15 str, +30 agi, +25 damage"
+    },
+    {
+      "key": "soul_booster",
+      "name": "Soul Booster",
+      "cost": 3000,
+      "stat_value": 1700,
+      "efficiency": 0.567,
+      "premium": 1300,
+      "has_active": false,
+      "stats": "+425 hp, +425 mana"
+    },
+    {
+      "key": "manta",
+      "name": "Manta Style",
+      "cost": 4650,
+      "stat_value": 2595,
+      "efficiency": 0.558,
+      "premium": 2055,
+      "has_active": true,
+      "stats": "+10 str, +26 agi, +10 int, +15 attack_speed, +10 move_speed"
+    },
+    {
+      "key": "crellas_crozier",
+      "name": "Crella's Crozier",
+      "cost": 4800,
+      "stat_value": 2640,
+      "efficiency": 0.55,
+      "premium": 2160,
+      "has_active": true,
+      "stats": "+6 all, +450 hp, +450 mana"
+    },
+    {
+      "key": "solar_crest",
+      "name": "Solar Crest",
+      "cost": 2575,
+      "stat_value": 1412,
+      "efficiency": 0.549,
+      "premium": 1162,
+      "has_active": true,
+      "stats": "+7 armor, +200 mana, +200 hp"
+    },
+    {
+      "key": "arcane_boots",
+      "name": "Arcane Boots",
+      "cost": 1500,
+      "stat_value": 812,
+      "efficiency": 0.542,
+      "premium": 688,
+      "has_active": true,
+      "stats": "+45 move_speed, +0.25 mana_regen, +125 mana"
+    },
+    {
+      "key": "aether_lens",
+      "name": "Aether Lens",
+      "cost": 2275,
+      "stat_value": 1225,
+      "efficiency": 0.538,
+      "premium": 1050,
+      "has_active": false,
+      "stats": "+300 mana, +2.5 mana_regen"
+    },
+    {
+      "key": "revenants_brooch",
+      "name": "Revenant's Brooch",
+      "cost": 3300,
+      "stat_value": 1750,
+      "efficiency": 0.53,
+      "premium": 1550,
+      "has_active": true,
+      "stats": "+35 damage"
+    },
+    {
+      "key": "pipe",
+      "name": "Pipe of Insight",
+      "cost": 3725,
+      "stat_value": 1960,
+      "efficiency": 0.526,
+      "premium": 1765,
+      "has_active": true,
+      "stats": "+14 hp_regen"
+    },
+    {
+      "key": "yasha",
+      "name": "Yasha",
+      "cost": 2100,
+      "stat_value": 1084,
+      "efficiency": 0.516,
+      "premium": 1016,
+      "has_active": false,
+      "stats": "+16 agi, +15 attack_speed"
+    },
+    {
+      "key": "cyclone",
+      "name": "Eul's Scepter of Divinity",
+      "cost": 2600,
+      "stat_value": 1314,
+      "efficiency": 0.505,
+      "premium": 1286,
+      "has_active": true,
+      "stats": "+10 int, +2.5 mana_regen, +20 move_speed"
+    },
+    {
+      "key": "ultimate_scepter",
+      "name": "Aghanim's Scepter",
+      "cost": 4200,
+      "stat_value": 2100,
+      "efficiency": 0.5,
+      "premium": 2100,
+      "has_active": true,
+      "stats": "+10 all, +175 hp, +175 mana"
+    },
+    {
+      "key": "rod_of_atos",
+      "name": "Rod of Atos",
+      "cost": 2250,
+      "stat_value": 1110,
+      "efficiency": 0.493,
+      "premium": 1140,
+      "has_active": true,
+      "stats": "+12 int, +275 hp"
+    },
+    {
+      "key": "veil_of_discord",
+      "name": "Veil of Discord",
+      "cost": 1700,
+      "stat_value": 817,
+      "efficiency": 0.48,
+      "premium": 883,
+      "has_active": true,
+      "stats": "+175 hp, +10 int"
+    },
+    {
+      "key": "eternal_shroud",
+      "name": "Eternal Shroud",
+      "cost": 3900,
+      "stat_value": 1867,
+      "efficiency": 0.479,
+      "premium": 2033,
+      "has_active": true,
+      "stats": "+20 magic_resist, +10 str, +250 hp"
+    },
+    {
+      "key": "abyssal_blade",
+      "name": "Abyssal Blade",
+      "cost": 6250,
+      "stat_value": 2963,
+      "efficiency": 0.474,
+      "premium": 3287,
+      "has_active": true,
+      "stats": "+35 damage, +26 str"
+    },
+    {
+      "key": "diffusal_blade",
+      "name": "Diffusal Blade",
+      "cost": 2500,
+      "stat_value": 1167,
+      "efficiency": 0.467,
+      "premium": 1333,
+      "has_active": true,
+      "stats": "+15 agi, +10 int"
+    },
+    {
+      "key": "sange_and_yasha",
+      "name": "Sange and Yasha",
+      "cost": 4200,
+      "stat_value": 1943,
+      "efficiency": 0.463,
+      "premium": 2257,
+      "has_active": false,
+      "stats": "+16 str, +16 agi, +20 attack_speed"
+    },
+    {
+      "key": "yasha_and_kaya",
+      "name": "Yasha and Kaya",
+      "cost": 4200,
+      "stat_value": 1943,
+      "efficiency": 0.463,
+      "premium": 2257,
+      "has_active": false,
+      "stats": "+16 agi, +16 int, +20 attack_speed"
+    },
+    {
+      "key": "holy_locket",
+      "name": "Holy Locket",
+      "cost": 2250,
+      "stat_value": 980,
+      "efficiency": 0.436,
+      "premium": 1270,
+      "has_active": true,
+      "stats": "+7 all"
+    },
+    {
+      "key": "glimmer_cape",
+      "name": "Glimmer Cape",
+      "cost": 2150,
+      "stat_value": 900,
+      "efficiency": 0.419,
+      "premium": 1250,
+      "has_active": true,
+      "stats": "+20 magic_resist"
+    },
+    {
+      "key": "black_king_bar",
+      "name": "Black King Bar",
+      "cost": 4050,
+      "stat_value": 1667,
+      "efficiency": 0.412,
+      "premium": 2383,
+      "has_active": true,
+      "stats": "+10 str, +24 damage"
+    },
+    {
+      "key": "travel_boots",
+      "name": "Boots of Travel",
+      "cost": 2500,
+      "stat_value": 1000,
+      "efficiency": 0.4,
+      "premium": 1500,
+      "has_active": true,
+      "stats": "+90 move_speed"
+    },
+    {
+      "key": "wind_waker",
+      "name": "Wind Waker",
+      "cost": 6800,
+      "stat_value": 2717,
+      "efficiency": 0.4,
+      "premium": 4083,
+      "has_active": true,
+      "stats": "+30 move_speed, +3 mana_regen, +35 int"
+    },
+    {
+      "key": "gungir",
+      "name": "Gleipnir",
+      "cost": 4650,
+      "stat_value": 1860,
+      "efficiency": 0.4,
+      "premium": 2790,
+      "has_active": true,
+      "stats": "+450 hp, +200 mana, +12 int"
+    },
+    {
+      "key": "heart",
+      "name": "Heart of Tarrasque",
+      "cost": 5100,
+      "stat_value": 2007,
+      "efficiency": 0.393,
+      "premium": 3093,
+      "has_active": true,
+      "stats": "+40 str, +1 hp_regen"
+    },
+    {
+      "key": "disperser",
+      "name": "Disperser",
+      "cost": 6100,
+      "stat_value": 2333,
+      "efficiency": 0.383,
+      "premium": 3767,
+      "has_active": true,
+      "stats": "+40 agi, +10 int"
+    },
+    {
+      "key": "necronomicon",
+      "name": "Necronomicon",
+      "cost": 2050,
+      "stat_value": 780,
+      "efficiency": 0.38,
+      "premium": 1270,
+      "has_active": true,
+      "stats": "+6 str, +2 mana_regen"
+    },
+    {
+      "key": "force_staff",
+      "name": "Force Staff",
+      "cost": 2200,
+      "stat_value": 817,
+      "efficiency": 0.371,
+      "premium": 1383,
+      "has_active": true,
+      "stats": "+10 int, +175 hp"
+    },
+    {
+      "key": "aeon_disk",
+      "name": "Aeon Disk",
+      "cost": 3000,
+      "stat_value": 1100,
+      "efficiency": 0.367,
+      "premium": 1900,
+      "has_active": true,
+      "stats": "+250 hp, +300 mana"
+    },
+    {
+      "key": "hand_of_midas",
+      "name": "Hand of Midas",
+      "cost": 2200,
+      "stat_value": 788,
+      "efficiency": 0.358,
+      "premium": 1412,
+      "has_active": true,
+      "stats": "+35 attack_speed"
+    },
+    {
+      "key": "kaya",
+      "name": "Kaya",
+      "cost": 2100,
+      "stat_value": 747,
+      "efficiency": 0.356,
+      "premium": 1353,
+      "has_active": false,
+      "stats": "+16 int"
+    },
+    {
+      "key": "kaya_and_sange",
+      "name": "Kaya and Sange",
+      "cost": 4200,
+      "stat_value": 1493,
+      "efficiency": 0.356,
+      "premium": 2707,
+      "has_active": false,
+      "stats": "+16 str, +16 int"
+    },
+    {
+      "key": "sange",
+      "name": "Sange",
+      "cost": 2100,
+      "stat_value": 747,
+      "efficiency": 0.356,
+      "premium": 1353,
+      "has_active": false,
+      "stats": "+16 str"
+    },
+    {
+      "key": "guardian_greaves",
+      "name": "Guardian Greaves",
+      "cost": 4450,
+      "stat_value": 1543,
+      "efficiency": 0.347,
+      "premium": 2907,
+      "has_active": true,
+      "stats": "+50 move_speed, +5 armor, +150 mana, +1 mana_regen"
+    },
+    {
+      "key": "shivas_guard",
+      "name": "Shiva's Guard",
+      "cost": 4500,
+      "stat_value": 1488,
+      "efficiency": 0.331,
+      "premium": 3012,
+      "has_active": true,
+      "stats": "+17 armor"
+    },
+    {
+      "key": "orb_of_corrosion",
+      "name": "Orb of Corrosion",
+      "cost": 1050,
+      "stat_value": 327,
+      "efficiency": 0.311,
+      "premium": 723,
+      "has_active": true,
+      "stats": "+7 agi"
+    },
+    {
+      "key": "assault",
+      "name": "Assault Cuirass",
+      "cost": 5125,
+      "stat_value": 1550,
+      "efficiency": 0.302,
+      "premium": 3575,
+      "has_active": true,
+      "stats": "+30 attack_speed, +10 armor"
+    },
+    {
+      "key": "travel_boots_2",
+      "name": "Boots of Travel 2",
+      "cost": 4500,
+      "stat_value": 1222,
+      "efficiency": 0.272,
+      "premium": 3278,
+      "has_active": true,
+      "stats": "+110 move_speed"
+    },
+    {
+      "key": "mekansm",
+      "name": "Mekansm",
+      "cost": 1775,
+      "stat_value": 438,
+      "efficiency": 0.246,
+      "premium": 1338,
+      "has_active": true,
+      "stats": "+5 armor"
+    },
+    {
+      "key": "ancient_janggo",
+      "name": "Drum of Endurance",
+      "cost": 1625,
+      "stat_value": 373,
+      "efficiency": 0.23,
+      "premium": 1252,
+      "has_active": true,
+      "stats": "+8 str"
+    },
+    {
+      "key": "ethereal_blade",
+      "name": "Ethereal Blade",
+      "cost": 5200,
+      "stat_value": 1120,
+      "efficiency": 0.215,
+      "premium": 4080,
+      "has_active": true,
+      "stats": "+24 agi"
+    },
+    {
+      "key": "overwhelming_blink",
+      "name": "Overwhelming Blink",
+      "cost": 6800,
+      "stat_value": 1167,
+      "efficiency": 0.172,
+      "premium": 5633,
+      "has_active": true,
+      "stats": "+25 str"
+    },
+    {
+      "key": "swift_blink",
+      "name": "Swift Blink",
+      "cost": 6800,
+      "stat_value": 1167,
+      "efficiency": 0.172,
+      "premium": 5633,
+      "has_active": true,
+      "stats": "+25 agi"
+    },
+    {
+      "key": "arcane_blink",
+      "name": "Arcane Blink",
+      "cost": 6800,
+      "stat_value": 1167,
+      "efficiency": 0.172,
+      "premium": 5633,
+      "has_active": true,
+      "stats": "+25 int"
+    },
+    {
+      "key": "vladmir",
+      "name": "Vladmir's Offering",
+      "cost": 2200,
+      "stat_value": 275,
+      "efficiency": 0.125,
+      "premium": 1925,
+      "has_active": true,
+      "stats": "+1 armor, +0.75 mana_regen"
+    },
+    {
+      "key": "wraith_pact",
+      "name": "Wraith Pact",
+      "cost": 3800,
+      "stat_value": 0,
+      "efficiency": 0,
+      "premium": 3800,
+      "has_active": false,
+      "stats": ""
+    },
+    {
+      "key": "ultimate_scepter_2",
+      "name": "Aghanim's Blessing",
+      "cost": 5800,
+      "stat_value": 0,
+      "efficiency": 0,
+      "premium": 5800,
+      "has_active": true,
+      "stats": ""
+    },
+    {
+      "key": "rapier",
+      "name": "Divine Rapier",
+      "cost": 5600,
+      "stat_value": 0,
+      "efficiency": 0,
+      "premium": 5600,
+      "has_active": true,
+      "stats": ""
+    }
+  ]
+}
