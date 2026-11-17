@@ -294,6 +294,16 @@ test_results <- c(test_results, test_that_simple("hero_matchups(42) carries a 's
   stopifnot(!is.null(attr(m, "source")))
 }))
 
+# ally_synergies(): research 07 says WK + Ancient Apparition (68) is about +3.5 pp,
+# and synergies should average out near 0 (the model has no built-in bias).
+test_results <- c(test_results, test_that_simple("ally_synergies(42): WK + AA positive, mean near 0", {
+  s <- ally_synergies(42)
+  stopifnot(nrow(s) > 50)
+  stopifnot(s$synergy[s$hero_id == 68] > 0.02)
+  stopifnot(abs(mean(s$synergy)) < 0.005)
+  stopifnot(is.null(ally_synergies(8)))   # no synergy file for non-mains
+}))
+
 # =============================================================================
 # Summary
 # =============================================================================

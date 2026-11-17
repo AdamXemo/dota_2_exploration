@@ -117,10 +117,15 @@ matchup_advantages <- function(matchups, prior = 60) {
 #   4. Bonus: should 5 known enemies count 5x as much as 1? Maybe average
 #      instead of sum, or cap each advantage with pmin()/pmax().
 #
+#   5. NEW (research 07): `synergies` = one value per ALLY already picked,
+#      from ally_synergies() (e.g. c(0.033, -0.014)). Add them like the
+#      matchups, but with a smaller weight: allies move winrate about half as
+#      much as enemies do (best ally ~+3 pp vs best counter ~-10 pp).
+#
 # Right now it only returns the base strength, so the helper ranks your pool
 # by meta and ignores the enemy draft. Replace the body to make it smart.
 # -----------------------------------------------------------------------------
-score_candidate <- function(base_wr, advantages) {
+score_candidate <- function(base_wr, advantages, synergies = numeric()) {
   (base_wr - 0.5) * 100
 }
 
@@ -148,3 +153,36 @@ score_candidate <- function(base_wr, advantages) {
 percentile_of <- function(value, benchmark) {
   NA_real_
 }
+
+# -----------------------------------------------------------------------------
+# Ally synergy (research 07, scripts/06_fetch_synergies.R).
+# For main H and ally A in the same team:
+#   expected = inv_logit( logit(wr_H) + logit(wr_A) )   (both heroes' own strength)
+#   synergy  = shrunk(wr together) - expected            (shrunk toward expected)
+# logit(p) = log(p / (1 - p)) turns a probability into "log-odds", where
+# strengths can be added; inv_logit() turns the sum back into a probability.
+# Positive synergy = the pair wins more than their individual strength predicts.
+# Only the 8 mains have synergy data (NULL for any other hero).
+# -----------------------------------------------------------------------------
+ally_synergies <- function(hid, prior = 500, min_games = 300) {
+  dir <- path_data("raw", "opendota", "bracket_synergies")
+  f <- file.path(dir, paste0(hid, ".json"))
+  if (!file.exists(f)) return(NULL)
+  pairs   <- jsonlite::fromJSON(f)$rows
+  overall <- jsonlite::fromJSON(file.path(dir, "_overall.json"))$rows
+  wr_of   <- function(id) { r <- overall[overall$hero_id == id, ]; sum(r$wins) / sum(r$games_played) }
+
+  logit     <- function(p) log(p / (1 - p))
+  inv_logit <- function(x) 1 / (1 + exp(-x))
+  wr_h <- wr_of(hid)
+
+  pairs <- pairs[!is.na(pairs$hero_id) & pairs$hero_id != hid & pairs$games_played >= min_games, ]
+  wr_a  <- vapply(pairs$hero_id, wr_of, numeric(1))
+  expected <- inv_logit(logit(wr_h) + logit(wr_a))
+  tibble(
+    hero_id  = pairs$hero_id,
+    games    = pairs$games_played,
+    synergy  = shrink(pairs$wins, pairs$games_played, prior = prior, baseline = expected) - expected
+  )
+}
+
