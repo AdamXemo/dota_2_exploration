@@ -1,0 +1,465 @@
+{
+  "hero_id": 73,
+  "result": {
+    "gold_per_min": [
+      {
+        "percentile": 0.1,
+        "value": 379
+      },
+      {
+        "percentile": 0.2,
+        "value": 466
+      },
+      {
+        "percentile": 0.3,
+        "value": 516
+      },
+      {
+        "percentile": 0.4,
+        "value": 574
+      },
+      {
+        "percentile": 0.5,
+        "value": 631
+      },
+      {
+        "percentile": 0.6,
+        "value": 686
+      },
+      {
+        "percentile": 0.7,
+        "value": 744
+      },
+      {
+        "percentile": 0.8,
+        "value": 806
+      },
+      {
+        "percentile": 0.9,
+        "value": 876
+      },
+      {
+        "percentile": 0.95,
+        "value": 947
+      },
+      {
+        "percentile": 0.99,
+        "value": 1100
+      }
+    ],
+    "xp_per_min": [
+      {
+        "percentile": 0.1,
+        "value": 398
+      },
+      {
+        "percentile": 0.2,
+        "value": 514
+      },
+      {
+        "percentile": 0.3,
+        "value": 590
+      },
+      {
+        "percentile": 0.4,
+        "value": 666
+      },
+      {
+        "percentile": 0.5,
+        "value": 748
+      },
+      {
+        "percentile": 0.6,
+        "value": 816
+      },
+      {
+        "percentile": 0.7,
+        "value": 891
+      },
+      {
+        "percentile": 0.8,
+        "value": 963
+      },
+      {
+        "percentile": 0.9,
+        "value": 1073
+      },
+      {
+        "percentile": 0.95,
+        "value": 1179
+      },
+      {
+        "percentile": 0.99,
+        "value": 1348
+      }
+    ],
+    "kills_per_min": [
+      {
+        "percentile": 0.1,
+        "value": 0
+      },
+      {
+        "percentile": 0.2,
+        "value": 0.0339
+      },
+      {
+        "percentile": 0.3,
+        "value": 0.0567
+      },
+      {
+        "percentile": 0.4,
+        "value": 0.0806
+      },
+      {
+        "percentile": 0.5,
+        "value": 0.1045
+      },
+      {
+        "percentile": 0.6,
+        "value": 0.1328
+      },
+      {
+        "percentile": 0.7,
+        "value": 0.1685
+      },
+      {
+        "percentile": 0.8,
+        "value": 0.2192
+      },
+      {
+        "percentile": 0.9,
+        "value": 0.2792
+      },
+      {
+        "percentile": 0.95,
+        "value": 0.3669
+      },
+      {
+        "percentile": 0.99,
+        "value": 0.5462
+      }
+    ],
+    "deaths_per_min": [
+      {
+        "percentile": 0.1,
+        "value": 0.0743
+      },
+      {
+        "percentile": 0.2,
+        "value": 0.1149
+      },
+      {
+        "percentile": 0.3,
+        "value": 0.1382
+      },
+      {
+        "percentile": 0.4,
+        "value": 0.1589
+      },
+      {
+        "percentile": 0.5,
+        "value": 0.1832
+      },
+      {
+        "percentile": 0.6,
+        "value": 0.2052
+      },
+      {
+        "percentile": 0.7,
+        "value": 0.2356
+      },
+      {
+        "percentile": 0.8,
+        "value": 0.2692
+      },
+      {
+        "percentile": 0.9,
+        "value": 0.323
+      },
+      {
+        "percentile": 0.95,
+        "value": 0.3581
+      },
+      {
+        "percentile": 0.99,
+        "value": 0.4637
+      }
+    ],
+    "assists_per_min": [
+      {
+        "percentile": 0.1,
+        "value": 0.0894
+      },
+      {
+        "percentile": 0.2,
+        "value": 0.1339
+      },
+      {
+        "percentile": 0.3,
+        "value": 0.173
+      },
+      {
+        "percentile": 0.4,
+        "value": 0.2115
+      },
+      {
+        "percentile": 0.5,
+        "value": 0.2507
+      },
+      {
+        "percentile": 0.6,
+        "value": 0.2946
+      },
+      {
+        "percentile": 0.7,
+        "value": 0.3374
+      },
+      {
+        "percentile": 0.8,
+        "value": 0.3843
+      },
+      {
+        "percentile": 0.9,
+        "value": 0.4607
+      },
+      {
+        "percentile": 0.95,
+        "value": 0.5327
+      },
+      {
+        "percentile": 0.99,
+        "value": 0.6977
+      }
+    ],
+    "last_hits_per_min": [
+      {
+        "percentile": 0.1,
+        "value": 3.4921
+      },
+      {
+        "percentile": 0.2,
+        "value": 4.9657
+      },
+      {
+        "percentile": 0.3,
+        "value": 5.9263
+      },
+      {
+        "percentile": 0.4,
+        "value": 6.6958
+      },
+      {
+        "percentile": 0.5,
+        "value": 7.3413
+      },
+      {
+        "percentile": 0.6,
+        "value": 7.9078
+      },
+      {
+        "percentile": 0.7,
+        "value": 8.5714
+      },
+      {
+        "percentile": 0.8,
+        "value": 9.5141
+      },
+      {
+        "percentile": 0.9,
+        "value": 10.6948
+      },
+      {
+        "percentile": 0.95,
+        "value": 11.5758
+      },
+      {
+        "percentile": 0.99,
+        "value": 13.6501
+      }
+    ],
+    "denies_per_min": [
+      {
+        "percentile": 0.1,
+        "value": 0
+      },
+      {
+        "percentile": 0.2,
+        "value": 0.0201
+      },
+      {
+        "percentile": 0.3,
+        "value": 0.0363
+      },
+      {
+        "percentile": 0.4,
+        "value": 0.0583
+      },
+      {
+        "percentile": 0.5,
+        "value": 0.0759
+      },
+      {
+        "percentile": 0.6,
+        "value": 0.1005
+      },
+      {
+        "percentile": 0.7,
+        "value": 0.1282
+      },
+      {
+        "percentile": 0.8,
+        "value": 0.1693
+      },
+      {
+        "percentile": 0.9,
+        "value": 0.2462
+      },
+      {
+        "percentile": 0.95,
+        "value": 0.3447
+      },
+      {
+        "percentile": 0.99,
+        "value": 0.6574
+      }
+    ],
+    "hero_damage_per_min": [
+      {
+        "percentile": 0.1,
+        "value": 144.4709
+      },
+      {
+        "percentile": 0.2,
+        "value": 216.9843
+      },
+      {
+        "percentile": 0.3,
+        "value": 280.6617
+      },
+      {
+        "percentile": 0.4,
+        "value": 353.9784
+      },
+      {
+        "percentile": 0.5,
+        "value": 425.5289
+      },
+      {
+        "percentile": 0.6,
+        "value": 493.8552
+      },
+      {
+        "percentile": 0.7,
+        "value": 564.2849
+      },
+      {
+        "percentile": 0.8,
+        "value": 662.4031
+      },
+      {
+        "percentile": 0.9,
+        "value": 842.8582
+      },
+      {
+        "percentile": 0.95,
+        "value": 972.7126
+      },
+      {
+        "percentile": 0.99,
+        "value": 1186.4009
+      }
+    ],
+    "hero_healing_per_min": [
+      {
+        "percentile": 0.1,
+        "value": 0
+      },
+      {
+        "percentile": 0.2,
+        "value": 0
+      },
+      {
+        "percentile": 0.3,
+        "value": 0
+      },
+      {
+        "percentile": 0.4,
+        "value": 0
+      },
+      {
+        "percentile": 0.5,
+        "value": 0
+      },
+      {
+        "percentile": 0.6,
+        "value": 0
+      },
+      {
+        "percentile": 0.7,
+        "value": 0
+      },
+      {
+        "percentile": 0.8,
+        "value": 0
+      },
+      {
+        "percentile": 0.9,
+        "value": 0
+      },
+      {
+        "percentile": 0.95,
+        "value": 0.2007
+      },
+      {
+        "percentile": 0.99,
+        "value": 7.4883
+      }
+    ],
+    "tower_damage": [
+      {
+        "percentile": 0.1,
+        "value": 0
+      },
+      {
+        "percentile": 0.2,
+        "value": 0
+      },
+      {
+        "percentile": 0.3,
+        "value": 85
+      },
+      {
+        "percentile": 0.4,
+        "value": 488
+      },
+      {
+        "percentile": 0.5,
+        "value": 1311
+      },
+      {
+        "percentile": 0.6,
+        "value": 2672
+      },
+      {
+        "percentile": 0.7,
+        "value": 5453
+      },
+      {
+        "percentile": 0.8,
+        "value": 8024
+      },
+      {
+        "percentile": 0.9,
+        "value": 11270
+      },
+      {
+        "percentile": 0.95,
+        "value": 13453
+      },
+      {
+        "percentile": 0.99,
+        "value": 18544
+      }
+    ]
+  }
+}
